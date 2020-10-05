@@ -13,13 +13,15 @@
                                     <div class="row">
                                         <div id="dashboard_btn_container" class="col-md-4">
                                             <div class="button_panel">
-asdfsafasdfsa
                                                 @if ($userRole == 'admin')
                                                     <a href="{{ url('wellbore/0') }}">
                                                         <button type="button" class="btn btn-primary dashboard_btns" id="welbore_btn">Wellbore</button>
                                                     </a>
                                                     <a href="{{ url('user-mmp') }}">
                                                         <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns" id="user_mmp_btn">{{Auth::user()->name}}</button>
+                                                    </a>
+                                                    <a href="{{ url('justus-mmp') }}">
+                                                        <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns">Justus Danna</button>
                                                     </a>
                                                     <a href="{{ url('justus-mmp') }}">
                                                         <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns">Justus Danna</button>
