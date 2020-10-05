@@ -12,21 +12,30 @@
     <pharConfigPath>$PROJECT_DIR$/Toggle/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
+            <state relative-caret-position="765">
               <caret line="64" column="27" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="309">
-              <caret line="385" lean-forward="true" selection-start-line="385" selection-end-line="385" />
+              <caret line="385" selection-start-line="385" selection-end-line="385" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/mm-platform.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -49,6 +58,7 @@
       <find>register</find>
       <find>LegalLease</find>
       <find>Upload Owners</find>
+      <find>Welcome to Toggle!</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -66,13 +76,14 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
         <option value="$PROJECT_DIR$/config/javascript.php" />
         <option value="$PROJECT_DIR$/resources/views/leasePage.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mm-platform.blade.php" />
       </list>
     </option>
   </component>
@@ -315,6 +326,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="285" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -389,17 +401,17 @@
       <workItem from="1601856118738" duration="12797000" />
       <workItem from="1601912428393" duration="215000" />
       <workItem from="1601912679140" duration="2167000" />
+      <workItem from="1601919107931" duration="489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16188000" />
+    <option name="totallyTimeSpent" value="16677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2893773" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2930403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -412,7 +424,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.103743315" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.27914438" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -467,7 +479,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/guest.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" />
     <entry file="file://$PROJECT_DIR$/../Toggle-1005/Toggle-1005/app/Http/Controllers/HomeController.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php" />
     <entry file="file://$PROJECT_DIR$/../Toggle-1005/Toggle-1005/resources/views/home.blade.php" />
     <entry file="file://$PROJECT_DIR$/../Toggle-1005/Toggle-1005/app/Models/ErrorLog.php" />
@@ -506,7 +517,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
+        <state relative-caret-position="765">
           <caret line="64" column="27" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="27" />
         </state>
       </provider>
@@ -514,7 +525,28 @@
     <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
-          <caret line="385" lean-forward="true" selection-start-line="385" selection-end-line="385" />
+          <caret line="385" selection-start-line="385" selection-end-line="385" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="23" column="67" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mm-platform.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
