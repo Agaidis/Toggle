@@ -3,8 +3,12 @@
   <component name="VcsDirectoryMappings">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
 =======
+=======
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+>>>>>>> 477e6e38d49b9b231e7150072f216baddf479119
     <mapping directory="$PROJECT_DIR$/Toggle" vcs="Git" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 =======
