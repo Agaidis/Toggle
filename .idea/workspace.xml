@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac86da12-f388-4dc7-b1d4-0a6cac0186ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Toggle/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/Toggle/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Toggle/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Toggle/composer.lock" afterDir="false" />
-    </list>
+    <list default="true" id="ac86da12-f388-4dc7-b1d4-0a6cac0186ca" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,19 +14,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Toggle/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Toggle/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-79">
-              <caret line="192" column="48" selection-start-line="192" selection-start-column="48" selection-end-line="192" selection-end-column="48" />
+            <state relative-caret-position="461">
+              <caret line="229" column="2" selection-start-line="229" selection-start-column="2" selection-end-line="229" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -54,6 +42,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>HorizonApplicationServiceProvider</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -62,6 +55,7 @@
       <list>
         <option value="$PROJECT_DIR$/Toggle/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/Toggle/composer.json" />
+        <option value="$PROJECT_DIR$/Toggle/config/app.php" />
       </list>
     </option>
   </component>
@@ -265,16 +259,15 @@
       <option name="presentableId" value="Default" />
       <updated>1601852558925</updated>
       <workItem from="1601852560022" duration="1009000" />
-      <workItem from="1601856118738" duration="945000" />
+      <workItem from="1601856118738" duration="1512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1954000" />
+    <option name="totallyTimeSpent" value="2521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -353,17 +346,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Toggle/config/app.php">
+    <entry file="file://$PROJECT_DIR$/Toggle/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-79">
-          <caret line="192" column="48" selection-start-line="192" selection-start-column="48" selection-end-line="192" selection-end-column="48" />
+        <state relative-caret-position="210">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Toggle/composer.json">
+    <entry file="file://$PROJECT_DIR$/Toggle/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="461">
+          <caret line="229" column="2" selection-start-line="229" selection-start-column="2" selection-end-line="229" selection-end-column="2" />
         </state>
       </provider>
     </entry>
