@@ -68,8 +68,8 @@ class MMPController extends Controller
                 $eaglePermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'eagleford')->where('is_producing', 1)->groupBy('abstract', 'lease_name', 'survey')->get();
                 $wtxPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'wtx')->where('is_producing', 1)->groupBy('abstract', 'lease_name', 'survey')->get();
                 $etxPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'etx')->where('is_producing', 1)->groupBy('abstract', 'lease_name', 'survey')->get();
-                $nmPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 1)->get();
-                $laPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'la')->where('is_producing', 1)->get();
+                $nmPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 1)->groupBy('lease_name', 'reported_operator')->get();
+                $laPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'la')->where('is_producing', 1)->groupBy('lease_name', 'reported_operator')->get();
 
                 $errorMsg = new ErrorLog();
                 $errorMsg->payload = serialize($laPermits);
