@@ -62,14 +62,14 @@ class LeasePageController extends Controller
                 }
 
                 if ($owners->isEmpty()) {
-                    $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->get();
+                    $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->limit(300)->get();
 
                 }
                 $leaseString = implode( '|', $leaseArray);
 
             } else {
 
-                $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->get();
+                $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->limit(300)->get();
             }
 
             $allWells = WellRollUp::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('SurfaceHoleLatitudeWGS84', '!=', null)->where('SurfaceHoleLatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('SurfaceHoleLatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('SurfaceHoleLongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LeaseName', 'ASC')->get();
