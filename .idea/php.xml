@@ -3,6 +3,7 @@
   <component name="PhpIncludePathManager">
     <include_path>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/process" />
@@ -148,6 +149,8 @@
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
@@ -208,11 +211,15 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/select2/select2" />
@@ -247,6 +254,8 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
@@ -280,11 +289,15 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
@@ -322,6 +335,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
       <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
@@ -345,17 +360,24 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/select2/select2" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
   <component name="PhpUnit">
     <phpunit_settings>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <PhpUnitSettings load_method="CUSTOM_LOADER" custom_loader_path="$PROJECT_DIR$/Toggle/vendor/autoload.php" />
 =======
       <PhpUnitSettings load_method="CUSTOM_LOADER" configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <PhpUnitSettings load_method="CUSTOM_LOADER" configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </phpunit_settings>
   </component>
 </project>

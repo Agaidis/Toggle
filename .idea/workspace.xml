@@ -13,6 +13,7 @@
   </component>
   <component name="FileEditorManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
@@ -94,18 +95,24 @@
             <state relative-caret-position="340">
               <caret line="23" column="126" selection-start-line="23" selection-start-column="126" selection-end-line="23" selection-end-column="126" />
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="395">
               <caret line="64" column="27" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="27" />
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,6 +124,12 @@
             <state relative-caret-position="214">
               <caret line="343" column="125" selection-start-line="343" selection-start-column="125" selection-end-line="343" selection-end-column="125" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+        <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="385" lean-forward="true" selection-start-line="385" selection-end-line="385" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
             </state>
           </provider>
         </entry>
@@ -130,9 +143,12 @@
       <find>jquery</find>
       <find>assets/</find>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <find>login</find>
       <find>'login'</find>
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <find>'login'</find>
       <find>login</find>
       <find>api-tokens.index</find>
@@ -142,7 +158,11 @@
       <find>dashboard</find>
       <find>register</find>
       <find>LegalLease</find>
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <find>Upload Owners</find>
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,11 +175,14 @@
         <option value="$PROJECT_DIR$/Toggle/config/app.php" />
         <option value="$PROJECT_DIR$/Toggle/composer.json" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GetLegalLeases.php" />
         <option value="$PROJECT_DIR$/webpack.mix.js" />
         <option value="$PROJECT_DIR$/package.json" />
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
         <option value="$PROJECT_DIR$/app/Console/Commands/GetLegalLeases.php" />
         <option value="$PROJECT_DIR$/webpack.mix.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -173,14 +196,20 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
         <option value="$PROJECT_DIR$/config/javascript.php" />
         <option value="$PROJECT_DIR$/resources/views/leasePage.blade.php" />
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
@@ -305,7 +334,10 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/select2/select2" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/process" />
@@ -415,6 +447,7 @@
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/Toggle/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/Toggle/vendor/laravel/horizon" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
@@ -529,21 +562,30 @@
 =======
       <path value="$PROJECT_DIR$/vendor/laravel/horizon" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <path value="$PROJECT_DIR$/vendor/laravel/horizon" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="width" value="1041" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager">
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     <option name="width" value="1680" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+<<<<<<< HEAD
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -552,9 +594,12 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scope" />
 =======
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -562,6 +607,7 @@
               <item name="Toggle" type="b2602c69:ProjectViewProjectNode" />
               <item name="Toggle" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="Toggle" type="b2602c69:ProjectViewProjectNode" />
               <item name="Toggle" type="462c0819:PsiDirectoryNode" />
@@ -617,19 +663,34 @@
             </path>
 =======
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
           </expand>
           <select />
         </subPane>
       </pane>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <pane id="Scope" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <pane id="Scope" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+=======
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -637,17 +698,24 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <recent name="$PROJECT_DIR$" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <recent name="$PROJECT_DIR$" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/resources/views/auth/passwords" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <recent name="$PROJECT_DIR$/resources/views/auth" />
 =======
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </key>
   </component>
   <component name="RunDashboard">
@@ -674,16 +742,23 @@
       <updated>1601852558925</updated>
       <workItem from="1601852560022" duration="1009000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1601856118738" duration="5015000" />
 =======
       <workItem from="1601856118738" duration="12797000" />
       <workItem from="1601912428393" duration="215000" />
       <workItem from="1601912679140" duration="1621000" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <workItem from="1601856118738" duration="12797000" />
+      <workItem from="1601912428393" duration="215000" />
+      <workItem from="1601912679140" duration="2167000" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="6024000" />
   </component>
@@ -694,13 +769,20 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23123123" />
 =======
     <option name="totallyTimeSpent" value="15642000" />
+=======
+    <option name="totallyTimeSpent" value="16188000" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2893773" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2893773" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -714,10 +796,14 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3486631" />
 =======
       <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.103743315" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.103743315" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -726,10 +812,14 @@
     </layout>
     <layout-to-restore>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
 =======
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -743,10 +833,14 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32941177" />
 =======
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.24919786" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.24919786" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -758,6 +852,7 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -903,6 +998,8 @@
         <state relative-caret-position="357">
           <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
 =======
+=======
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php" />
     <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
     <entry file="file://$PROJECT_DIR$/config/app.php" />
@@ -971,9 +1068,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="214">
           <caret line="343" column="125" selection-start-line="343" selection-start-column="125" selection-end-line="343" selection-end-column="125" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+        <state relative-caret-position="309">
+          <caret line="385" lean-forward="true" selection-start-line="385" selection-end-line="385" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
         </state>
       </provider>
     </entry>

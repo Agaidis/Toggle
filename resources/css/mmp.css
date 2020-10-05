@@ -1,0 +1,304 @@
+.navbar-nav {
+    margin: 7px -15px;
+}
+
+.nav {
+    padding-left: 0;
+    list-style: none;
+}
+
+.nav > li {
+    position:relative;
+    display:block;
+}
+.navbar-default .navbar-nav > li > a {
+    color:#777;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 22px;
+    color:#777;
+}
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+@media (min-width: 768px) {
+    .navbar-right {
+        float: right !important;
+        margin-right: -15px;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #777;
+    }
+
+    .navbar-brand {
+        float: left;
+        padding: 8px 14px;
+        font-size: 18px;
+        line-height: 22px;
+        height: 50px;
+    }
+
+    #navbarSupportedContent {
+        margin-left: 3%;
+    }
+}
+
+
+body {
+  /*  background:#928f2a;*/
+ /*   background: rgb(42, 58, 146);
+    background: linear-gradient(101deg, rgba(42, 58, 146, 1) 11%, rgba(56, 181, 73, 1) 100%); */
+}
+.titles {
+    text-align:center;
+}
+
+#lexathon_img_logo {
+    width: 100px;
+    height: 50px;
+}
+
+#left_logo {
+    color:#2A3A92;
+    font-size:26px;
+}
+
+#right_logo {
+    color:#38B549;
+    font-size:26px;
+}
+
+.login_logo_container {
+    margin-left:35%;
+}
+#left_login_logo {
+    color:#2A3A92;
+    font-size:72px;
+}
+
+#right_login_logo {
+    color:#38B549;
+    font-size:72px;
+}
+
+#exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+}
+
+.unseen {
+    background-color: #F3FF7B!important;
+}
+
+.yellow {
+    background-color: #F3FF7B!important;
+}
+
+.green {
+    background-color: #91FF8C!important;
+}
+
+.blue {
+    background-color: #3377ff!important;
+}
+
+.red {
+    background-color: #ff8080!important;
+}
+
+.purple {
+    background-color: #eee6ff!important;
+}
+
+.assigned_style {
+    font-size: 17px;
+    font-weight: bolder;
+    color: black;
+}
+
+#dashboard_btn_container {
+    margin-bottom:2%;
+}
+
+.dashboard_btns {
+    font-size:18px;
+    margin-top:1%;
+    padding:2% 3% 2% 3%;
+    margin-bottom:4%;
+    background-color:#2A3A92;
+    border-color:#2A3A92;
+    color:#d1e8e2;
+    box-shadow: 3px 7px #888888;
+
+}
+.dashboard_btns:hover {
+    background-color: #2A3A92;
+}
+
+.dashboard_btns:active {
+    background-color: #0f6674;
+}
+
+.lease_row {
+    cursor:pointer;
+}
+
+#abstract_btn {
+    margin-left:30px;
+}
+
+.lease_table_caption {
+    text-align: center;
+    caption-side:top;
+    font-size:18px;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+#dashboard_gas_price_container {
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+.gas_panel {
+    background-color: #928f2a;
+    color:antiquewhite;
+    border-radius:1em;
+    padding:10px;
+    text-align: center;
+    margin-right: 150px;
+}
+
+label {
+    font-weight:bold;
+}
+
+.status-msg {
+    display:none;
+    text-align: center;
+    width: 80%;
+    padding: 10px;
+    border-radius: 2em;
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: 16px;
+}
+
+.gas_text {
+    font-size:18px;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.view_permit {
+    cursor:pointer;
+}
+.containers {
+    border: 1px solid darkgrey;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.map {
+    width: 100%;
+    margin-left: 2%;
+    min-height: 600px;
+}
+.previous_notes, .previous_owner_notes {
+    width: 100%;
+    border: 1px solid lightgrey;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+    background-color: aliceblue;
+    text-align:center;
+    border-radius: 1em;:
+}
+
+.previous_notes {
+    height: 160px;
+    background-color: #F2EDD7FF;
+}
+
+.previous_owner_notes {
+    height:300px;
+}
+
+.phone_number_containers {
+    padding:0;
+    line-height:.5;
+}
+
+#acreage_container, .email_ctr {
+    background-color:antiquewhite;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size:20px;
+}
+
+.email_ctr {
+    height:80%;
+    margin-left: 5%;
+}
+
+.labels {
+    font-weight: bold;
+    font-size:20px;
+}
+
+#lease_name_select, #well_name_select {
+    width:50%;
+}
+
+.addit_labels {
+    font-size:18px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    display:none;
+    margin-left: 5%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 576px) {
+    .phone_modal_dialog {
+        max-width: 1000px!important;
+    }
+}
+
+.tab-content {
+    padding-top: 15px;
+}
+
+.interest_text {
+    color: #383d41!important;
+}
+.interest_tab {
+    padding:0!important;
+}
+.interest_active {
+    background-color: #eb8f00;
+}
+

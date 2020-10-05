@@ -3,10 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/Toggle.iml" filepath="$PROJECT_DIR$/.idea/Toggle.iml" />
 =======
       <module fileurl="file://$PROJECT_DIR$/.idea/Toggle-1005.iml" filepath="$PROJECT_DIR$/.idea/Toggle-1005.iml" />
 >>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Toggle-1005.iml" filepath="$PROJECT_DIR$/.idea/Toggle-1005.iml" />
+>>>>>>> d7d6214b9cb3382a812ee11480d1e7d212e84069
     </modules>
   </component>
 </project>
