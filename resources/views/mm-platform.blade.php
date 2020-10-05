@@ -23,9 +23,7 @@
                                                     <a href="{{ url('justus-mmp') }}">
                                                         <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns">Justus Danna</button>
                                                     </a>
-                                                    <a href="{{ url('justus-mmp') }}">
-                                                        <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns">Justus Danna</button>
-                                                    </a>
+
                                                 @elseif ($userRole == 'regular')
                                                     <a href="{{ url('wellbore/0') }}">
                                                         <button type="button" class="btn btn-primary dashboard_btns" id="welbore_btn">Wellbore</button>
