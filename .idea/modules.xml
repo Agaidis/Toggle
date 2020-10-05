@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/Toggle.iml" filepath="$PROJECT_DIR$/.idea/Toggle.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Toggle-1005.iml" filepath="$PROJECT_DIR$/.idea/Toggle-1005.iml" />
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
     </modules>
   </component>
 </project>

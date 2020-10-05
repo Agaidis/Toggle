@@ -173,8 +173,14 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+<<<<<<< HEAD
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+=======
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
+        App\Providers\JetstreamServiceProvider::class,
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 
     ],
 
@@ -227,7 +233,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
     ],
 
 ];

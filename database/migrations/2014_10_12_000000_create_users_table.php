@@ -20,6 +20,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+<<<<<<< HEAD
+=======
+            $table->foreignId('current_team_id')->nullable();
+            $table->text('profile_photo_path')->nullable();
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
             $table->timestamps();
         });
     }

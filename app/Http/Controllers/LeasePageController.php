@@ -10,7 +10,11 @@ use App\OwnerNote;
 use App\OwnerPhoneNumber;
 use App\Permit;
 use App\PermitNote;
+<<<<<<< HEAD
 use App\User;
+=======
+use App\Models\User;
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 use App\WellRollUp;
 use DateTime;
 use Illuminate\Http\Request;
@@ -62,14 +66,22 @@ class LeasePageController extends Controller
                 }
 
                 if ($owners->isEmpty()) {
+<<<<<<< HEAD
                     $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('SurfaceHoleLatitudeWGS84', '!=', null)->where('SurfaceHoleLatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->get();
+=======
+                    $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->get();
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 
                 }
                 $leaseString = implode( '|', $leaseArray);
 
             } else {
 
+<<<<<<< HEAD
                 $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('SurfaceHoleLatitudeWGS84', '!=', null)->where('SurfaceHoleLatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->get();
+=======
+                $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->get();
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
             }
 
             $allWells = WellRollUp::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('SurfaceHoleLatitudeWGS84', '!=', null)->where('SurfaceHoleLatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('SurfaceHoleLatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('SurfaceHoleLongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LeaseName', 'ASC')->get();
@@ -522,10 +534,15 @@ class LeasePageController extends Controller
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             $phoneNumbers = OwnerPhoneNumber::where('owner_name', $ownerName)->where('soft_delete', 0)->where('is_pushed', 0)->get();
 =======
             $phoneNumbers = OwnerPhoneNumber::where('owner_name', $ownerName)->where('soft_delete', 0)->get();
 >>>>>>> e4268c60f567da46b5b3713d288a3876bd93bea7
+=======
+            $phoneNumbers = OwnerPhoneNumber::where('owner_name', $ownerName)->where('soft_delete', 0)->where('is_pushed', 0)->get();
+
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 
             return $phoneNumbers;
 

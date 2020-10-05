@@ -33,7 +33,11 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
+<<<<<<< HEAD
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
+=======
+            \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -53,8 +57,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+<<<<<<< HEAD
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+=======
+        'Auth' => \App\Http\Middleware\Authenticate::class,
+        'Auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,

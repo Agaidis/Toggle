@@ -238,12 +238,18 @@ class APIManager
 
     public function getLegalLeases ($county, $token, $linkUrl) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         if ($linkUrl == '') {
 =======
         Log::info('Here is the link url beginning of get legal leases: ' . $linkUrl);
         if ($linkUrl === '') {
 >>>>>>> e4268c60f567da46b5b3713d288a3876bd93bea7
+=======
+
+        if ($linkUrl == '') {
+
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
             $url = "https://di-api.drillinginfo.com/v2/direct-access/legal-leases?countyparish=".$county."&pagesize=2000";
         } else {
             $url = "https://di-api.drillinginfo.com/v2/direct-access/legal-leases" . $linkUrl;

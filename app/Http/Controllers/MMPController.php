@@ -9,7 +9,11 @@ use App\LegalLease;
 use App\MineralOwner;
 use App\Permit;
 use App\PermitNote;
+<<<<<<< HEAD
 use App\User;
+=======
+use App\Models\User;
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +29,11 @@ class MMPController extends Controller
      */
     public function __construct()
     {
+<<<<<<< HEAD
         $this->middleware('auth');
+=======
+        $this->middleware('Auth');
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
         $this->apiManager = new APIManager();
     }
 
@@ -71,7 +79,11 @@ class MMPController extends Controller
                 $nmPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 1)->where('assignee', Auth::user()->id)->get();
                 $laPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'la')->where('is_producing', 1)->where('assignee', Auth::user()->id)->get();
 
+<<<<<<< HEAD
                 return view('dashboard', compact('userRole', 'eaglePermits', 'wtxPermits', 'nmPermits', 'users', 'currentUser', 'nonProducingEaglePermits', 'nonProducingWTXPermits', 'nonProducingNMPermits', 'etxPermits', 'nonProducingETXPermits', 'laPermits', 'nonProducingLAPermits'));
+=======
+                return view('mm-platform', compact('userRole', 'eaglePermits', 'wtxPermits', 'nmPermits', 'users', 'currentUser', 'nonProducingEaglePermits', 'nonProducingWTXPermits', 'nonProducingNMPermits', 'etxPermits', 'nonProducingETXPermits', 'laPermits', 'nonProducingLAPermits'));
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
             }
 
         } catch ( Exception $e ) {

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Permit;
+<<<<<<< HEAD
 use App\User;
+=======
+use App\Models\User;
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;

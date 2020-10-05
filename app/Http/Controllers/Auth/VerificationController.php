@@ -38,4 +38,8 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a

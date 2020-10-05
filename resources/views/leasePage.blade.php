@@ -183,11 +183,14 @@
                         @if (in_array($interestArea, $txInterestAreas ))
                         <div class="row">
                             <div class="col-md-5">
+<<<<<<< HEAD
                                 <label class="labels">Upload Owners</label>:
                                 <input type="file" class="form-control" id="file_upload"/>
                                 <button type="button" id="upload_file_btn" class="btn btn-success">Submit Upload File</button>
                             </div>
                             <div class="col-md-5">
+=======
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
                                 <label class="labels">Mineral Owners</label>:
                                 <select id="lease_name_select" class="form-control" multiple="multiple">
                                     @foreach ($mineralOwnerLeases as $lease)

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+=======
+Route::middleware('Auth:sanctum')->get('/user', function (Request $request) {
+>>>>>>> 74ba0951e6b64f358c0d3b230295efb4db24237a
     return $request->user();
 });
