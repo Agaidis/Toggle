@@ -71,6 +71,10 @@ class MMPController extends Controller
                 $nmPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 1)->where('assignee', Auth::user()->id)->get();
                 $laPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'la')->where('is_producing', 1)->where('assignee', Auth::user()->id)->get();
 
+                $errorMsg = new ErrorLog();
+                $errorMsg->payload = serialize($laPermits);
+
+                $errorMsg->save();
                 return view('mm-platform', compact('userRole', 'eaglePermits', 'wtxPermits', 'nmPermits', 'users', 'currentUser', 'nonProducingEaglePermits', 'nonProducingWTXPermits', 'nonProducingNMPermits', 'etxPermits', 'nonProducingETXPermits', 'laPermits', 'nonProducingLAPermits'));
             }
 
