@@ -44569,6 +44569,7 @@ $(document).ready(function () {
     "stateSave": true,
     "order": [[2, "asc"]]
   }).on('click', 'td.mmp-details-control', function () {
+    console.log($(this));
     var id = $(this)[0].id;
     var splitId = id.split('_');
     var permitId = splitId[1];
@@ -48671,18 +48672,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/vendor/select2/select2/dist/js/select2.min.js */"./vendor/select2/select2/dist/js/select2.min.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/jquery-dp-ui.min.js */"./resources/js/jquery-dp-ui.min.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/leasePage.js */"./resources/js/leasePage.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/wellbore.js */"./resources/js/wellbore.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/permits.js */"./resources/js/permits.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/phoneNumberPush.js */"./resources/js/phoneNumberPush.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/owner.js */"./resources/js/owner.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/datatables.min.js */"./resources/js/datatables.min.js");
-__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/js/permitStorage.js */"./resources/js/permitStorage.js");
-module.exports = __webpack_require__(/*! /Users/andrewgaidis/projects/Toggle-1005/Toggle-1005/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/bootstrap.js */"./resources/js/bootstrap.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/vendor/select2/select2/dist/js/select2.min.js */"./vendor/select2/select2/dist/js/select2.min.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/jquery-dp-ui.min.js */"./resources/js/jquery-dp-ui.min.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/leasePage.js */"./resources/js/leasePage.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/wellbore.js */"./resources/js/wellbore.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/permits.js */"./resources/js/permits.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/phoneNumberPush.js */"./resources/js/phoneNumberPush.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/owner.js */"./resources/js/owner.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/datatables.min.js */"./resources/js/datatables.min.js");
+__webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/js/permitStorage.js */"./resources/js/permitStorage.js");
+module.exports = __webpack_require__(/*! /Users/andrewgaidis/projects/Toggle/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

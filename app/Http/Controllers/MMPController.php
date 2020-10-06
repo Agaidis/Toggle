@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class MMPController extends Controller
 {
 
@@ -71,10 +72,6 @@ class MMPController extends Controller
                 $nmPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 1)->groupBy('lease_name', 'reported_operator')->get();
                 $laPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'la')->where('is_producing', 1)->groupBy('lease_name', 'reported_operator')->get();
 
-                $errorMsg = new ErrorLog();
-                $errorMsg->payload = serialize($laPermits);
-
-                $errorMsg->save();
                 return view('mm-platform', compact('userRole', 'eaglePermits', 'wtxPermits', 'nmPermits', 'users', 'currentUser', 'nonProducingEaglePermits', 'nonProducingWTXPermits', 'nonProducingNMPermits', 'etxPermits', 'nonProducingETXPermits', 'laPermits', 'nonProducingLAPermits'));
             }
 
@@ -96,7 +93,7 @@ class MMPController extends Controller
 
 
             if ($request->isNonProducing) {
-                $leaseData = LegalLease::select('LeaseId','Grantor', 'Range', 'Section', 'Township', 'Geometry', 'permit_stitch_id')->get();
+                $leaseData = LegalLease::select('LeaseId','Grantor', 'Range', 'Section', 'Township', 'Geometry', 'permit_stitch_id')->where('LatitudeWGS84', '<', $permit->SurfaceLatitudeWGS84 + .5)->where('LatitudeWGS84', '>', $permit->SurfaceLatitudeWGS84 + .01)->where('LongitudeWGS84', '<', $permit->SurfaceLongitudeWGS84 + .5)->where('LongitudeWGS84', '>', $permit->SurfaceLongitudeWGS84 + .01)->get();
                 $leaseDescription = '';
                 foreach ($leaseData as $lease) {
                     if ($lease->Geometry != '' || $lease->Geometry != null) {

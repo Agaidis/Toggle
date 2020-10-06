@@ -82,6 +82,7 @@ $(document).ready(function () {
         "stateSave": true,
         "order": [[ 2, "asc" ]]
     }).on('click', 'td.mmp-details-control', function () {
+        console.log($(this));
         let id = $(this)[0].id;
         let splitId = id.split('_');
         let permitId = splitId[1];
