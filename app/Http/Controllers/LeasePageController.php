@@ -68,10 +68,10 @@ class LeasePageController extends Controller
 
                 if ($owners->isEmpty()) {
                     $usingLegalLeases = true;
-                    $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$permitValues->SurfaceLatitudeWGS84.')) 
+                    $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) 
                                                     * cos(radians(LatitudeWGS84)) 
-                                                    * cos(radians(LongitudeWGS84) - radians('.$permitValues->SurfaceLongitudeWGS84.')) +
-                                                    sin(radians('.$permitValues->SurfaceLatitudeWGS84.')) *
+                                                    * cos(radians(LongitudeWGS84) - radians('.$allRelatedPermits[0]->SurfaceLongitudeWGS84.')) +
+                                                    sin(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) *
                                                     sin(radians(LatitudeWGS84 )))
                                                     ) AS distance 
                                                     FROM legal_leases 
@@ -84,10 +84,10 @@ class LeasePageController extends Controller
             } else {
                 $usingLegalLeases = true;
                 //Its NEW MEXICO OR LOUISIANA SO DO THE DISTANCE THING
-                $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$permitValues->SurfaceLatitudeWGS84.')) 
+                $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) 
                                                     * cos(radians(LatitudeWGS84)) 
-                                                    * cos(radians(LongitudeWGS84) - radians('.$permitValues->SurfaceLongitudeWGS84.')) +
-                                                    sin(radians('.$permitValues->SurfaceLatitudeWGS84.')) *
+                                                    * cos(radians(LongitudeWGS84) - radians('.$allRelatedPermits[0]->SurfaceLongitudeWGS84.')) +
+                                                    sin(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) *
                                                     sin(radians(LatitudeWGS84 )))
                                                     ) AS distance 
                                                     FROM legal_leases 
@@ -95,10 +95,10 @@ class LeasePageController extends Controller
                                                     ORDER BY distance LIMIT 0, 1000') );
             }
 
-            $allWells = DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$permitValues->SurfaceLatitudeWGS84.')) 
+            $allWells = DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) 
                                                     * cos(radians(SurfaceHoleLatitudeWGS84)) 
-                                                    * cos(radians(SurfaceHoleLongitudeWGS84) - radians('.$permitValues->SurfaceLongitudeWGS84.')) +
-                                                    sin(radians('.$permitValues->SurfaceLatitudeWGS84.')) *
+                                                    * cos(radians(SurfaceHoleLongitudeWGS84) - radians('.$allRelatedPermits[0]->SurfaceLongitudeWGS84.')) +
+                                                    sin(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) *
                                                     sin(radians(SurfaceHoleLatitudeWGS84 )))
                                                     ) AS distance 
                                                     FROM well_rollups 
