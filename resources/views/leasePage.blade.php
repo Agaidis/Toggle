@@ -376,7 +376,7 @@
                             </div>
 
 
-                        @elseif ( $usingLegalLeases == true ))
+                        @elseif ( $usingLegalLeases == true )
                             <div class="row">
                                 <div class="col-md-12">
                                     <div style="overflow-x:auto;">
