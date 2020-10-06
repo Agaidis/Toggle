@@ -78,6 +78,8 @@ class LeasePageController extends Controller
                                                     FROM legal_leases 
                                                     HAVING distance < 1.8
                                                     ORDER BY distance LIMIT 0, 1000'));
+                    } else {
+                        $owners = '';
                     }
                 }
                 $leaseString = implode( '|', $leaseArray);
@@ -95,6 +97,8 @@ class LeasePageController extends Controller
                                                     FROM legal_leases 
                                                     HAVING distance < 1.8
                                                     ORDER BY distance LIMIT 0, 1000'));
+                } else {
+                    $owners = '';
                 }
             }
 
@@ -108,6 +112,8 @@ class LeasePageController extends Controller
                                                     FROM well_rollups 
                                                     HAVING distance < 300
                                                     ORDER BY distance LIMIT 0, 1000'));
+            } else {
+                $allWells = '';
             }
 
             if ($permitValues->selected_well_name == '' || $permitValues->selected_well_name == null) {
