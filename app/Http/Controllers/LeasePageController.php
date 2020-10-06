@@ -16,6 +16,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use JavaScript;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class LeasePageController extends Controller
 {
@@ -36,18 +37,6 @@ class LeasePageController extends Controller
 
 
         $permitValues = Permit::where('permit_id', $permitId)->first();
-
-        $lowEndLong = $permitValues->SurfaceLongitudeWGS84 + .00000001;
-        $highEndLong = $permitValues->SurfaceLongitudeWGS84 + .1;
-
-        $lowEndNegLong = $permitValues->SurfaceLongitudeWGS84 - .1;
-        $highEndNegLong = $permitValues->SurfaceLongitudeWGS84 - .00000001;
-
-        $lowEndLat = $permitValues->SurfaceLatitudeWGS84 + .00000001;
-        $highEndLat = $permitValues->SurfaceLatitudeWGS84 + .1;
-
-        $lowEndNegLat = $permitValues->SurfaceLatitudeWGS84 - .1;
-        $highEndNegLat = $permitValues->SurfaceLatitudeWGS84 - .00000001;
 
         try {
             $dateArray = array();
@@ -79,36 +68,42 @@ class LeasePageController extends Controller
 
                 if ($owners->isEmpty()) {
                     $usingLegalLeases = true;
-                    $owners = LegalLease::
-                    where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')
-                        ->whereRaw('( LatitudeWGS84 > '. $lowEndLat  . ' AND LatitudeWGS84 <  '. $highEndLat . ' ) OR (LatitudeWGS84 > '. $lowEndNegLat . ' AND LatitudeWGS84 <  '. $highEndNegLat . ')')
-                        ->orwhereRaw('( LongitudeWGS84 > '. $lowEndLong  . ' AND LongitudeWGS84 <  '. $highEndLong . ' ) OR (LongitudeWGS84 > '. $lowEndNegLong . ' AND LongitudeWGS84 <  '. $highEndNegLong . ')')
-                        ->orderBy('LongitudeWGS84', 'DESC')
-                        ->limit(60)
-                        ->get();
+                    $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$permitValues->SurfaceLatitudeWGS84.')) 
+                                                    * cos(radians(LatitudeWGS84)) 
+                                                    * cos(radians(LongitudeWGS84) - radians('.$permitValues->SurfaceLongitudeWGS84.')) +
+                                                    sin(radians('.$permitValues->SurfaceLatitudeWGS84.')) *
+                                                    sin(radians(LatitudeWGS84 )))
+                                                    ) AS distance 
+                                                    FROM legal_leases 
+                                                    HAVING distance < 1.8
+                                                    ORDER BY distance LIMIT 0, 1000') );
+
                 }
                 $leaseString = implode( '|', $leaseArray);
 
             } else {
                 $usingLegalLeases = true;
                 //Its NEW MEXICO OR LOUISIANA SO DO THE DISTANCE THING
-                $owners = LegalLease::
-                where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')
-                    ->whereRaw('( LatitudeWGS84 > '. $lowEndLat  . ' AND LatitudeWGS84 <  '. $highEndLat . ' ) OR (LatitudeWGS84 > '. $lowEndNegLat . ' AND LatitudeWGS84 <  '. $highEndNegLat . ')')
-                    ->orwhereRaw('( LongitudeWGS84 > '. $lowEndLong  . ' AND LongitudeWGS84 <  '. $highEndLong . ' ) OR (LongitudeWGS84 > '. $lowEndNegLong . ' AND LongitudeWGS84 <  '. $highEndNegLong . ')')
-                    ->orderBy('LongitudeWGS84', 'DESC')
-                    ->limit(60)
-                    ->get();
+                $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$permitValues->SurfaceLatitudeWGS84.')) 
+                                                    * cos(radians(LatitudeWGS84)) 
+                                                    * cos(radians(LongitudeWGS84) - radians('.$permitValues->SurfaceLongitudeWGS84.')) +
+                                                    sin(radians('.$permitValues->SurfaceLatitudeWGS84.')) *
+                                                    sin(radians(LatitudeWGS84 )))
+                                                    ) AS distance 
+                                                    FROM legal_leases 
+                                                    HAVING distance < 1.8
+                                                    ORDER BY distance LIMIT 0, 1000') );
             }
 
-
-
-            $allWells = WellRollUp::
-            where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')
-                ->whereRaw('( SurfaceHoleLatitudeWGS84 > '. $lowEndLat  . ' AND SurfaceHoleLatitudeWGS84 <  '. $highEndLat . ' ) OR (SurfaceHoleLatitudeWGS84 > '. $lowEndNegLat . ' AND SurfaceHoleLatitudeWGS84 <  '. $highEndNegLat . ')')
-                ->orwhereRaw('( SurfaceHoleLongitudeWGS84 > '. $lowEndLong  . ' AND SurfaceHoleLongitudeWGS84 <  '. $highEndLong . ' ) OR (SurfaceHoleLongitudeWGS84 > '. $lowEndNegLong . ' AND SurfaceHoleLongitudeWGS84 <  '. $highEndNegLong . ')')
-                ->orderBy('LeaseName', 'ASC')
-                ->get();
+            $allWells = DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$permitValues->SurfaceLatitudeWGS84.')) 
+                                                    * cos(radians(SurfaceHoleLatitudeWGS84)) 
+                                                    * cos(radians(SurfaceHoleLongitudeWGS84) - radians('.$permitValues->SurfaceLongitudeWGS84.')) +
+                                                    sin(radians('.$permitValues->SurfaceLatitudeWGS84.')) *
+                                                    sin(radians(SurfaceHoleLatitudeWGS84 )))
+                                                    ) AS distance 
+                                                    FROM well_rollups 
+                                                    HAVING distance < 300
+                                                    ORDER BY distance LIMIT 0, 1000') );
 
             if ($permitValues->selected_well_name == '' || $permitValues->selected_well_name == null) {
                 $wells = WellRollUp::select('id', 'CountyParish','OperatorCompanyName','WellStatus','WellName', 'LeaseName', 'WellNumber', 'FirstProdDate', 'LastProdDate', 'CumOil', 'CumGas')->where('LeaseName', $permitValues->lease_name)->where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->get();
