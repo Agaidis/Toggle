@@ -180,7 +180,7 @@
                         </div>
                         @endif
 
-                        @if (in_array($interestArea, $txInterestAreas ))
+                        @if ($usingLegalLeases == false ))
                         <div class="row">
                             <div class="col-md-5">
                                 <label class="labels">Mineral Owners</label>:
@@ -376,7 +376,7 @@
                             </div>
 
 
-                        @elseif (in_array($interestArea, $nonTexasInterestAreas ))
+                        @elseif ( $usingLegalLeases == true ))
                             <div class="row">
                                 <div class="col-md-12">
                                     <div style="overflow-x:auto;">

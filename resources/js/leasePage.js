@@ -18,7 +18,7 @@
          }
 
 
-         if ($('#interest_area').val() !== 'nm' && $('#interest_area').val() !== 'la') {
+         if (toggle.usingLegalLeases === false) {
              $('#lease_name_select').select2({
                  multiple: true,
                  minimumInputLength: 3
@@ -1240,7 +1240,7 @@
              },
              success: function success(data) {
                  let ownerBody = '';
-                 if (($('#interest_area').val() === 'eagleford' || $('#interest_area').val() === 'wtx' || $('#interest_area').val() === 'tx') && $('#is_producing').val() === 'producing') {
+                 if (($('#interest_area').val() === 'eagleford' || $('#interest_area').val() === 'wtx' || $('#interest_area').val() === 'etx' || $('#interest_area').val() === 'tx')) {
                      ownerBody = '<div class="row">' +
                          '<div class="col-md-6">' +
                          '<h3 style="text-align: center;">Lease Info</h3>' +

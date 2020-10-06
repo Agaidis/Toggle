@@ -28,7 +28,7 @@ class LeasePageController extends Controller
         $permitId = $request->permitId;
         $leaseName = $request->leaseName;
         $interestArea = $request->interestArea;
-        $txInterestAreas = ['eagleford', 'wtx', 'tx'];
+        $txInterestAreas = ['eagleford', 'wtx', 'etx', 'tx'];
         $nonTexasInterestAreas = ['nm', 'la'];
         $mineralOwnerLeases = '';
         $isProducing = $request->isProducing;
@@ -37,22 +37,38 @@ class LeasePageController extends Controller
 
         $permitValues = Permit::where('permit_id', $permitId)->first();
 
+        $lowEndLong = $permitValues->SurfaceLongitudeWGS84 + .00000001;
+        $highEndLong = $permitValues->SurfaceLongitudeWGS84 + .1;
+
+        $lowEndNegLong = $permitValues->SurfaceLongitudeWGS84 - .1;
+        $highEndNegLong = $permitValues->SurfaceLongitudeWGS84 - .00000001;
+
+        $lowEndLat = $permitValues->SurfaceLatitudeWGS84 + .00000001;
+        $highEndLat = $permitValues->SurfaceLatitudeWGS84 + .1;
+
+        $lowEndNegLat = $permitValues->SurfaceLatitudeWGS84 - .1;
+        $highEndNegLat = $permitValues->SurfaceLatitudeWGS84 - .00000001;
+
         try {
             $dateArray = array();
             $onProductionArray = array();
             $oilArray = array();
             $gasArray = array();
             $leaseArray = array();
+            $usingLegalLeases = false;
             $notes = '';
             $wellArray = explode('|', $permitValues->selected_well_name);
 
             array_push($wellArray, $permitValues->lease_name);
             $allRelatedPermits = Permit::where('lease_name', $permitValues->lease_name)->where('SurfaceLatitudeWGS84', '!=', null)->get();
 
+
+            //Its a texas Permit. Lets break down the options
             if (in_array($request->interestArea, $this->txInterestAreas)) {
+
+                //Grab all of the mineral owners for the select dropdown
                 $mineralOwnerLeases = MineralOwner::select('lease_name')->groupBy('lease_name')->get();
-                if ($mineralOwnerLeases->isEmpty()) {
-                }
+
                 $leaseArray = explode('|', $permitValues->selected_lease_name);
                 array_push($leaseArray, $permitValues->lease_name);
                 if ( $permitValues->selected_lease_name != null ) {
@@ -62,17 +78,37 @@ class LeasePageController extends Controller
                 }
 
                 if ($owners->isEmpty()) {
-                    $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->limit(300)->get();
-
+                    $usingLegalLeases = true;
+                    $owners = LegalLease::
+                    where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')
+                        ->whereRaw('( LatitudeWGS84 > '. $lowEndLat  . ' AND LatitudeWGS84 <  '. $highEndLat . ' ) OR (LatitudeWGS84 > '. $lowEndNegLat . ' AND LatitudeWGS84 <  '. $highEndNegLat . ')')
+                        ->orwhereRaw('( LongitudeWGS84 > '. $lowEndLong  . ' AND LongitudeWGS84 <  '. $highEndLong . ' ) OR (LongitudeWGS84 > '. $lowEndNegLong . ' AND LongitudeWGS84 <  '. $highEndNegLong . ')')
+                        ->orderBy('LongitudeWGS84', 'DESC')
+                        ->limit(60)
+                        ->get();
                 }
                 $leaseString = implode( '|', $leaseArray);
 
             } else {
-
-                $owners = LegalLease::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('LatitudeWGS84', '!=', null)->where('LatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('LatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('LongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LongitudeWGS84', 'ASC')->limit(300)->get();
+                $usingLegalLeases = true;
+                //Its NEW MEXICO OR LOUISIANA SO DO THE DISTANCE THING
+                $owners = LegalLease::
+                where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')
+                    ->whereRaw('( LatitudeWGS84 > '. $lowEndLat  . ' AND LatitudeWGS84 <  '. $highEndLat . ' ) OR (LatitudeWGS84 > '. $lowEndNegLat . ' AND LatitudeWGS84 <  '. $highEndNegLat . ')')
+                    ->orwhereRaw('( LongitudeWGS84 > '. $lowEndLong  . ' AND LongitudeWGS84 <  '. $highEndLong . ' ) OR (LongitudeWGS84 > '. $lowEndNegLong . ' AND LongitudeWGS84 <  '. $highEndNegLong . ')')
+                    ->orderBy('LongitudeWGS84', 'DESC')
+                    ->limit(60)
+                    ->get();
             }
 
-            $allWells = WellRollUp::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('SurfaceHoleLatitudeWGS84', '!=', null)->where('SurfaceHoleLatitudeWGS84', '<', $permitValues->SurfaceLatitudeWGS84 + .1)->where('SurfaceHoleLatitudeWGS84', '>', $permitValues->SurfaceLatitudeWGS84 - .1)->where('SurfaceHoleLongitudeWGS84', '<', $permitValues->SurfaceLongitudeWGS84 + .1)->orderBy('LeaseName', 'ASC')->get();
+
+
+            $allWells = WellRollUp::
+            where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')
+                ->whereRaw('( SurfaceHoleLatitudeWGS84 > '. $lowEndLat  . ' AND SurfaceHoleLatitudeWGS84 <  '. $highEndLat . ' ) OR (SurfaceHoleLatitudeWGS84 > '. $lowEndNegLat . ' AND SurfaceHoleLatitudeWGS84 <  '. $highEndNegLat . ')')
+                ->orwhereRaw('( SurfaceHoleLongitudeWGS84 > '. $lowEndLong  . ' AND SurfaceHoleLongitudeWGS84 <  '. $highEndLong . ' ) OR (SurfaceHoleLongitudeWGS84 > '. $lowEndNegLong . ' AND SurfaceHoleLongitudeWGS84 <  '. $highEndNegLong . ')')
+                ->orderBy('LeaseName', 'ASC')
+                ->get();
 
             if ($permitValues->selected_well_name == '' || $permitValues->selected_well_name == null) {
                 $wells = WellRollUp::select('id', 'CountyParish','OperatorCompanyName','WellStatus','WellName', 'LeaseName', 'WellNumber', 'FirstProdDate', 'LastProdDate', 'CumOil', 'CumGas')->where('LeaseName', $permitValues->lease_name)->where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->get();
@@ -97,7 +133,8 @@ class LeasePageController extends Controller
 
             foreach ($wells as $well) {
                 if ($well->WellStatus == 'ACTIVE') {
-                    Permit::where('id', $permitId)->update(['is_producing' => 1]);
+                    $isProducing = 'producing';
+                    Permit::where('permit_id', $permitId)->update(['is_producing' => 1]);
                 }
 
                 if ($well->FirstProdDate != null)
@@ -157,7 +194,8 @@ class LeasePageController extends Controller
                     'selectedWells' => $wellArray,
                     'allRelatedPermits' => $allRelatedPermits,
                     'leaseName' => $leaseName,
-                    'permitId' => $permitId
+                    'permitId' => $permitId,
+                    'usingLegalLeases' => $usingLegalLeases
                 ]);
 
             return view('leasePage', compact(
@@ -165,6 +203,7 @@ class LeasePageController extends Controller
                     'interestArea',
                     'txInterestAreas',
                     'nonTexasInterestAreas',
+                    'usingLegalLeases',
                     'permitValues',
                     'mineralOwnerLeases',
                     'leaseName',
