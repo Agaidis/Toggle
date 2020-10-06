@@ -410,6 +410,7 @@
                                             </thead>
                                             <tbody>
                                             @foreach ($owners as $owner)
+                                                <?php $recordDate = explode('T', $owner->RecordDate); ?>
                                                 <tr class="owner_row" id="owner_row_{{$owner->LeaseId}}">
                                                     @if (Auth::user()->role === 'admin'  || Auth::user()->role === 'regular')
                                                         <td id="id_{{$owner->LeaseId}}"
@@ -526,7 +527,7 @@
                                                         </td>
                                                         <td class="text-center">{{$owner->Grantee}}</td>
 
-                                                        <td class="text-center">{{$owner->RecordDate}}</td>
+                                                        <td class="text-center">{{$recordDate[0]}}</td>
                                                         <td class="text-center">{{$owner->AreaAcres}}</td>
                                                     @else
                                                         <td class="text-center"></td>
