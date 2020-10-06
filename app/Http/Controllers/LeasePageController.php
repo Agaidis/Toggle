@@ -68,42 +68,47 @@ class LeasePageController extends Controller
 
                 if ($owners->isEmpty()) {
                     $usingLegalLeases = true;
-                    $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) 
+                    if (!$allRelatedPermits->isEmpty()) {
+                        $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) 
                                                     * cos(radians(LatitudeWGS84)) 
-                                                    * cos(radians(LongitudeWGS84) - radians('.$allRelatedPermits[0]->SurfaceLongitudeWGS84.')) +
-                                                    sin(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) *
+                                                    * cos(radians(LongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
+                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
                                                     sin(radians(LatitudeWGS84 )))
                                                     ) AS distance 
                                                     FROM legal_leases 
                                                     HAVING distance < 1.8
-                                                    ORDER BY distance LIMIT 0, 1000') );
-
+                                                    ORDER BY distance LIMIT 0, 1000'));
+                    }
                 }
                 $leaseString = implode( '|', $leaseArray);
 
             } else {
                 $usingLegalLeases = true;
                 //Its NEW MEXICO OR LOUISIANA SO DO THE DISTANCE THING
-                $owners =  DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) 
+                if (!$allRelatedPermits->isEmpty()) {
+                    $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) 
                                                     * cos(radians(LatitudeWGS84)) 
-                                                    * cos(radians(LongitudeWGS84) - radians('.$allRelatedPermits[0]->SurfaceLongitudeWGS84.')) +
-                                                    sin(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) *
+                                                    * cos(radians(LongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
+                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
                                                     sin(radians(LatitudeWGS84 )))
                                                     ) AS distance 
                                                     FROM legal_leases 
                                                     HAVING distance < 1.8
-                                                    ORDER BY distance LIMIT 0, 1000') );
+                                                    ORDER BY distance LIMIT 0, 1000'));
+                }
             }
 
-            $allWells = DB::select( DB::raw('SELECT *, (3959 * acos(cos(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) 
+            if (!$allRelatedPermits->isEmpty()) {
+                $allWells = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) 
                                                     * cos(radians(SurfaceHoleLatitudeWGS84)) 
-                                                    * cos(radians(SurfaceHoleLongitudeWGS84) - radians('.$allRelatedPermits[0]->SurfaceLongitudeWGS84.')) +
-                                                    sin(radians('.$allRelatedPermits[0]->SurfaceLatitudeWGS84.')) *
+                                                    * cos(radians(SurfaceHoleLongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
+                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
                                                     sin(radians(SurfaceHoleLatitudeWGS84 )))
                                                     ) AS distance 
                                                     FROM well_rollups 
                                                     HAVING distance < 300
-                                                    ORDER BY distance LIMIT 0, 1000') );
+                                                    ORDER BY distance LIMIT 0, 1000'));
+            }
 
             if ($permitValues->selected_well_name == '' || $permitValues->selected_well_name == null) {
                 $wells = WellRollUp::select('id', 'CountyParish','OperatorCompanyName','WellStatus','WellName', 'LeaseName', 'WellNumber', 'FirstProdDate', 'LastProdDate', 'CumOil', 'CumGas')->where('LeaseName', $permitValues->lease_name)->where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->get();
