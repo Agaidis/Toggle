@@ -93,7 +93,7 @@ class MMPController extends Controller
 
 
             if ($request->isNonProducing) {
-                $leaseData = LegalLease::select('LeaseId','Grantor', 'Range', 'Section', 'Township', 'Geometry', 'permit_stitch_id')->where('LatitudeWGS84', '<', $permit->SurfaceLatitudeWGS84 + .5)->where('LatitudeWGS84', '>', $permit->SurfaceLatitudeWGS84 + .01)->where('LongitudeWGS84', '<', $permit->SurfaceLongitudeWGS84 + .5)->where('LongitudeWGS84', '>', $permit->SurfaceLongitudeWGS84 + .01)->get();
+                $leaseData = LegalLease::select('LeaseId','Grantor', 'Range', 'Section', 'Township', 'Geometry', 'permit_stitch_id')->where('LatitudeWGS84', '<', $permit->SurfaceLatitudeWGS84 + .5)->where('LatitudeWGS84', '>', $permit->SurfaceLatitudeWGS84 + .01)->where('LongitudeWGS84', '<', $permit->SurfaceLongitudeWGS84 + .5)->where('LongitudeWGS84', '>', $permit->SurfaceLongitudeWGS84 + .01)->limit(100)->get();
                 $leaseDescription = '';
                 foreach ($leaseData as $lease) {
                     if ($lease->Geometry != '' || $lease->Geometry != null) {
