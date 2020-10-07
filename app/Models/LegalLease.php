@@ -28,7 +28,10 @@ class LegalLease extends Model
         'Range',
         'Section',
         'Township',
-        'RecordDate'
+        'RecordDate',
+        'EffectiveDate',
+        'ExpirationofPrimaryTerm',
+        'ExtTermMonths'
     ];
 
     protected $table = 'legal_leases';

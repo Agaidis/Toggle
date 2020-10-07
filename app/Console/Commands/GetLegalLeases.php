@@ -121,13 +121,13 @@ class GetLegalLeases extends Command
                                     'Range' => $decodedLeases[$i]->Range,
                                     'Section' => $decodedLeases[$i]->Section,
                                     'Township' => $decodedLeases[$i]->Township,
-                                    'RecordDate' => $decodedLeases[$i]->RecordDate
+                                    'RecordDate' => $decodedLeases[$i]->RecordDate,
+                                    'EffectiveDate' => $decodedLeases[$i]->EffectiveDate,
+                                    'ExpirationofPrimaryTerm' => $decodedLeases[$i]->ExpirationofPrimaryTerm,
+                                    'ExtTermMonths' => $decodedLeases[$i]->ExtTermMonths
                                 ]);
-
                         }
                     }
-
-
                 } while ($url != '');
             }
             return 'success';
