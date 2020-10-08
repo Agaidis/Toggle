@@ -1226,6 +1226,7 @@
 
      function openOwnerPanel(id, tr, row) {
 
+         console.log($('#permit_id').val());
          $.ajaxSetup({
              headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1240,6 +1241,7 @@
              url: '/lease-page/getOwnerInfo',
              data: {
                  id: id,
+                 permitId: $('#permit_id').val(),
                  interestArea: $('#interest_area').val()
              },
              success: function success(data) {
@@ -1247,6 +1249,17 @@
                  if (($('#interest_area').val() === 'eagleford' || $('#interest_area').val() === 'wtx' || $('#interest_area').val() === 'etx' || $('#interest_area').val() === 'tx')) {
                      ownerBody = '<div class="row">' +
                          '<div class="col-md-6">' +
+                         '<h3 style="text-align: center;">Lease Info</h3>' +
+                         '<div class="containers">' +
+                         '<label for="lease_name_display_' + id + '">Lease Name: </label>' +
+                         '<span id="lease_name_display_' + id + '"></span><br>' +
+                         '<label for="county_' + id + '">County: </label>' +
+                         '<span id="county_' + id + '"></span><br>' +
+                         '<label for="operator_' + id + '">Operator: </label>' +
+                         '<span id="operator_' + id + '"></span><br>' +
+                         '<label for="rrc_lease_number_' + id + '">RRC Lease Number: </label>' +
+                         '<span id="rrc_lease_number_' + id + '"></span><br>' +
+                         '</div>' +
                      '<h3 style="text-align: center;">Mineral Interest & Pricing Info.  </h3>' +
                      '<div class="containers">' +
                      '<div class="row">' +
@@ -1345,6 +1358,17 @@
                      let pricingBody = formatPricingFields(id, data.user_interest_type);
 
                      ownerBody = '<div class="row"><div class="col-md-6">' +
+                         '<h3 style="text-align: center;">Lease Info</h3>' +
+                         '<div class="containers">' +
+                         '<label for="lease_name_display_' + id + '">Lease Name: </label>' +
+                         '<span id="lease_name_display_' + id + '"></span><br>' +
+                         '<label for="county_' + id + '">County: </label>' +
+                         '<span id="county_' + id + '"></span><br>' +
+                         '<label for="operator_' + id + '">Operator: </label>' +
+                         '<span id="operator_' + id + '"></span><br>' +
+                         '<label for="rrc_lease_number_' + id + '">RRC Lease Number: </label>' +
+                         '<span id="rrc_lease_number_' + id + '"></span><br>' +
+                         '</div></div>' +
                          '<h3 style="text-align: center;">Mineral Interest & Pricing Info.  </h3>' +
                          '<div class="containers">' +
                          '<div class="row">' +
@@ -1414,6 +1438,10 @@
                  monthlyRevenue = numberWithCommas(monthlyRevenue);
                  $('#monthly_revenue_' +id).val(monthlyRevenue);
 
+                 $('#county_' + id).text(' ' +  data.county);
+                 $('#operator_' + id).text(' ' +  data.reported_operator);
+                 $('#lease_name_display_' + id).text(' ' +  data.lease_name);
+                 $('#rrc_lease_number_' + id).text(' ' + data.rrc_lease_number);
                  $('#active_well_count_' + id).text(' ' + $('#well_count').val());
                  $('#first_prod_'+id).text(' ' + $('#first_month').text());
                  $('#last_prod_'+id).text(' ' + $('#last_month').text());

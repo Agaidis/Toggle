@@ -349,15 +349,26 @@ class LeasePageController extends Controller
     public function getOwnerInfo (Request $request) {
 
         try {
-            $owner = MineralOwner::where('id', $request->id)->groupBy('owner')->first();
+            $owner = MineralOwner::where('id', $request->id)->groupBy('owner')->get();
+
+            if ($owner->isEmpty()) {
+                $owner = MineralOwner::where('id', $request->id)->groupBy('Grantor')->get();
+            }
+
+            $permitData = Permit::where('id', $request->permitId)->first();
+            $reportedOperator = $permitData->reported_operator;
+            $county = $permitData->county_parish;
+
+            $owner[0]['reported_operator'] = $reportedOperator;
+            $owner[0]['county'] = $county;
 
             $oilPrice = GeneralSetting::where('name', 'oil')->value('value');
             $gasPrice = GeneralSetting::where('name', 'gas')->value('value');
 
-            $owner['oilPrice'] = $oilPrice;
-            $owner['gasPrice'] = $gasPrice;
+            $owner[0]['oilPrice'] = $oilPrice;
+            $owner[0]['gasPrice'] = $gasPrice;
 
-            return $owner;
+            return $owner[0];
         } catch ( \Exception $e ) {
             $errorMsg = new ErrorLog();
             $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
