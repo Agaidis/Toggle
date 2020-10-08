@@ -43060,8 +43060,6 @@ $(document).ready(function () {
       $('#well_name_select option')[0].remove();
     }
 
-    console.log(toggle.interestArea);
-
     if (toggle.interestArea !== 'nm' && toggle.interestArea !== 'la' && toggle.interestArea !== 'wp') {
       $('#lease_name_select').select2({
         multiple: true,
@@ -43871,7 +43869,7 @@ $(document).ready(function () {
         if (data !== undefined && data !== '') {
           var updatedNotes = '';
           $.each(data, function (key, value) {
-            updatedNotes += '<span>' + value.notes + '</span>';
+            updatedNotes += '<span><a href="http://ltetoggle.com/lease-page/' + value.interest_area + '/' + value.lease_name + '/producing/' + value.permit_id + '">' + value.lease_name + '</a>' + value.notes + '</span>';
           });
           updatedNotes = $('<span>' + updatedNotes + '</span>');
           $('#previous_owner_notes_' + ownerId).empty().append(updatedNotes.html());

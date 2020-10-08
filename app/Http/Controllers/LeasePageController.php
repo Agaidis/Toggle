@@ -427,6 +427,12 @@ class LeasePageController extends Controller
             if ($ownerNotes->isEmpty()) {
                 $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
             }
+
+            foreach ($ownerNotes as $ownerNote) {
+                $permitData = Permit::where('lease_name', $ownerNote->lease_name)->first();
+                $ownerNote['interest_area'] = $permitData->interest_area;
+                $ownerNote['permit_id'] = $permitData->permit_id;
+            }
         } else {
             if (isset($request->leaseNames)) {
                 $leaseArray = explode('|', $request->leaseNames);
