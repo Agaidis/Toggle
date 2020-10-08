@@ -1162,9 +1162,6 @@
      }
 
      function getOwnerNotes( ownerId ) {
-         console.log(ownerId);
-         console.log($('#lease_string').val());
-         console.log($('#previous_owner_notes_'+ownerId));
          $.ajaxSetup({
              headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1330,17 +1327,18 @@
                          '<span id="gbbls_' + id + '"></span><br>' +
 
 
-                         '</div></div>' +
+                         '</div>' +
                          '<div style="text-align:center;" class="col-md-12"> ' +
-                         '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label> ' +
-                         '<div class="previous_owner_notes" id="previous_owner_notes_' + id + '" name="previous_owner_notes" contenteditable="false"></div> ' +
-                         '</div> ' +
-                         '<div style="text-align:center;" class="col-md-12"> ' +
-                         '<label style="font-size:20px; font-weight:bold;" for="owner_notes_' + id + '">Enter Owner Notes</label> ' +
-                         '<textarea rows="4" class="owner_notes" id="owner_notes_' + id + '" name="notes" style="width:100%;" placeholder="Enter Notes: "></textarea> ' +
-                         '<div class="col-md-12"> ' +
-                         '<button type="button" id="update_owner_notes_btn_' + id + '" class="btn btn-primary update_owner_notes_btn">Update Notes</button> ' +
-                         '</div></div></div>';
+                         '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label>' +
+                         '<div class="previous_owner_notes" id="previous_owner_notes_' + id + '" name="previous_owner_notes" contenteditable="false"></div>' +
+                         '</div>' +
+                         '<div style="text-align:center;" class="col-md-12">' +
+                         '<label style="font-size:20px; font-weight:bold;" for="owner_notes_' + id + '">Enter Owner Notes</label>' +
+                         '<textarea rows="4" class="owner_notes" id="owner_notes_' + id + '" name="notes" style="width:100%;" placeholder="Enter Notes: "></textarea>' +
+                         '<div class="col-md-12">' +
+                         '<button type="button" id="update_owner_notes_btn_' + id + '" class="btn btn-primary update_owner_notes_btn">Update Notes</button>' +
+                         '</div></div></div></div>';
+
 
 
                  } else if ($('#interest_area').val() === 'nm' || $('#interest_area').val() === 'la') {
