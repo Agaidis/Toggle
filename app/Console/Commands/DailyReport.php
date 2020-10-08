@@ -49,7 +49,7 @@ class DailyReport extends Command
 
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-            $headers .= "From: Courier@moneymappress.com\r\n";
+            $headers .= "From: LTE Toggle\r\n";
 
             $permits = Permit::where('created_at', '>=', $lastDay)->get();
             $ownerPhoneNumbers = OwnerPhoneNumber::where('created_at', '>=', $lastDay)->get();
