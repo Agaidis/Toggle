@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\ErrorLog;
 use App\GeneralSetting;
-use App\LegalLease;
+
 use App\MineralOwner;
+use App\OwnerEmail;
 use App\OwnerNote;
 use App\OwnerPhoneNumber;
 use App\Permit;
@@ -15,8 +16,8 @@ use App\WellRollUp;
 use DateTime;
 use Illuminate\Http\Request;
 use JavaScript;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LeasePageController extends Controller
 {
@@ -68,6 +69,7 @@ class LeasePageController extends Controller
 
                 if ($owners->isEmpty()) {
                     $usingLegalLeases = true;
+
                     if (!$allRelatedPermits->isEmpty()) {
                         $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) 
                                                     * cos(radians(LatitudeWGS84)) 
@@ -75,8 +77,8 @@ class LeasePageController extends Controller
                                                     sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
                                                     sin(radians(LatitudeWGS84 )))
                                                     ) AS distance 
-                                                    FROM legal_leases 
-                                                    HAVING distance < 1.8
+                                                    FROM mineral_owners 
+                                                    HAVING distance < 1.5
                                                     ORDER BY distance LIMIT 0, 1000'));
                     } else {
                         $owners = '';
@@ -94,7 +96,7 @@ class LeasePageController extends Controller
                                                     sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
                                                     sin(radians(LatitudeWGS84 )))
                                                     ) AS distance 
-                                                    FROM legal_leases 
+                                                    FROM mineral_owners 
                                                     HAVING distance < 1.8
                                                     ORDER BY distance LIMIT 0, 1000'));
                 } else {
@@ -201,7 +203,8 @@ class LeasePageController extends Controller
                     'allRelatedPermits' => $allRelatedPermits,
                     'leaseName' => $leaseName,
                     'permitId' => $permitId,
-                    'usingLegalLeases' => $usingLegalLeases
+                    'usingLegalLeases' => $usingLegalLeases,
+                    'interestArea' => $interestArea
                 ]);
 
             return view('leasePage', compact(
@@ -293,32 +296,17 @@ class LeasePageController extends Controller
 
     public function updateAssignee(Request $request) {
         try {
-            if (in_array($request->interestArea, $this->txInterestAreas)) {
-                if ($request->assigneeId != 0) {
-                    MineralOwner::where('id', $request->ownerId)->update(
-                        [
-                            'assignee' => $request->assigneeId,
-                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
-                        ]);
-                } else {
-                    MineralOwner::where('id', $request->ownerId)->update(
-                        [
-                            'assignee' => $request->assigneeId
-                        ]);
-                }
-            } else if (in_array($request->interestArea, $this->nonTexasInterestAreas)) {
-                if ($request->assigneeId != 0) {
-                    LegalLease::where('LeaseId', $request->ownerId)->update(
-                        [
-                            'assignee' => $request->assigneeId,
-                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
-                        ]);
-                } else {
-                    LegalLease::where('LeaseId', $request->ownerId)->update(
-                        [
-                            'assignee' => $request->assigneeId
-                        ]);
-                }
+            if ($request->assigneeId != 0) {
+                MineralOwner::where('id', $request->ownerId)->update(
+                    [
+                        'assignee' => $request->assigneeId,
+                        'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
+                    ]);
+            } else {
+                MineralOwner::where('id', $request->ownerId)->update(
+                    [
+                        'assignee' => $request->assigneeId
+                    ]);
             }
 
             return 'success';
@@ -326,41 +314,25 @@ class LeasePageController extends Controller
         } catch( Exception $e ) {
             $errorMsg = new ErrorLog();
             $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
-
             $errorMsg->save();
+
             return 'error';
         }
     }
 
     public function updateWellType(Request $request) {
         try {
-
-            if (in_array($request->interestArea, $this->txInterestAreas)) {
-                if ($request->wellType != 0) {
-                    MineralOwner::where('id', $request->ownerId)->update(
-                        [
-                            'wellbore_type' => $request->wellType,
-                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
-                        ]);
-                } else {
-                    MineralOwner::where('id', $request->ownerId)->update(
-                        [
-                            'wellbore_type' => $request->wellType
-                        ]);
-                }
-            } else if (in_array($request->interestArea, $this->nonTexasInterestAreas)) {
-                if ($request->wellType != 0) {
-                    LegalLease::where('LeaseId', $request->ownerId)->update(
-                        [
-                            'wellbore' => $request->wellType,
-                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
-                        ]);
-                } else {
-                    LegalLease::where('LeaseId', $request->ownerId)->update(
-                        [
-                            'wellbore' => $request->wellType
-                        ]);
-                }
+            if ($request->wellType != 0) {
+                MineralOwner::where('id', $request->ownerId)->update(
+                    [
+                        'wellbore_type' => $request->wellType,
+                        'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
+                    ]);
+            } else {
+                MineralOwner::where('id', $request->ownerId)->update(
+                    [
+                        'wellbore_type' => $request->wellType
+                    ]);
             }
 
             return 'success';
@@ -368,8 +340,8 @@ class LeasePageController extends Controller
         } catch( Exception $e ) {
             $errorMsg = new ErrorLog();
             $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
-
             $errorMsg->save();
+
             return 'error';
         }
     }
@@ -377,13 +349,7 @@ class LeasePageController extends Controller
     public function getOwnerInfo (Request $request) {
 
         try {
-            if (in_array($request->interestArea, $this->txInterestAreas )) {
-                $owner = MineralOwner::where('id', $request->id)->groupBy('owner')->first();
-            } else {
-                $owner = LegalLease::where('LeaseId', $request->id)->first();
-                $leaseName = Permit::where('permit_id', $owner->permit_stitch_id)->value('lease_name');
-                $owner->lease_name = $leaseName;
-            }
+            $owner = MineralOwner::where('id', $request->id)->groupBy('owner')->first();
 
             $oilPrice = GeneralSetting::where('name', 'oil')->value('value');
             $gasPrice = GeneralSetting::where('name', 'gas')->value('value');
@@ -404,13 +370,9 @@ class LeasePageController extends Controller
 
     public function updateOwnerPrice(Request $request) {
         try {
-            if (in_array($request->interestArea, $this->txInterestAreas )) {
-                MineralOwner::where('id', $request->id)
-                    ->update(['price' => $request->price]);
-            } else {
-                LegalLease::where('LeaseId', $request->id)
-                    ->update(['price' => $request->price]);
-            }
+
+            MineralOwner::where('id', $request->id)
+                ->update(['price' => $request->price]);
 
             return 'success';
 
@@ -442,20 +404,26 @@ class LeasePageController extends Controller
 
     public function getNotes(Request $request) {
     try {
-        if (in_array($request->interestArea, $this->txInterestAreas )) {
-            if (isset($request->leaseNames)) {
-                $leaseArray = explode('|', $request->leaseNames);
-                $ownerInfo = MineralOwner::where('id', $request->ownerId)->first();
-                return OwnerNote::where('owner_name', $ownerInfo->owner)->whereIn('lease_name', $leaseArray)->orderBy('id', 'DESC')->get();
-            } else {
-                $ownerInfo = MineralOwner::where('id', $request->ownerId)->first();
-                return OwnerNote::where('owner_name', $ownerInfo->owner)->where('lease_name', $request->leaseName)->orderBy('id', 'DESC')->get();
-            }
+        $ownerInfo = MineralOwner::where('id', $request->ownerId)->first();
 
-        } else if (in_array($request->interestArea, $this->nonTexasInterestAreas )) {
-            $ownerInfo = LegalLease::where('LeaseId', $request->ownerId)->first();
-            return OwnerNote::where('owner_name', $ownerInfo->Grantor)->where('lease_name', $request->leaseName)->orderBy('id', 'DESC')->get();
+        Log::info(serialize($ownerInfo));
+
+        if (isset($request->leaseNames)) {
+            $leaseArray = explode('|', $request->leaseNames);
+            $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->whereIn('lease_name', $leaseArray)->orderBy('id', 'DESC')->get();
+
+            if ($ownerNotes->isEmpty()) {
+                $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
+            }
+        } else {
+            $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->where('lease_name', $request->leaseName)->orderBy('id', 'DESC')->get();
+
+            if ($ownerNotes->isEmpty()) {
+                $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
+            }
         }
+
+        return $ownerNotes;
     } catch( \Exception $e ) {
         $errorMsg = new ErrorLog();
         $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
@@ -470,14 +438,15 @@ class LeasePageController extends Controller
             $userId = Auth()->user()->id;
             $date = date('d/m/Y h:m:s', strtotime('-5 hours'));
 
-            if (in_array($request->interestArea, $this->txInterestAreas )) {
-                $owner = MineralOwner::where('id', $request->id)->value('owner');
-                MineralOwner::where('id', $request->id)->update(['assignee' => $userId, 'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))]);
+            $ownerInfo = MineralOwner::where('id', $request->id)->first();
+            if ($ownerInfo->owner == null || $ownerInfo->owner == '' && ($ownerInfo->Grantor != '' && $ownerInfo->Grantor != null)) {
 
-            } else if (in_array($request->interestArea, $this->nonTexasInterestAreas )) {
-                $owner = LegalLease::where('LeaseId', $request->id)->value('Grantor');
-                LegalLease::where('LeaseId', $request->id)->update(['assignee' => $userId, 'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))]);
+                $owner = $ownerInfo->Grantor;
+            } else {
+                $owner = $ownerInfo->owner;
             }
+
+            MineralOwner::where('id', $request->id)->update(['assignee' => $userId, 'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))]);
 
             $newOwnerLeaseNote = new OwnerNote();
 
@@ -538,13 +507,7 @@ class LeasePageController extends Controller
                 $date = null;
             }
 
-            if (in_array($request->interestArea, $this->txInterestAreas)) {
-                MineralOwner::where('id', $request->id)->update(['follow_up_date' => $date]);
-            } else if (in_array($request->interestArea, $this->nonTexasInterestAreas)) {
-                LegalLease::where('LeaseId', $request->id)->update(
-                    ['follow_up_date' => $date]);
-            }
-
+            MineralOwner::where('id', $request->id)->update(['follow_up_date' => $date]);
 
             return 'success';
 
@@ -560,14 +523,9 @@ class LeasePageController extends Controller
     public function getOwnerNumbers(Request $request) {
         try {
 
-            if (in_array($request->interestArea, $this->txInterestAreas)) {
-                $ownerName = MineralOwner::where('id', $request->id)->value('owner');
-            } else if (in_array($request->interestArea, $this->nonTexasInterestAreas)) {
-                $ownerName = LegalLease::where('LeaseId', $request->id)->value('Grantor');
-            }
+            Log::info($request->ownerName);
 
-            $phoneNumbers = OwnerPhoneNumber::where('owner_name', $ownerName)->where('soft_delete', 0)->where('is_pushed', 0)->get();
-
+            $phoneNumbers = OwnerPhoneNumber::where('owner_name', $request->ownerName)->where('soft_delete', 0)->where('is_pushed', 0)->get();
 
             return $phoneNumbers;
 
@@ -583,18 +541,9 @@ class LeasePageController extends Controller
     public function addPhone(Request $request) {
         try {
             $newOwnerPhoneNumber = new OwnerPhoneNumber();
-
-            if (in_array($request->interestArea, $this->txInterestAreas)) {
-                $ownerName = MineralOwner::where('id', $request->id)->value('owner');
-                $newOwnerPhoneNumber->owner_id = $request->id;
-            } else if (in_array($request->interestArea, $this->nonTexasInterestAreas)) {
-                $ownerName = LegalLease::where('LeaseId', $request->id)->value('Grantor');
-                $newOwnerPhoneNumber->LeaseId = $request->id;
-
-            }
-
+            $newOwnerPhoneNumber->owner_id = $request->id;
             $newOwnerPhoneNumber->phone_number = $request->phoneNumber;
-            $newOwnerPhoneNumber->owner_name = $ownerName;
+            $newOwnerPhoneNumber->owner_name = $request->ownerName;
             $newOwnerPhoneNumber->phone_desc = $request->phoneDesc;
             $newOwnerPhoneNumber->interest_areas = $request->interestArea;
             $newOwnerPhoneNumber->lease_name = $request->leaseName;

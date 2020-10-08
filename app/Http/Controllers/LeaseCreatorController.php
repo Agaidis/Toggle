@@ -24,12 +24,24 @@ class LeaseCreatorController extends Controller
 
             $eagleInterestCountiesArray = array('ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE OAK','LAVACA','WILSON');
             $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF DAVIS');
+
+            $etxInterestCountiesArray = array('CASS', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN AUGUSTINE', 'RUSK', 'SHELBY', 'UPSHUR');
+
+            $laInterestCountiesArray = array('BIENVILLE', 'BOSSIER', 'CADDO', 'DE SOTO', 'NATCHITOCHES', 'RED%20RIVER', 'SABINE', 'WEBSTER');
             $nmInterestCountiesArray = array('LEA', 'EDDY');
+
 
             $permitId = 0000 . rand(7000000, 10000000);
             $state = $request->state;
             $county = $request->county;
             $leaseName = $request->leaseName;
+            $abstract = $request->abstract;
+            $survey = $request->survey;
+            $operator = $request->operator;
+            $block = $request->block;
+            $drillType = $request->drill_type;
+            $wellType = $request->well_type;
+            $status = $request->status;
 
             if (in_array($county, $wtxInterestCountiesArray)) {
                 $interestArea = 'wtx';
@@ -37,6 +49,10 @@ class LeaseCreatorController extends Controller
                 $interestArea = 'eagleford';
             } else if (in_array($county, $nmInterestCountiesArray)) {
                 $interestArea = 'nm';
+            } else if (in_array($county, $etxInterestCountiesArray)) {
+                $interestArea = 'etx';
+            } else if (in_array($county, $laInterestCountiesArray)) {
+                $interestArea = 'la';
             }
 
             $newPermit = new Permit();
@@ -46,6 +62,15 @@ class LeaseCreatorController extends Controller
             $newPermit->county_parish = $county;
             $newPermit->lease_name = $leaseName;
             $newPermit->interest_area = $interestArea;
+            $newPermit->abstract = $abstract;
+            $newPermit->survey = $survey;
+            $newPermit->operator_alias = $operator;
+            $newPermit->reported_operator = $operator;
+            $newPermit->block = $block;
+            $newPermit->drill_type = $drillType;
+            $newPermit->well_type = $wellType;
+            $newPermit->permit_status = $status;
+            $newPermit->toggle_status = 'yellow';
 
             $newPermit->save();
 

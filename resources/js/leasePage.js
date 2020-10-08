@@ -18,7 +18,8 @@
          }
 
 
-         if (toggle.usingLegalLeases === false) {
+         console.log(toggle.interestArea);
+         if (toggle.interestArea !== 'nm' && toggle.interestArea !== 'la') {
              $('#lease_name_select').select2({
                  multiple: true,
                  minimumInputLength: 3
@@ -164,9 +165,10 @@
         }).on('change', '.owner_assignee', function() {
             let id = $(this)[0].id;
             let assignee = $(this)[0].value;
-            let ownerId = id.split('_');
+            let splitId = id.split('_');
+            let ownerId = splitId[1];
 
-            updateAssignee(ownerId[1], assignee, $('#interest_area').val());
+            updateAssignee(ownerId, assignee, $('#interest_area').val());
 
         }).on('click', '.owner_row', function() {
             let id = $(this)[0].id;
@@ -188,9 +190,6 @@
             let splitId = id.split('_');
             let ownerId = splitId[2];
             let wellType = $(this)[0].value;
-
-
-
 
             updateWellbore(ownerId, wellType, $('#interest_area').val());
         }).on('focusout', '.owner_price', function() {
@@ -223,7 +222,7 @@
             let ownerId = splitId[4];
 
             deleteNote(ownerId, noteId);
-        }).on('click', '.open_phone_modal', function() {
+        }).on('click', '.add_phone_btn', function() {
             let id = $(this)[0].id;
             let splitId = id.split('_');
             let ownerId = splitId[2];
@@ -253,6 +252,7 @@
         });
 
         $('.submit_phone_btn').on('click', function () {
+           let ownerName = $('#owner_name_' + globalOwnerId).val();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -265,6 +265,7 @@
                 url: '/lease-page/addPhone',
                 data: {
                     id: globalOwnerId,
+                    ownerName: ownerName,
                     interestArea: $('#interest_area').val(),
                     phoneDesc: $('#new_phone_desc').val(),
                     phoneNumber: $('#new_phone_number').val(),
@@ -386,7 +387,7 @@
              //     $('.navbar-nav .nav-link').removeClass('active');
              //     $(this).addClass('active');
              // })
-             /* HIGH PRIORITY WELLBORE TX TABLE */
+             /* HIGH PRIORITY WELLBORE TABLE */
 
              $('.wellbore_owner_follow_up').datepicker();
 
@@ -422,6 +423,8 @@
                  let splitId = id.split('_');
                  $('#current_interest_area').val('tx');
                  $('#owner_id').val(splitId[2]);
+
+                 console.log(splitId[2]);
 
                  openPhoneModal(splitId[2], 'tx');
              }).on('change', '.wellbore_owner_follow_up', function () {
@@ -466,7 +469,7 @@
                  deleteNote(ownerId, noteId)
              });
 
-             /* LOWER PRIORITY WELLBORE TX TABLE */
+             /* LOWER PRIORITY WELLBORE TABLE */
 
              let lowPriorityTable = $('.low_priority_wellbore_table').DataTable({
                  "pagingType": "simple",
@@ -498,6 +501,7 @@
                  let splitId = id.split('_');
                  $('#owner_id').val(splitId[2]);
                  $('#current_interest_area').val('tx');
+
 
                  openPhoneModal(splitId[2], 'tx');
              }).on('change', '.wellbore_owner_follow_up', function () {
@@ -544,319 +548,319 @@
              });
 
 
-             /* HIGH PRIORITY WELLBORE NM TABLE */
-
-             let highPriorityTableNM = $('.high_priority_wellbore_tableNM').DataTable({
-                 "pagingType": "simple",
-                 "pageLength": 25,
-                 "aaSorting": [],
-                 "order": [[1, "desc"]]
-             }).on('change', '.owner_assignee', function () {
-                 let id = $(this)[0].id;
-                 let assignee = $(this)[0].value;
-                 let ownerId = id.split('_');
-
-                 updateAssignee(ownerId[1], assignee, 'nm');
-
-
-             }).on('click', '.owner_row', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-
-             }).on('change', '.wellbore_dropdown', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let wellType = $(this)[0].value;
-                 $('#owner_id').val(splitId[2]);
-
-                 updateWellbore(splitId[2], wellType, 'nm');
-
-
-             }).on('click', '.add_phone_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-                 $('#current_interest_area').val('nm');
-
-                 openPhoneModal(splitId[2], 'nm');
-             }).on('change', '.wellbore_owner_follow_up', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let uniqueId = splitId[3];
-                 let date = $('#owner_follow_up_' + uniqueId).val();
-
-
-                 updateFollowUp(uniqueId, date, 'nm');
-             }).on('click', 'td.wellbore-details-control', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[1];
-                 let tr = $(this).closest('tr');
-                 let row = highPriorityTableNM.row(tr);
-                 getNotes(ownerId, tr, row, 'nm')
-
-             }).on('click', '.update_owner_notes_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[4];
-
-                 updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'nm');
-             }).on('mouseover', '.owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[1];
-                 let ownerId = splitId[2];
-
-                 $('#' + id).css('background-color', 'lightgrey');
-                 $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
-             }).on('mouseleave', '.owner_note', function () {
-                 $('.delete_owner_note').css('display', 'none');
-                 $('.owner_note').css('background-color', '#F2EDD7FF');
-             }).on('click', '.delete_owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[3];
-                 let ownerId = splitId[4];
-
-                 deleteNote(ownerId, noteId)
-             });
-
-             /* LOWER PRIORITY WELLBORE NM TABLE */
-
-             let lowPriorityTableNM = $('.low_priority_wellbore_tableNM').DataTable({
-                 "pagingType": "simple",
-                 "pageLength": 25,
-                 "aaSorting": [],
-                 "order": [[1, "desc"]]
-             }).on('change', '.owner_assignee', function () {
-                 let id = $(this)[0].id;
-                 let assignee = $(this)[0].value;
-                 let ownerId = id.split('_');
-
-                 updateAssignee(assignee, ownerId[1], 'nm');
-
-             }).on('click', '.owner_row', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-
-             }).on('change', '.wellbore_dropdown', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let wellType = $(this)[0].value;
-                 $('#owner_id').val(splitId[2]);
-
-                 updateWellbore(splitId[2], wellType, 'nm');
-
-             }).on('click', '.add_phone_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-                 $('#current_interest_area').val('nm');
-
-
-                 openPhoneModal(splitId[2], 'nm');
-             }).on('change', '.wellbore_owner_follow_up', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let uniqueId = splitId[3];
-                 let date = $('#owner_follow_up_' + uniqueId).val();
-
-                 updateFollowUp(uniqueId, date, 'nm');
-             }).on('click', 'td.wellbore-details-control', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[1];
-                 let tr = $(this).closest('tr');
-                 let row = lowPriorityTableNM.row(tr);
-
-                 getNotes(ownerId, tr, row, 'nm')
-
-             }).on('click', '.update_owner_notes_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[4];
-
-                 updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'nm');
-             }).on('mouseover', '.owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[1];
-                 let ownerId = splitId[2];
-
-                 $('#' + id).css('background-color', 'lightgrey');
-                 $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
-             }).on('mouseleave', '.owner_note', function () {
-                 $('.delete_owner_note').css('display', 'none');
-                 $('.owner_note').css('background-color', '#F2EDD7FF');
-             }).on('click', '.delete_owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[3];
-                 let ownerId = splitId[4];
-
-                 deleteNote(ownerId, noteId)
-
-             });
-
-
-             /* HIGH PRIORITY WELLBORE LA TABLE */
-
-
-             let highPriorityTableLA = $('.high_priority_wellbore_tableLA').DataTable({
-                 "pagingType": "simple",
-                 "pageLength": 25,
-                 "aaSorting": [],
-                 "order": [[1, "desc"]]
-             }).on('change', '.owner_assignee', function () {
-                 let id = $(this)[0].id;
-                 let assignee = $(this)[0].value;
-                 let ownerId = id.split('_');
-
-                 updateAssignee(ownerId[1], assignee, 'la');
-
-
-             }).on('click', '.owner_row', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-
-             }).on('change', '.wellbore_dropdown', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let wellType = $(this)[0].value;
-                 $('#owner_id').val(splitId[2]);
-
-                 updateWellbore(splitId[2], wellType, 'la');
-
-
-             }).on('click', '.add_phone_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-                 $('#current_interest_area').val('la');
-
-                 openPhoneModal(splitId[2], 'la');
-             }).on('change', '.wellbore_owner_follow_up', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let uniqueId = splitId[3];
-                 let date = $('#owner_follow_up_' + uniqueId).val();
-
-
-                 updateFollowUp(uniqueId, date, 'la');
-             }).on('click', 'td.wellbore-details-control', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[1];
-                 let tr = $(this).closest('tr');
-                 let row = highPriorityTableLA.row(tr);
-                 getNotes(ownerId, tr, row, 'la')
-
-             }).on('click', '.update_owner_notes_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[4];
-
-                 updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'la');
-             }).on('mouseover', '.owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[1];
-                 let ownerId = splitId[2];
-
-                 $('#' + id).css('background-color', 'lightgrey');
-                 $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
-             }).on('mouseleave', '.owner_note', function () {
-                 $('.delete_owner_note').css('display', 'none');
-                 $('.owner_note').css('background-color', '#F2EDD7FF');
-             }).on('click', '.delete_owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[3];
-                 let ownerId = splitId[4];
-
-                 deleteNote(ownerId, noteId)
-             });
-
-             /* LOWER PRIORITY WELLBORE LA TABLE */
-
-             let lowPriorityTableLA = $('.low_priority_wellbore_tableLA').DataTable({
-                 "pagingType": "simple",
-                 "pageLength": 25,
-                 "aaSorting": [],
-                 "order": [[1, "desc"]]
-             }).on('change', '.owner_assignee', function () {
-                 let id = $(this)[0].id;
-                 let assignee = $(this)[0].value;
-                 let ownerId = id.split('_');
-
-                 updateAssignee(assignee, ownerId[1], 'la');
-
-             }).on('click', '.owner_row', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-
-             }).on('change', '.wellbore_dropdown', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let wellType = $(this)[0].value;
-                 $('#owner_id').val(splitId[2]);
-
-                 updateWellbore(splitId[2], wellType, 'la');
-
-             }).on('click', '.add_phone_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 $('#owner_id').val(splitId[2]);
-                 $('#current_interest_area').val('la');
-
-
-                 openPhoneModal(splitId[2], 'la');
-             }).on('change', '.wellbore_owner_follow_up', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let uniqueId = splitId[3];
-                 let date = $('#owner_follow_up_' + uniqueId).val();
-
-                 updateFollowUp(uniqueId, date, 'la');
-             }).on('click', 'td.wellbore-details-control', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[1];
-                 let tr = $(this).closest('tr');
-                 let row = lowPriorityTableLA.row(tr);
-
-                 getNotes(ownerId, tr, row, 'la')
-
-             }).on('click', '.update_owner_notes_btn', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let ownerId = splitId[4];
-
-                 updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'la');
-             }).on('mouseover', '.owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[1];
-                 let ownerId = splitId[2];
-
-                 $('#' + id).css('background-color', 'lightgrey');
-                 $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
-             }).on('mouseleave', '.owner_note', function () {
-                 $('.delete_owner_note').css('display', 'none');
-                 $('.owner_note').css('background-color', '#F2EDD7FF');
-             }).on('click', '.delete_owner_note', function () {
-                 let id = $(this)[0].id;
-                 let splitId = id.split('_');
-                 let noteId = splitId[3];
-                 let ownerId = splitId[4];
-
-                 deleteNote(ownerId, noteId)
-
-             });
+             // /* HIGH PRIORITY WELLBORE NM TABLE */
+             //
+             // let highPriorityTableNM = $('.high_priority_wellbore_tableNM').DataTable({
+             //     "pagingType": "simple",
+             //     "pageLength": 25,
+             //     "aaSorting": [],
+             //     "order": [[1, "desc"]]
+             // }).on('change', '.owner_assignee', function () {
+             //     let id = $(this)[0].id;
+             //     let assignee = $(this)[0].value;
+             //     let ownerId = id.split('_');
+             //
+             //     updateAssignee(ownerId[1], assignee, 'nm');
+             //
+             //
+             // }).on('click', '.owner_row', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //
+             // }).on('change', '.wellbore_dropdown', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let wellType = $(this)[0].value;
+             //     $('#owner_id').val(splitId[2]);
+             //
+             //     updateWellbore(splitId[2], wellType, 'nm');
+             //
+             //
+             // }).on('click', '.add_phone_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //     $('#current_interest_area').val('nm');
+             //
+             //     openPhoneModal(splitId[2], 'nm');
+             // }).on('change', '.wellbore_owner_follow_up', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let uniqueId = splitId[3];
+             //     let date = $('#owner_follow_up_' + uniqueId).val();
+             //
+             //
+             //     updateFollowUp(uniqueId, date, 'nm');
+             // }).on('click', 'td.wellbore-details-control', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[1];
+             //     let tr = $(this).closest('tr');
+             //     let row = highPriorityTableNM.row(tr);
+             //     getNotes(ownerId, tr, row, 'nm')
+             //
+             // }).on('click', '.update_owner_notes_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[4];
+             //
+             //     updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'nm');
+             // }).on('mouseover', '.owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[1];
+             //     let ownerId = splitId[2];
+             //
+             //     $('#' + id).css('background-color', 'lightgrey');
+             //     $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
+             // }).on('mouseleave', '.owner_note', function () {
+             //     $('.delete_owner_note').css('display', 'none');
+             //     $('.owner_note').css('background-color', '#F2EDD7FF');
+             // }).on('click', '.delete_owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[3];
+             //     let ownerId = splitId[4];
+             //
+             //     deleteNote(ownerId, noteId)
+             // });
+             //
+             // /* LOWER PRIORITY WELLBORE NM TABLE */
+             //
+             // let lowPriorityTableNM = $('.low_priority_wellbore_tableNM').DataTable({
+             //     "pagingType": "simple",
+             //     "pageLength": 25,
+             //     "aaSorting": [],
+             //     "order": [[1, "desc"]]
+             // }).on('change', '.owner_assignee', function () {
+             //     let id = $(this)[0].id;
+             //     let assignee = $(this)[0].value;
+             //     let ownerId = id.split('_');
+             //
+             //     updateAssignee(assignee, ownerId[1], 'nm');
+             //
+             // }).on('click', '.owner_row', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //
+             // }).on('change', '.wellbore_dropdown', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let wellType = $(this)[0].value;
+             //     $('#owner_id').val(splitId[2]);
+             //
+             //     updateWellbore(splitId[2], wellType, 'nm');
+             //
+             // }).on('click', '.add_phone_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //     $('#current_interest_area').val('nm');
+             //
+             //
+             //     openPhoneModal(splitId[2], 'nm');
+             // }).on('change', '.wellbore_owner_follow_up', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let uniqueId = splitId[3];
+             //     let date = $('#owner_follow_up_' + uniqueId).val();
+             //
+             //     updateFollowUp(uniqueId, date, 'nm');
+             // }).on('click', 'td.wellbore-details-control', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[1];
+             //     let tr = $(this).closest('tr');
+             //     let row = lowPriorityTableNM.row(tr);
+             //
+             //     getNotes(ownerId, tr, row, 'nm')
+             //
+             // }).on('click', '.update_owner_notes_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[4];
+             //
+             //     updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'nm');
+             // }).on('mouseover', '.owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[1];
+             //     let ownerId = splitId[2];
+             //
+             //     $('#' + id).css('background-color', 'lightgrey');
+             //     $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
+             // }).on('mouseleave', '.owner_note', function () {
+             //     $('.delete_owner_note').css('display', 'none');
+             //     $('.owner_note').css('background-color', '#F2EDD7FF');
+             // }).on('click', '.delete_owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[3];
+             //     let ownerId = splitId[4];
+             //
+             //     deleteNote(ownerId, noteId)
+             //
+             // });
+             //
+             //
+             // /* HIGH PRIORITY WELLBORE LA TABLE */
+             //
+             //
+             // let highPriorityTableLA = $('.high_priority_wellbore_tableLA').DataTable({
+             //     "pagingType": "simple",
+             //     "pageLength": 25,
+             //     "aaSorting": [],
+             //     "order": [[1, "desc"]]
+             // }).on('change', '.owner_assignee', function () {
+             //     let id = $(this)[0].id;
+             //     let assignee = $(this)[0].value;
+             //     let ownerId = id.split('_');
+             //
+             //     updateAssignee(ownerId[1], assignee, 'la');
+             //
+             //
+             // }).on('click', '.owner_row', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //
+             // }).on('change', '.wellbore_dropdown', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let wellType = $(this)[0].value;
+             //     $('#owner_id').val(splitId[2]);
+             //
+             //     updateWellbore(splitId[2], wellType, 'la');
+             //
+             //
+             // }).on('click', '.add_phone_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //     $('#current_interest_area').val('la');
+             //
+             //     openPhoneModal(splitId[2], 'la');
+             // }).on('change', '.wellbore_owner_follow_up', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let uniqueId = splitId[3];
+             //     let date = $('#owner_follow_up_' + uniqueId).val();
+             //
+             //
+             //     updateFollowUp(uniqueId, date, 'la');
+             // }).on('click', 'td.wellbore-details-control', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[1];
+             //     let tr = $(this).closest('tr');
+             //     let row = highPriorityTableLA.row(tr);
+             //     getNotes(ownerId, tr, row, 'la')
+             //
+             // }).on('click', '.update_owner_notes_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[4];
+             //
+             //     updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'la');
+             // }).on('mouseover', '.owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[1];
+             //     let ownerId = splitId[2];
+             //
+             //     $('#' + id).css('background-color', 'lightgrey');
+             //     $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
+             // }).on('mouseleave', '.owner_note', function () {
+             //     $('.delete_owner_note').css('display', 'none');
+             //     $('.owner_note').css('background-color', '#F2EDD7FF');
+             // }).on('click', '.delete_owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[3];
+             //     let ownerId = splitId[4];
+             //
+             //     deleteNote(ownerId, noteId)
+             // });
+             //
+             // /* LOWER PRIORITY WELLBORE LA TABLE */
+             //
+             // let lowPriorityTableLA = $('.low_priority_wellbore_tableLA').DataTable({
+             //     "pagingType": "simple",
+             //     "pageLength": 25,
+             //     "aaSorting": [],
+             //     "order": [[1, "desc"]]
+             // }).on('change', '.owner_assignee', function () {
+             //     let id = $(this)[0].id;
+             //     let assignee = $(this)[0].value;
+             //     let ownerId = id.split('_');
+             //
+             //     updateAssignee(assignee, ownerId[1], 'la');
+             //
+             // }).on('click', '.owner_row', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //
+             // }).on('change', '.wellbore_dropdown', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let wellType = $(this)[0].value;
+             //     $('#owner_id').val(splitId[2]);
+             //
+             //     updateWellbore(splitId[2], wellType, 'la');
+             //
+             // }).on('click', '.add_phone_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     $('#owner_id').val(splitId[2]);
+             //     $('#current_interest_area').val('la');
+             //
+             //
+             //     openPhoneModal(splitId[2], 'la');
+             // }).on('change', '.wellbore_owner_follow_up', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let uniqueId = splitId[3];
+             //     let date = $('#owner_follow_up_' + uniqueId).val();
+             //
+             //     updateFollowUp(uniqueId, date, 'la');
+             // }).on('click', 'td.wellbore-details-control', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[1];
+             //     let tr = $(this).closest('tr');
+             //     let row = lowPriorityTableLA.row(tr);
+             //
+             //     getNotes(ownerId, tr, row, 'la')
+             //
+             // }).on('click', '.update_owner_notes_btn', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let ownerId = splitId[4];
+             //
+             //     updateNotes(ownerId, $('#lease_name_' + ownerId).val(), 'la');
+             // }).on('mouseover', '.owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[1];
+             //     let ownerId = splitId[2];
+             //
+             //     $('#' + id).css('background-color', 'lightgrey');
+             //     $('#delete_owner_note_' + noteId + '_' + ownerId).css('display', 'inherit');
+             // }).on('mouseleave', '.owner_note', function () {
+             //     $('.delete_owner_note').css('display', 'none');
+             //     $('.owner_note').css('background-color', '#F2EDD7FF');
+             // }).on('click', '.delete_owner_note', function () {
+             //     let id = $(this)[0].id;
+             //     let splitId = id.split('_');
+             //     let noteId = splitId[3];
+             //     let ownerId = splitId[4];
+             //
+             //     deleteNote(ownerId, noteId)
+             //
+             // });
 
 
 
@@ -896,6 +900,7 @@
                      url: '/lease-page/addPhone',
                      data: {
                          id: $('#owner_id').val(),
+                         ownerName: $('#owner_name_' + $('#owner_id').val()).val(),
                          interestArea: $('#current_interest_area').val(),
                          phoneDesc: $('#new_phone_desc').val(),
                          phoneNumber: $('#new_phone_number').val(),
@@ -953,7 +958,6 @@
                  interestArea: interestArea
              },
              success: function success(data) {
-                 console.log(data);
                  let noteContainer = '<div class="col-md-6">' +
                      '<div style="text-align:center;" class="col-md-12">' +
                      '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label>' +
@@ -1158,6 +1162,9 @@
      }
 
      function getOwnerNotes( ownerId ) {
+         console.log(ownerId);
+         console.log($('#lease_string').val());
+         console.log($('#previous_owner_notes_'+ownerId));
          $.ajaxSetup({
              headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1243,160 +1250,146 @@
                  if (($('#interest_area').val() === 'eagleford' || $('#interest_area').val() === 'wtx' || $('#interest_area').val() === 'etx' || $('#interest_area').val() === 'tx')) {
                      ownerBody = '<div class="row">' +
                          '<div class="col-md-6">' +
-                         '<h3 style="text-align: center;">Lease Info</h3>' +
-                         '<div class="containers">' +
-                         '<label for="lease_name_display_' + id + '">Lease Name: </label>' +
-                         '<span id="lease_name_display_' + id + '"></span><br>' +
-                         '<label for="lease_description_' + id + '">Lease Description: </label>' +
-                         '<span id="lease_description_' + id + '"></span><br><br>' +
-                         '<label for="rrc_lease_number_' + id + '">RRC Lease Number: </label>' +
-                         '<span id="rrc_lease_number_' + id + '"></span><br>' +
-                         '</div></div>' +
+                     '<h3 style="text-align: center;">Mineral Interest & Pricing Info.  </h3>' +
+                     '<div class="containers">' +
+                     '<div class="row">' +
+                     '<div class="offset-2 col-md-5">' +
+                     '<label class="addit_labels" for="decimal_interest_' + id + '">Decimal Interest: </label>' +
+                     '<span id="decimal_interest_' + id + '"></span>' +
+                     '</div>' +
+                     '<div class="col-md-4">' +
+                     '<label class="addit_labels" style="margin-left:-15%;" for="interest_type_' + id + '">Interest Type: </label>' +
+                     '<span id="interest_type_' + id + '"></span>' +
+                     '</div></div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="interest_type_' + id + '">Monthly Revenue: </label>' +
+                     '<input type="text" style="margin-left:8.5%;" class="form-control monthly_revenue" id="monthly_revenue_' + id + '" disabled />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="owner_price_' + id + '">Pricing per NRA: </label>' +
+                     '<input type="text" style="margin-left:10%;" class="form-control owner_price" name="owner_price" id="owner_price_' + id + '" placeholder="$" />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="net_royalty_acres_' + id + '">Net Royalty Acres: </label>' +
+                     '<input type="text" style="margin-left:7.5%;" class="form-control net_royalty_acres" disabled id="net_royalty_acres_' + id + '" />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="total_price_for_interest_' + id + '">Total Price For Interest: </label>' +
+                     '<input type="text" style="margin-left:2%;" class="form-control total_price_for_interest" disabled id="total_price_for_interest_' + id + '" />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="oil_price">Oil Price: </label>' +
+                     '<input type="text" style="margin-left:18.5%;" class="form-control oil_price" disabled />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="gas_price">Gas Price: </label>' +
+                     '<input type="text" style="margin-left:17%;" class="form-control gas_price" disabled />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="change_product">Change Product: </label>' +
+                     '<select style="margin-left:9%;"  class="form-control change_product" id="change_product_' + id + '">' +
+                     '<option value="none">Select a Product</option>' +
+                     '<option value="oil" selected>Oil</option>' +
+                     '<option value="gas" >Gas</option>' +
+                     '</select>' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" id="bnp_label_' + id + '" for="bnp_' + id + '">BBL: </label>' +
+                     '<input type="text" style="margin-left:22.8%;" class="form-control bnp" disabled id="bnp_' + id + '" />' +
+                     '</div>' +
+                     '<div class="form-group form-inline">' +
+                     '<label class="addit_labels" for="ytp">Years to PayOff: </label>' +
+                     '<input type="text" style="margin-left:10%;" class="form-control ytp" id="ytp_' + id + '" disabled />' +
+                     '</div>' +
+                     '</div></div>' +
                          '<div class="col-md-6">' +
                          '<h3 style="text-align: center;">Well Production</h3>' +
                          '<div class="containers">' +
                          '<label class="addit_labels" for="active_well_count_' + id + '">Well Count: </label>' +
-                         '<span id="active_well_count_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="first_prod_' + id + '">First Prod Date: </label>' +
-                         '<span id="first_prod_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="last_prod_' + id + '">Last Prod Date: </label>' +
-                         '<span id="last_prod_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="years_of_prod_' + id + '">Years of Production: </label>' +
-                         '<span id="years_of_prod_' + id + '"></span><br>' +
+                         '<span id="active_well_count_' + id + '"></span>' +
 
+                         '<label style="margin-left:25%;" class="addit_labels" for="first_prod_' + id + '">First Prod Date: </label>' +
+                         '<span id="first_prod_' + id + '"></span><br>' +
+
+                         '<label class="addit_labels" for="years_of_prod_' + id + '">Years of Production: </label>' +
+                         '<span id="years_of_prod_' + id + '"></span>' +
+
+                         '<label style="margin-left:14%;" class="addit_labels" for="last_prod_' + id + '">Last Prod Date: </label>' +
+                         '<span id="last_prod_' + id + '"></span><br>' +
 
                          '<label class="addit_labels" for="cum_prod_oil_' + id + '">Total Oil Production: </label>' +
-                         '<span id="cum_prod_oil_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="cum_prod_gas_' + id + '">Total Gas Production: </label>' +
-                         '<span id="cum_prod_gas_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="bbls_' + id + '">BBLS (OIL): </label>' +
+                         '<span id="cum_prod_oil_' + id + '"></span>' +
+
+                         '<label style="margin-left:9%;" class="addit_labels" for="bbls_' + id + '">BBLS (OIL): </label>' +
                          '<span id="bbls_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="gbbls_' + id + '">MNX (GAS): </label>' +
+
+                         '<label class="addit_labels" for="cum_prod_gas_' + id + '">Total Gas Production: </label>' +
+                         '<span id="cum_prod_gas_' + id + '"></span>' +
+
+                         '<label style="margin-left:6%;" class="addit_labels" for="gbbls_' + id + '">MNX (GAS): </label>' +
                          '<span id="gbbls_' + id + '"></span><br>' +
-                         '' +
 
 
-                         '</div>' +
                          '</div></div>' +
-                         '<div class="row"><div class="col-md-6">' +
-                         '<h3 style="text-align: center;">Mineral Interest & Pricing Info.  </h3>' +
-                         '<div class="containers">' +
-                         '<div class="row">' +
-                         '<div class="offset-2 col-md-5">' +
-                         '<label class="addit_labels" for="decimal_interest_' + id + '">Decimal Interest: </label>' +
-                         '<span id="decimal_interest_' + id + '"></span>' +
-                         '</div>' +
-                         '<div class="col-md-4">' +
-                         '<label class="addit_labels" style="margin-left:-15%;" for="interest_type_' + id + '">Interest Type: </label>' +
-                         '<span id="interest_type_' + id + '"></span>' +
-                         '</div></div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="interest_type_' + id + '">Monthly Revenue: </label>' +
-                         '<input type="text" style="margin-left:8.5%;" class="form-control monthly_revenue" id="monthly_revenue_' + id + '" disabled />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="owner_price_' + id + '">Pricing per NRA: </label>' +
-                         '<input type="text" style="margin-left:10%;" class="form-control owner_price" name="owner_price" id="owner_price_' + id + '" placeholder="$" />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="net_royalty_acres_' + id + '">Net Royalty Acres: </label>' +
-                         '<input type="text" style="margin-left:7.5%;" class="form-control net_royalty_acres" disabled id="net_royalty_acres_' + id + '" />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="total_price_for_interest_' + id + '">Total Price For Interest: </label>' +
-                         '<input type="text" style="margin-left:2%;" class="form-control total_price_for_interest" disabled id="total_price_for_interest_' + id + '" />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="oil_price">Oil Price: </label>' +
-                         '<input type="text" style="margin-left:18.5%;" class="form-control oil_price" disabled />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="gas_price">Gas Price: </label>' +
-                         '<input type="text" style="margin-left:17%;" class="form-control gas_price" disabled />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="change_product">Change Product: </label>' +
-                         '<select style="margin-left:9%;"  class="form-control change_product" id="change_product_' + id + '">' +
-                         '<option value="none">Select a Product</option>' +
-                         '<option value="oil" selected>Oil</option>' +
-                         '<option value="gas" >Gas</option>' +
-                         '</select>' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" id="bnp_label_' + id + '" for="bnp_' + id + '">BBL: </label>' +
-                         '<input type="text" style="margin-left:22.8%;" class="form-control bnp" disabled id="bnp_' + id + '" />' +
-                         '</div>' +
-                         '<div class="form-group form-inline">' +
-                         '<label class="addit_labels" for="ytp">Years to PayOff: </label>' +
-                         '<input type="text" style="margin-left:10%;" class="form-control ytp" id="ytp_' + id + '" disabled />' +
-                         '</div>' +
-                         '</div></div>' +
-                         '<div class="col-md-6">' +
-                         '<div style="text-align:center;" class="col-md-12">' +
-                         '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label>' +
-                         '<div class="previous_owner_notes" id="previous_owner_notes_' + id + '" name="previous_owner_notes" contenteditable="false"></div>' +
-                         '</div>' +
-                         '<div style="text-align:center;" class="col-md-12">' +
-                         '<label style="font-size:20px; font-weight:bold;" for="owner_notes_' + id + '">Enter Owner Notes</label>' +
-                         '<textarea rows="4" class="owner_notes" id="owner_notes_' + id + '" name="notes" style="width:100%;" placeholder="Enter Notes: "></textarea>' +
-                         '<div class="col-md-12">' +
-                         '<button type="button" id="update_owner_notes_btn_' + id + '" class="btn btn-primary update_owner_notes_btn">Update Notes</button>' +
+                         '<div style="text-align:center;" class="col-md-12"> ' +
+                         '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label> ' +
+                         '<div class="previous_owner_notes" id="previous_owner_notes_' + id + '" name="previous_owner_notes" contenteditable="false"></div> ' +
+                         '</div> ' +
+                         '<div style="text-align:center;" class="col-md-12"> ' +
+                         '<label style="font-size:20px; font-weight:bold;" for="owner_notes_' + id + '">Enter Owner Notes</label> ' +
+                         '<textarea rows="4" class="owner_notes" id="owner_notes_' + id + '" name="notes" style="width:100%;" placeholder="Enter Notes: "></textarea> ' +
+                         '<div class="col-md-12"> ' +
+                         '<button type="button" id="update_owner_notes_btn_' + id + '" class="btn btn-primary update_owner_notes_btn">Update Notes</button> ' +
                          '</div></div></div>';
-                 } else if ($('#is_producing').val() === 'non-producing') {
+
+
+                 } else if ($('#interest_area').val() === 'nm' || $('#interest_area').val() === 'la') {
                      let pricingBody = formatPricingFields(id, data.user_interest_type);
 
-                      ownerBody = '<div class="row">' +
-                         '<div class="col-md-6">' +
-                         '<h3 style="text-align: center;">Lease Info</h3>' +
-                         '<div class="containers">' +
-                         '<label for="lease_name_display_' + id + '">Lease Name: </label>' +
-                         '<span id="lease_name_display_' + id + '"></span><br>' +
-                         '</div></div>' +
-                         '<div class="col-md-6">' +
-                         '<h3 style="text-align: center;">Well Production</h3>' +
-                         '<div class="containers">' +
-                         '<label class="addit_labels" for="active_well_count_' + id + '">Well Count: </label>' +
-                         '<span id="active_well_count_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="first_prod_' + id + '">First Prod Date: </label>' +
-                         '<span id="first_prod_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="last_prod_' + id + '">Last Prod Date: </label>' +
-                         '<span id="last_prod_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="years_of_prod_' + id + '">Years of Production: </label>' +
-                         '<span id="years_of_prod_' + id + '"></span><br>' +
-
-
-                         '<label class="addit_labels" for="cum_prod_oil_' + id + '">Total Oil Production: </label>' +
-                         '<span id="cum_prod_oil_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="cum_prod_gas_' + id + '">Total Gas Production: </label>' +
-                         '<span id="cum_prod_gas_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="bbls_' + id + '">BBLS (OIL): </label>' +
-                         '<span id="bbls_' + id + '"></span><br>' +
-                         '<label class="addit_labels" for="gbbls_' + id + '">MNX (GAS): </label>' +
-                         '<span id="gbbls_' + id + '"></span><br>' +
-                         '' +
-
-
-                         '</div>' +
-                         '</div></div>' +
-                         '<div class="row"><div class="col-md-6">' +
+                     ownerBody = '<div class="row"><div class="col-md-6">' +
                          '<h3 style="text-align: center;">Mineral Interest & Pricing Info.  </h3>' +
                          '<div class="containers">' +
                          '<div class="row">' +
                          '<div class="offset-2 col-md-5">' +
-
-                          pricingBody +
+                         pricingBody +
 
                          '<div class="col-md-6">' +
-                         '<div style="text-align:center;" class="col-md-12">' +
-                         '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label>' +
-                         '<div class="previous_owner_notes" id="previous_owner_notes_' + id + '" name="previous_owner_notes" contenteditable="false"></div>' +
+                         '<h3 style="text-align: center;">Well Production</h3>' +
+                         '<div class="containers">' +
+                         '<label class="addit_labels" for="active_well_count_' + id + '">Well Count: </label>' +
+                         '<span id="active_well_count_' + id + '"></span>' +
+
+                         '<label style="margin-left:25%;" class="addit_labels" for="first_prod_' + id + '">First Prod Date: </label>' +
+                         '<span id="first_prod_' + id + '"></span><br>' +
+
+                         '<label class="addit_labels" for="years_of_prod_' + id + '">Years of Production: </label>' +
+                         '<span id="years_of_prod_' + id + '"></span>' +
+
+                         '<label style="margin-left:14%;" class="addit_labels" for="last_prod_' + id + '">Last Prod Date: </label>' +
+                         '<span id="last_prod_' + id + '"></span><br>' +
+
+                         '<label class="addit_labels" for="cum_prod_oil_' + id + '">Total Oil Production: </label>' +
+                         '<span id="cum_prod_oil_' + id + '"></span>' +
+
+                         '<label style="margin-left:9%;" class="addit_labels" for="bbls_' + id + '">BBLS (OIL): </label>' +
+                         '<span id="bbls_' + id + '"></span><br>' +
+
+                         '<label class="addit_labels" for="cum_prod_gas_' + id + '">Total Gas Production: </label>' +
+                         '<span id="cum_prod_gas_' + id + '"></span>' +
+
+                         '<label style="margin-left:6%;" class="addit_labels" for="gbbls_' + id + '">MNX (GAS): </label>' +
+                         '<span id="gbbls_' + id + '"></span><br>' +
                          '</div>' +
-                         '<div style="text-align:center;" class="col-md-12">' +
-                         '<label style="font-size:20px; font-weight:bold;" for="owner_notes_' + id + '">Enter Owner Notes</label>' +
-                         '<textarea rows="4" class="owner_notes" id="owner_notes_' + id + '" name="notes" style="width:100%;" placeholder="Enter Notes: "></textarea>' +
-                         '<div class="col-md-12">' +
-                         '<button type="button" id="update_owner_notes_btn_' + id + '" class="btn btn-primary update_owner_notes_btn">Update Notes</button>' +
-                         '</div></div></div>';
+                         '<div style="text-align:center;" class="col-md-12"> ' +
+                         '<label style="font-size:20px; font-weight:bold;" for="notes">Owner Notes</label> ' +
+                         '<div class="previous_owner_notes" id="previous_owner_notes_' + id + '" name="previous_owner_notes" contenteditable="false"></div> ' +
+                         '</div> ' +
+                         '<div style="text-align:center;" class="col-md-12"> ' +
+                         '<label style="font-size:20px; font-weight:bold;" for="owner_notes_' + id + '">Enter Owner Notes</label> ' +
+                         '<textarea rows="4" class="owner_notes" id="owner_notes_' + id + '" name="notes" style="width:100%;" placeholder="Enter Notes: "></textarea> ' +
+                         '<div class="col-md-12"> ' +
+                         '<button type="button" id="update_owner_notes_btn_' + id + '" class="btn btn-primary update_owner_notes_btn">Update Notes</button> ' +
+                         '</div></div></div></div>';
                  }
 
 
@@ -1412,10 +1405,6 @@
                  if (data.price !== null) {
                      price = data.price;
                  }
-
-                 $('#lease_name_display_'+id).text(' ' + data.lease_name);
-                 $('#lease_description_'+id).text(' ' + data.lease_description);
-                 $('#rrc_lease_number_'+id).text(' ' + data.rrc_lease_number);
 
                  $('#owner_price_'+id).val(' $' + price);
 
@@ -1751,6 +1740,7 @@
      }
 
      function openPhoneModal(id, interestArea) {
+         let ownerName = $('#owner_name_' + id).val();
          $('#new_phone_desc').val('').text('');
          $('#new_phone_number').val('').text('');
 
@@ -1767,7 +1757,8 @@
              url: '/lease-page/getOwnerNumbers',
              data: {
                  id: id,
-                 interestArea: interestArea
+                 interestArea: interestArea,
+                 ownerName: ownerName
              },
              success: function success(data) {
                  console.log(data);

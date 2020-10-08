@@ -15,12 +15,7 @@ use Illuminate\Support\Facades\Log;
 class OwnersController extends Controller
 {
 
-    private $txInterestAreas = ['eagleford', 'wtx', 'tx'];
-    private $nmInterestAreas = ['nm'];
-
     public function index(Request $request) {
-
-
 
         try {
             $ownerName = $request->ownerName;
@@ -33,16 +28,28 @@ class OwnersController extends Controller
             $ownerPhoneNumbers = OwnerPhoneNumber::where('owner_name', $ownerName)->orderBy('soft_delete', 'ASC')->get();
             $email = OwnerEmail::where('name', $ownerName)->value('email');
 
-            if (in_array($request->interestArea, $this->txInterestAreas)) {
+
                 if (!$ownerNotes->isEmpty()) {
                     $ownerLeaseData = DB::table('mineral_owners')
                         ->where('owner', $ownerName)
                         ->join('owner_notes', 'mineral_owners.owner', '=', 'owner_notes.owner_name')
                         ->select('owner_notes.*', 'mineral_owners.*')
                         ->groupBy('mineral_owners.lease_name')
+                        ->limit(500)
                         ->get();
+
+                    if ($ownerLeaseData->isEmpty()) {
+                        $ownerLeaseData = DB::table('mineral_owners')
+                            ->where('Grantor', $ownerName)
+                            ->join('owner_notes', 'mineral_owners.Grantor', '=', 'owner_notes.owner_name')
+                            ->select('owner_notes.*', 'mineral_owners.*')
+                            ->get();
+                    }
                 } else {
-                    $ownerLeaseData = DB::table('mineral_owners')->where('owner', $ownerName)->get();
+                    $ownerLeaseData = DB::table('mineral_owners')->where('owner', $ownerName)->limit(500)->get();
+                    if ($ownerLeaseData->isEmpty()) {
+                        $ownerLeaseData = DB::table('mineral_owners')->where('Grantor', $ownerName)->get();
+                    }
                 }
                 $count = 0;
 
@@ -75,61 +82,6 @@ class OwnersController extends Controller
                     }
                     $count++;
                 }
-            } else if (in_array($request->interestArea, $this->nmInterestAreas)) {
-
-
-                if (!$ownerNotes->isEmpty()) {
-                    $ownerLeaseData = DB::table('legal_leases')
-                        ->where('Grantor', $ownerName)
-                        ->join('owner_notes', 'legal_leases.Grantor', '=', 'owner_notes.owner_name')
-                        ->select('owner_notes.*', 'legal_leases.*')
-                        ->groupBy('legal_leases.permit_stitch_id')
-
-                        ->get();
-                } else {
-                    $ownerLeaseData = DB::table('legal_leases')->where('Grantor', $ownerName)->get();
-                }
-                $count = 0;
-                foreach ($ownerLeaseData as $ownerLease) {
-                    $leaseNote = '';
-
-                    if ($ownerLease->permit_stitch_id != null) {
-                    $permits = Permit::where('permit_id', $ownerLease->permit_stitch_id)->first();
-
-                        $ownerLease->lease_name = $permits->lease_name;
-
-                        $notes = OwnerNote::where('owner_name', $ownerLease->Grantor)->where('lease_name', $permits->lease_name)->orderBy('created_at', 'DESC')->get();
-
-                        if (is_object(($permits))) {
-                            $permitObj[$count]['lease_name'] = $permits->lease_name;
-                            $permitObj[$count]['reported_operator'] = $permits->reported_operator;
-                            $permitObj[$count]['permit_id'] = $permits->permit_id;
-                        } else {
-                            $permitObj[$count]['lease_name'] = '';
-                            $permitObj[$count]['reported_operator'] = '';
-                            $permitObj[$count]['permit_id'] = '';
-                        }
-
-                        if ($notes->isEmpty()) {
-                            $noteArray[$count]['lease_name'] = '';
-                            $noteArray[$count]['notes'] = '';
-
-                        } else {
-                            foreach ($notes as $note) {
-                                $leaseNote .= $note->notes;
-                            }
-                            $noteArray[$count]['lease_name'] = $notes[0]->lease_name;
-                            $noteArray[$count]['notes'] = $leaseNote;
-                        }
-                        $count++;
-                    } else {
-                        $ownerLease->lease_name = 'Na';
-
-                    }
-                }
-
-            }
-
 
             return view('owner', compact('ownerName', 'ownerNotes', 'interestArea', 'isProducing', 'ownerPhoneNumbers','ownerLeaseData', 'permitObj', 'noteArray', 'email' ));
         } catch( \Exception $e) {

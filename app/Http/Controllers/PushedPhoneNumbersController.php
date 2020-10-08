@@ -18,27 +18,10 @@ class PushedPhoneNumbersController extends Controller
 
             $pushedPhoneNumbers = DB::table('owner_phone_numbers')
                 ->where('is_pushed', 1)
-                ->where('LeaseId', null)
-                ->join('mineral_owners', 'owner_phone_numbers.owner_name', '=', 'mineral_owners.owner')
-                ->select('owner_phone_numbers.*', 'mineral_owners.owner_address', 'mineral_owners.owner_city', 'mineral_owners.owner_state', 'mineral_owners.owner_zip')
+                ->join('mineral_owners', 'owner_phone_numbers.owner_id', '=', 'mineral_owners.id')
+                ->select('owner_phone_numbers.*', 'mineral_owners.owner_address', 'mineral_owners.owner_city', 'mineral_owners.owner_state', 'mineral_owners.owner_zip', 'mineral_owners.GrantorAddress')
                 ->groupBy('owner_phone_numbers.phone_number')
                 ->orderBy('owner_phone_numbers.owner_name', 'ASC')->get();
-
-
-//            $pushPhoneNumbersNM = DB::table('owner_phone_numbers')
-//                ->where('is_pushed', 1)
-//                ->join('legal_leases', 'owner_phone_numbers.LeaseId', '=', 'legal_leases.LeaseId')
-//                ->select('owner_phone_numbers.*', 'legal_leases.Grantor', 'legal_leases.GrantorAddress')
-//                ->orderBy('owner_phone_numbers.owner_name', 'ASC')->get();
-//           $phoneNumbers = OwnerPhoneNumber::where('owner_id', null)->get();
-//
-//           foreach ( $phoneNumbers as $phoneNumber) {
-//               if ($phoneNumber->owner_id === '' || $phoneNumber->owner_id === null) {
-//                   $owner = MineralOwner::where('owner', $phoneNumber->owner_name)->first();
-//
-//                   OwnerPhoneNumber::where('owner_name', $phoneNumber->owner_name)->update(['owner_id' => $owner->id]);
-//               }
-//           }
 
             return view('pushedPhoneNumbers', compact('pushedPhoneNumbers', 'ownerArray'));
         } catch (\Exception $e) {
@@ -56,7 +39,9 @@ class PushedPhoneNumbersController extends Controller
             $newOwnerPhoneNumber = new OwnerPhoneNumber();
 
             $newOwnerPhoneNumber->phone_number = $request->phoneNumber;
+            $newOwnerPhoneNumber->owner_id = $request->ownerId;
             $newOwnerPhoneNumber->owner_name = $ownerName;
+            $newOwnerPhoneNumber->lease_name = $request->leaseName;
             $newOwnerPhoneNumber->phone_desc = $request->phoneDesc;
 
             $newOwnerPhoneNumber->save();

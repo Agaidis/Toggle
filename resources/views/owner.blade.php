@@ -56,7 +56,7 @@
                                         <tr>
                                             <th class="text-center">Id</th>
                                             <th class="text-center">Lease Name</th>
-                                            @if (isset($ownerLeaseData[0]) && ($interestArea == 'eagleford' || $interestArea == 'wtx' || $interestArea == 'tx'))
+                                            @if (isset($ownerLeaseData[0]))
                                                 <th style="width:20%;" class="text-center">Lease Description</th>
                                                 <th class="text-center">ODI</th>
                                                 <th class="text-center">Lease Notes</th>
@@ -78,7 +78,7 @@
                                                         <td class="text-center">{{$ownerLease->lease_name}}</td>
                                                     @endif
 
-                                                    @if (isset($ownerLeaseData[0]) && ($interestArea == 'eagleford' || $interestArea == 'wtx' || $interestArea == 'tx'))
+                                                    @if (isset($ownerLeaseData[0]))
                                                         <td class="text-center">{{$ownerLease->lease_description}}</td>
                                                         <td class="text-center">{{$ownerLease->owner_decimal_interest}}</td>
                                                     @endif

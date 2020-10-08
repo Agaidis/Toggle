@@ -6,6 +6,7 @@ use App\ErrorLog;
 use App\Http\Controllers\APIManager;
 use App\Jobs\LegalLeases;
 use App\LegalLease;
+use App\MineralOwner;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
@@ -98,9 +99,9 @@ class GetLegalLeases extends Command
 
                         for ($i = 0; $i < count($decodedLeases); $i++) {
 
-                            LegalLease::updateOrCreate(['LeaseId' => $decodedLeases[$i]->LeaseId],
+                            MineralOwner::updateOrCreate(['LeaseId' => $decodedLeases[$i]->LeaseId],
                                 [
-                                    'MappingID' => $decodedLeases[$i]->MappingID,
+                                   // 'MappingID' => $decodedLeases[$i]->MappingID,
                                     'AreaAcres' => $decodedLeases[$i]->AreaAcres,
                                     'Abstract' => $decodedLeases[$i]->Abstract,
                                     'AbstractNo' => $decodedLeases[$i]->AbstractNo,

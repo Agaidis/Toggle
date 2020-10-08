@@ -14,9 +14,9 @@ class AddLegalLeaseExtmonths extends Migration
     public function up()
     {
         Schema::table('legal_leases', function (Blueprint $table) {
-            $table->string('EffectiveDate')->default('n/a');
-            $table->string('ExpirationofPrimaryTerm')->default('n/a');
-            $table->string('ExtTermMonths')->default('n/a');
+//            $table->string('EffectiveDate')->default('n/a');
+//            $table->string('ExpirationofPrimaryTerm')->default('n/a');
+//            $table->string('ExtTermMonths')->default('n/a');
         });
     }
 

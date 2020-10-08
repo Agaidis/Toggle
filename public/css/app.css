@@ -11133,7 +11133,7 @@ label {
 }
 
 .previous_owner_notes {
-    height:300px;
+    height:160px;
 }
 
 .phone_number_containers {
@@ -11160,6 +11160,9 @@ label {
     font-size:20px;
 }
 
+#grantor_owner_th {
+    width:100px!important;
+}
 #lease_name_select, #well_name_select {
     width:50%;
 }

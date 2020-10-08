@@ -37,7 +37,8 @@
                                                 @endif
 
                                                 <tr class="{{$pushedPhoneNumbers[$i]->id}}">
-                                                    <td class="text-center" style="border:none; color:white;">{{$pushedPhoneNumbers[$i]->owner_name}}</td><input type="hidden" id="owner_name_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->owner_name}}" /><input type="hidden" id="owner_id_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->owner_id}}" />
+                                                    <td class="text-center" style="border:none; color:white;">{{$pushedPhoneNumbers[$i]->owner_name}}</td><input type="hidden" id="owner_name_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->owner_name}}" />
+                                                                                                                                    <input type="hidden" id="owner_id_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->owner_id}}" />
                                                     <td class="text-center" style="border:none;">{{$pushedPhoneNumbers[$i]->lease_name}}</td><input type="hidden" id="lease_name_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->lease_name}}" />
                                                     <td class="text-center" style="border:none;"><input type="text" class="form-control" id="phone_desc_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->phone_desc}}"/></td>
                                                     <td class="text-center" style="border:none;"><input type="text" class="form-control" id="phone_number_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->phone_number}}"/></td>

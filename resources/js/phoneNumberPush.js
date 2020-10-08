@@ -51,6 +51,8 @@ $(document).ready(function () {
         let splitId = id.split('_');
         let phoneId = splitId[2];
 
+        console.log(phoneId);
+
 
         $.ajaxSetup({
             headers: {
@@ -67,7 +69,8 @@ $(document).ready(function () {
                 id: phoneId,
                 phoneNumber: $('#insert_phone_number_' + phoneId).val(),
                 phoneDesc: $('#insert_phone_desc_' + phoneId).val(),
-                ownerId: $('#owner_id_' + phoneId).val()
+                ownerId: $('#owner_id_' + phoneId).val(),
+                leaseName: $('#lease_name_' + phoneId).val()
             },
             success: function success() {
                 $('#insert_phone_number_' + phoneId).val('');
