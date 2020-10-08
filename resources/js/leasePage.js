@@ -19,7 +19,7 @@
 
 
          console.log(toggle.interestArea);
-         if (toggle.interestArea !== 'nm' && toggle.interestArea !== 'la') {
+         if (toggle.interestArea !== 'nm' && toggle.interestArea !== 'la' && toggle.interestArea !== 'wp') {
              $('#lease_name_select').select2({
                  multiple: true,
                  minimumInputLength: 3
@@ -441,7 +441,7 @@
                  let ownerId = splitId[1];
                  let tr = $(this).closest('tr');
                  let row = highPriorityTable.row(tr);
-                 getNotes(ownerId, tr, row, 'tx')
+                 getNotes(ownerId, tr, row, 'tx', 'wellbore')
 
              }).on('click', '.update_owner_notes_btn', function () {
                  let id = $(this)[0].id;
@@ -518,7 +518,7 @@
                  let tr = $(this).closest('tr');
                  let row = lowPriorityTable.row(tr);
 
-                 getNotes(ownerId, tr, row, 'tx')
+                 getNotes(ownerId, tr, row, 'tx', 'wellbore')
 
              }).on('click', '.update_owner_notes_btn', function () {
                  let id = $(this)[0].id;
@@ -940,7 +940,7 @@
 
      /*              FUNCTIONS               */
 
-     function getNotes(ownerId, tr, row, interestArea) {
+     function getNotes(ownerId, tr, row, interestArea, page) {
          $.ajaxSetup({
              headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -953,6 +953,7 @@
              type: "GET",
              url: '/lease-page/getNotes',
              data: {
+                 page: page,
                  ownerId: ownerId,
                  leaseName: $('#lease_name_' + ownerId).val(),
                  interestArea: interestArea

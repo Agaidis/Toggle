@@ -418,22 +418,29 @@ class LeasePageController extends Controller
 
     public function getNotes(Request $request) {
     try {
+
         $ownerInfo = MineralOwner::where('id', $request->ownerId)->first();
 
-        Log::info(serialize($ownerInfo));
-
-        if (isset($request->leaseNames)) {
-            $leaseArray = explode('|', $request->leaseNames);
-            $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->whereIn('lease_name', $leaseArray)->orderBy('id', 'DESC')->get();
+        if (isset($request->page) && $request->page == 'wellbore') {
+            $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->orderBy('id', 'DESC')->get();
 
             if ($ownerNotes->isEmpty()) {
                 $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
             }
         } else {
-            $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->where('lease_name', $request->leaseName)->orderBy('id', 'DESC')->get();
+            if (isset($request->leaseNames)) {
+                $leaseArray = explode('|', $request->leaseNames);
+                $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->whereIn('lease_name', $leaseArray)->orderBy('id', 'DESC')->get();
 
-            if ($ownerNotes->isEmpty()) {
-                $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
+                if ($ownerNotes->isEmpty()) {
+                    $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
+                }
+            } else {
+                $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->owner)->where('lease_name', $request->leaseName)->orderBy('id', 'DESC')->get();
+
+                if ($ownerNotes->isEmpty()) {
+                    $ownerNotes = OwnerNote::where('owner_name', $ownerInfo->Grantor)->orderBy('id', 'DESC')->get();
+                }
             }
         }
 
