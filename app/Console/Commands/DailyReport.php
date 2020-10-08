@@ -47,6 +47,10 @@ class DailyReport extends Command
         try {
             $lastDay = date('Y-m-d H:i:s',strtotime('-24 hours'));
 
+            $headers = "MIME-Version: 1.0\r\n";
+            $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+            $headers .= "From: Courier@moneymappress.com\r\n";
+
             $permits = Permit::where('created_at', '>=', $lastDay)->get();
             $ownerPhoneNumbers = OwnerPhoneNumber::where('created_at', '>=', $lastDay)->get();
             $wells = WellRollUp::where('created_at', '>=', $lastDay)->get();
@@ -118,33 +122,10 @@ class DailyReport extends Command
             $message .= $wellsTable;
             $message .= '</body></html>';
 
+            $subject = 'Toggle Daily Report';
 
-            // First, instantiate the SDK with your API credentials
-            $mg = Mailgun::create(env('MAIL_API_KEY')); // For US servers
 
-            $mg->messages()->send('sandboxd2bb4a70ddf345fb86cab99733a22be7.mailgun.org', [
-                'from'    => 'LTE Toggle <service@toggle.com>',
-                'to'      => 'william@lexathonenergy.com',
-                'subject' => $subject,
-                'text'    => 'Text Report',
-                'html'    => $message
-            ]);
-
-            $mg->messages()->send('sandboxd2bb4a70ddf345fb86cab99733a22be7.mailgun.org', [
-                'from'    => 'LTE Toggle <service@toggle.com>',
-                'to'      => 'andrewg@lexathonenergy.com',
-                'subject' => $subject,
-                'text'    => 'Text Report',
-                'html'    => $message
-            ]);
-
-            $mg->messages()->send('sandboxd2bb4a70ddf345fb86cab99733a22be7.mailgun.org', [
-                'from'    => 'LTE Toggle <service@toggle.com>',
-                'to'      => 'audrey.huntsberger@gmail.com',
-                'subject' => $subject,
-                'text'    => 'Text Report',
-                'html'    => $message
-            ]);
+            mail('william@lexathonenergy.com andrewg@lexathonenergy.com audrey.huntsberger@gmail.com', $subject, $message, $headers);
 
 
 
