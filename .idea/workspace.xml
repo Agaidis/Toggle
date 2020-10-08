@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/mmp.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/mmp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/leasePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/leasePage.js" afterDir="false" />
-    </list>
+    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/leasePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="1228" column="44" selection-start-line="1228" selection-start-column="44" selection-end-line="1228" selection-end-column="44" />
+            <state relative-caret-position="3023">
+              <caret line="1441" column="74" lean-forward="true" selection-start-line="1441" selection-start-column="74" selection-end-line="1441" selection-end-column="74" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#span#0;n#!!top" expanded="true" />
@@ -113,10 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
+            <state relative-caret-position="4524">
               <caret line="357" column="64" selection-start-line="357" selection-start-column="56" selection-end-line="357" selection-end-column="64" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
@@ -137,7 +129,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="292">
               <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
             </state>
           </provider>
@@ -174,9 +166,9 @@
       <find>\'</find>
       <find>decimal_interest_</find>
       <find>height</find>
-      <find>permit_id</find>
       <find>getOwnerInfo</find>
       <find>lease_name_display_</find>
+      <find>permit_id</find>
     </findStrings>
     <replaceStrings>
       <replace>dropColumn</replace>
@@ -230,8 +222,8 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Console/Commands/DailyReport.php" />
         <option value="$PROJECT_DIR$/resources/css/mmp.css" />
-        <option value="$PROJECT_DIR$/resources/js/leasePage.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
+        <option value="$PROJECT_DIR$/resources/js/leasePage.js" />
       </list>
     </option>
   </component>
@@ -491,7 +483,7 @@
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -605,15 +597,16 @@
       <workItem from="1601912442483" duration="210000" />
       <workItem from="1601925112637" duration="1250000" />
       <workItem from="1601928144759" duration="6497000" />
-      <workItem from="1601997202019" duration="37784000" />
+      <workItem from="1601997202019" duration="38058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48846000" />
+    <option name="totallyTimeSpent" value="49120000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" order="0" visible="true" weight="0.2008547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -954,13 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
@@ -968,10 +954,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4524">
+          <caret line="357" column="64" selection-start-line="357" selection-start-column="56" selection-end-line="357" selection-end-column="64" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/leasePage.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/leasePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="1228" column="44" selection-start-line="1228" selection-start-column="44" selection-end-line="1228" selection-end-column="44" />
+        <state relative-caret-position="3023">
+          <caret line="1441" column="74" lean-forward="true" selection-start-line="1441" selection-start-column="74" selection-end-line="1441" selection-end-column="74" />
           <folding>
             <element signature="n#style#0;n#div#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#span#0;n#!!top" expanded="true" />
@@ -1045,16 +1048,6 @@
             <element signature="n#style#0;n#span#0;n#div#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#2;n#div#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="357" column="64" selection-start-line="357" selection-start-column="56" selection-end-line="357" selection-end-column="64" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

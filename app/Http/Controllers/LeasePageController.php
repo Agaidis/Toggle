@@ -356,11 +356,14 @@ class LeasePageController extends Controller
             }
 
             $permitData = Permit::where('id', $request->permitId)->first();
+
+            $leaseName = $permitData->lease_name;
             $reportedOperator = $permitData->reported_operator;
             $county = $permitData->county_parish;
 
             $owner[0]['reported_operator'] = $reportedOperator;
             $owner[0]['county'] = $county;
+            $owner[0]['lease'] = $leaseName;
 
             $oilPrice = GeneralSetting::where('name', 'oil')->value('value');
             $gasPrice = GeneralSetting::where('name', 'gas')->value('value');

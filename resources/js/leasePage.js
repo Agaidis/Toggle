@@ -1440,7 +1440,7 @@
 
                  $('#county_' + id).text(' ' +  data.county);
                  $('#operator_' + id).text(' ' +  data.reported_operator);
-                 $('#lease_name_display_' + id).text(' ' +  data.lease_name);
+                 $('#lease_name_display_' + id).text(' ' +  data.lease);
                  $('#rrc_lease_number_' + id).text(' ' + data.rrc_lease_number);
                  $('#active_well_count_' + id).text(' ' + $('#well_count').val());
                  $('#first_prod_'+id).text(' ' + $('#first_month').text());
