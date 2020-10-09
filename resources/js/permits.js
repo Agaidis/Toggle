@@ -808,6 +808,114 @@ $(document).ready(function () {
     });
 
 
+    $('.merge_lease_btn').on('click', function() {
+        let id = $(this)[0].id;
+        let splitId = id.split('_');
+        let interestArea = splitId[1];
+        $('#current_interest_area').val(interestArea);
+
+        getMergeLeases(interestArea);
+    });
+
+    $('#submit_merge').on('click', function () {
+
+        mergeLeases();
+    });
+
+    function getMergeLeases (interestArea) {
+        let checkboxes = $('.merge_leases_' + interestArea);
+        let permitIds = [];
+
+        $.each(checkboxes, function(key, value) {
+           let id = value.id;
+           let splitId = id.split('_');
+           let permitId = splitId[2];
+
+           if (value.checked === true ) {
+               permitIds.push(permitId);
+
+           }
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            beforeSend: function beforeSend(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+            },
+            type: "GET",
+            url: '/permits/merge-permits',
+            data: {
+                permitIds: permitIds
+            },
+            success: function success(data) {
+                console.log(data);
+                let leaseNames = '';
+                $('#merged_lease_name').empty().val(data[0]);
+
+                $.each(data, function (key, value) {
+                    let leaseNum = key + 1;
+                    leaseNames += '<h3>Lease #'+leaseNum +' '+value+'</h3><hr />';
+                });
+                $('#leases_to_merge').empty().append(leaseNames);
+            },
+            error: function error(data) {
+                console.log(data);
+            }
+        });
+    }
+
+
+
+    function mergeLeases () {
+
+        let checkboxes = $('.merge_leases_' + $('#current_interest_area').val());
+        let permitIds = [];
+
+        $.each(checkboxes, function(key, value) {
+            let id = value.id;
+            let splitId = id.split('_');
+            let permitId = splitId[2];
+
+            if (value.checked === true ) {
+                permitIds.push(permitId);
+
+            }
+        });
+
+        console.log(permitIds);
+        console.log($('#merged_lease_name').val());
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            beforeSend: function beforeSend(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+            },
+            type: "POST",
+            url: '/permits/merge-permits',
+            data: {
+                permitIds: permitIds,
+                newLeaseName: $('#merged_lease_name').val()
+            },
+            success: function success(data) {
+                console.log(data);
+                location.reload();
+            },
+            error: function error(data) {
+                console.log(data);
+            }
+        });
+    }
+
+
     function moreData(id, tr, permitId, reportedOperator, row, isNonProducing) {
         $.ajaxSetup({
             headers: {
@@ -964,26 +1072,6 @@ $(document).ready(function () {
                             })(permitMarker));
 
                         });
-
-
-
-                        // let permitPoint = data.permit.btm_geometry.replace(/\s/g, '').replace(/},/g, '},dd').replace('(', '').replace(')', '').split(',dd');
-                        // let surfaceLng = '{"lng":' + data.permit.SurfaceLongitudeWGS84;
-                        // let surfaceLat = '"lat":' + data.permit.SurfaceLatitudeWGS84 + '}';
-                        //
-                        //
-                        // // Display a map on the page
-                        // map = new google.maps.Map(document.getElementById('map_' + permitId), {
-                        //     zoom: 13,
-                        //     center: JSON.parse(surfaceLng + ',' + surfaceLat),
-                        //     mapTypeId: google.maps.MapTypeId.HYBRID
-                        // });
-                        //
-                        // let position = new google.maps.LatLng(JSON.parse(surfaceLng + ',' + surfaceLat));
-                        // bounds.extend(position);
-
-
-
 
                         // Display multiple markers on a map
                         let infoWindow = new google.maps.InfoWindow(), marker;

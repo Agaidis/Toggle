@@ -45221,6 +45221,97 @@ $(document).ready(function () {
     var leaseName = splitId[3];
     storePermit(permitId, leaseName);
   });
+  $('.merge_lease_btn').on('click', function () {
+    var id = $(this)[0].id;
+    var splitId = id.split('_');
+    var interestArea = splitId[1];
+    $('#current_interest_area').val(interestArea);
+    getMergeLeases(interestArea);
+  });
+  $('#submit_merge').on('click', function () {
+    mergeLeases();
+  });
+
+  function getMergeLeases(interestArea) {
+    var checkboxes = $('.merge_leases_' + interestArea);
+    var permitIds = [];
+    $.each(checkboxes, function (key, value) {
+      var id = value.id;
+      var splitId = id.split('_');
+      var permitId = splitId[2];
+
+      if (value.checked === true) {
+        permitIds.push(permitId);
+      }
+    });
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      beforeSend: function beforeSend(xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+      },
+      type: "GET",
+      url: '/permits/merge-permits',
+      data: {
+        permitIds: permitIds
+      },
+      success: function success(data) {
+        console.log(data);
+        var leaseNames = '';
+        $('#merged_lease_name').empty().val(data[0]);
+        $.each(data, function (key, value) {
+          var leaseNum = key + 1;
+          leaseNames += '<h3>Lease #' + leaseNum + ' ' + value + '</h3><hr />';
+        });
+        $('#leases_to_merge').empty().append(leaseNames);
+      },
+      error: function error(data) {
+        console.log(data);
+      }
+    });
+  }
+
+  function mergeLeases() {
+    var checkboxes = $('.merge_leases_' + $('#current_interest_area').val());
+    var permitIds = [];
+    $.each(checkboxes, function (key, value) {
+      var id = value.id;
+      var splitId = id.split('_');
+      var permitId = splitId[2];
+
+      if (value.checked === true) {
+        permitIds.push(permitId);
+      }
+    });
+    console.log(permitIds);
+    console.log($('#merged_lease_name').val());
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      beforeSend: function beforeSend(xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+      },
+      type: "POST",
+      url: '/permits/merge-permits',
+      data: {
+        permitIds: permitIds,
+        newLeaseName: $('#merged_lease_name').val()
+      },
+      success: function success(data) {
+        console.log(data);
+        location.reload();
+      },
+      error: function error(data) {
+        console.log(data);
+      }
+    });
+  }
 
   function moreData(id, tr, permitId, reportedOperator, row, isNonProducing) {
     $.ajaxSetup({
@@ -45300,21 +45391,7 @@ $(document).ready(function () {
                   infoWindow.open(map, permitMarker);
                 };
               }(permitMarker));
-            }); // let permitPoint = data.permit.btm_geometry.replace(/\s/g, '').replace(/},/g, '},dd').replace('(', '').replace(')', '').split(',dd');
-            // let surfaceLng = '{"lng":' + data.permit.SurfaceLongitudeWGS84;
-            // let surfaceLat = '"lat":' + data.permit.SurfaceLatitudeWGS84 + '}';
-            //
-            //
-            // // Display a map on the page
-            // map = new google.maps.Map(document.getElementById('map_' + permitId), {
-            //     zoom: 13,
-            //     center: JSON.parse(surfaceLng + ',' + surfaceLat),
-            //     mapTypeId: google.maps.MapTypeId.HYBRID
-            // });
-            //
-            // let position = new google.maps.LatLng(JSON.parse(surfaceLng + ',' + surfaceLat));
-            // bounds.extend(position);
-            // Display multiple markers on a map
+            }); // Display multiple markers on a map
 
             var infoWindow = new google.maps.InfoWindow(),
                 marker; // Loop through our array of markers & place each one on the map

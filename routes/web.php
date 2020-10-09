@@ -47,6 +47,10 @@ Route::get('/permit-storage/sendBack',          'PermitStorageController@sendBac
 /*                  MMP PAGE                     */
 Route::get('/mm-platform',                      'MMPController@index')->middleware('Auth')->name('mm-platform');
 
+Route::get('/permits/merge-permits',            'MMPController@getMergePermitDetails')->middleware('Auth');
+
+Route::post('/permits/merge-permits',            'MMPController@mergePermits')->middleware('Auth');
+
 Route::get('/new-permits/getNotes',             'MMPController@getNotes')->middleware('Auth');
 
 Route::put('/new-permits/updateNotes',          'MMPController@updateNotes')->middleware('Auth');

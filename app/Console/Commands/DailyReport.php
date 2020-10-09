@@ -49,7 +49,7 @@ class DailyReport extends Command
 
             $headers = "MIME-Version: 1.0\r\n";
             $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-            $headers .= "From: toggle@lexathonenergy.com\r\n";
+            $headers .= "From: Toggle@lexathonenergy.com\r\n";
 
             $permits = Permit::where('created_at', '>=', $lastDay)->get();
             $ownerPhoneNumbers = OwnerPhoneNumber::where('created_at', '>=', $lastDay)->get();
@@ -93,7 +93,6 @@ class DailyReport extends Command
             $phoneNumbersTable .= '</tbody></table>';
             $wellsTable .= '</tbody></table>';
 
-            $subject = 'Toggle Daily Report';
             $message = '<html><body>';
             $message .= '<style>
             h1{
@@ -125,7 +124,7 @@ class DailyReport extends Command
             $subject = 'Toggle Daily Report';
 
 
-            mail('william@lexathonenergy.com andrewg@lexathonenergy.com audrey.huntsberger@gmail.com', $subject, $message, $headers);
+            mail('andrewg@lexathonenergy.com', $subject, $message, $headers);
 
 
 

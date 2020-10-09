@@ -78,6 +78,7 @@
                                                             <tr>
                                                                 @if (Auth::user()->role === 'admin')
                                                                     <th class="text-center">Store Lease</th>
+                                                                    <th class="text-center">Merge Leases</th>
                                                                     <th class="text-center">Open Lease</th>
                                                                     <th class="text-center">Toggle Status</th>
                                                                     <th class="text-center">Assignee</th>
@@ -104,6 +105,7 @@
 
                                                                         @if (Auth::user()->role === 'admin')
                                                                             <td class="text-center"><button type="button" class="store_button btn btn-primary" id="store_button_{{$eaglePermit->permit_id}}_{{$eaglePermit->lease_name}}">Store</button></td>
+                                                                            <td class="text-center"><input type="checkbox" class="merge_leases_eagleford" id="merge_lease_{{$eaglePermit->permit_id}}"/></td>
                                                                             <td id="id_{{$eaglePermit->permit_id}}" class="text-center mmp-details-control"><i style="cursor:pointer;" class="far fa-dot-circle"></i></td>
                                                                             <td>
                                                                                 @if ($eaglePermit->toggle_status == 'yellow')
@@ -168,7 +170,11 @@
                                                                             </td>
                                                                             <td class="text-center">{{$eaglePermit->county_parish}}</td>
                                                                             <td class="text-center">{{$eaglePermit->reported_operator}}</td>
-                                                                            <td class="text-center"><a href="{{url( 'lease-page/' . $eaglePermit->interest_area . '/' . $eaglePermit->lease_name . '/producing/' . $eaglePermit->permit_id)}}">{{$eaglePermit->lease_name}}</a></td>
+                                                                        @if ($eaglePermit->merged_lease_name != '')
+                                                                                <td class="text-center"><a href="{{url( 'lease-page/' . $eaglePermit->interest_area . '/' . $eaglePermit->lease_name . '/producing/' . $eaglePermit->permit_id)}}">{{$eaglePermit->merged_lease_name}}</a></td>
+                                                                            @else
+                                                                                <td class="text-center"><a href="{{url( 'lease-page/' . $eaglePermit->interest_area . '/' . $eaglePermit->lease_name . '/producing/' . $eaglePermit->permit_id)}}">{{$eaglePermit->lease_name}}</a></td>
+                                                                            @endif
                                                                         @else
                                                                             <td class="text-center"></td>
                                                                             <td class="text-center"></td>
@@ -187,6 +193,7 @@
                                                             <caption class="lease_table_caption"> Eagleford Landtrac's Producing </caption>
                                                             </tfoot>
                                                         </table>
+                                                        <button type="button" class="btn btn-success merge_lease_btn" id="merge_eagleford_lease_btn" data-target="#modal_merge_leases" data-toggle="modal">Merge Leases</button>
                                                     </div>
                                                 </div>
 
@@ -1321,6 +1328,43 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+
+
+
+                                            <div class="modal fade" id="modal_merge_leases">
+                                                <div class="modal-dialog" role="document">
+                                                    <div style="width:130%; margin-left:-20%;" class="modal_merge_leases modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="merge_lease_title">Leases to be Merged </h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="offset-1 col-sm-10" style="text-align:center;">
+                                                                    <div id="leases_to_merge"></div>
+
+                                                                    <label>Final Merged Lease Name: </label>
+                                                                    <input type="text" class="form-control" id="merged_lease_name" name="merged_lease_name" />
+                                                                    <input type="hidden" id="current_interest_area"/>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" id="submit_merge" class="approve-btn btn btn-success" data-dismiss="modal">Merge Leases</button>
+                                                            <button type="button" id="cancel_merge" class="approve-btn btn btn-primary" data-dismiss="modal" >Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
 
 
 

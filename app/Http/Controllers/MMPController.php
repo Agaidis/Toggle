@@ -13,6 +13,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 class MMPController extends Controller
@@ -37,8 +38,6 @@ class MMPController extends Controller
      */
     public function index()
     {
-
-
         try {
             $users = User::all();
             $currentUser = Auth::user()->name;
@@ -66,7 +65,7 @@ class MMPController extends Controller
                 $nonProducingNMPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
                 $nonProducingLAPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'la')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
 
-                $eaglePermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'eagleford')->where('is_producing', 1)->groupBy('abstract', 'lease_name', 'survey')->get();
+                $eaglePermits = DB::table('permits')->where('is_stored', 0)->where('is_merged', 0)->where('interest_area', 'eagleford')->where('is_producing', 1)->groupBy( 'lease_name')->get();
                 $wtxPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'wtx')->where('is_producing', 1)->groupBy('abstract', 'lease_name', 'survey')->get();
                 $etxPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'etx')->where('is_producing', 1)->groupBy('abstract', 'lease_name', 'survey')->get();
                 $nmPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'nm')->where('is_producing', 1)->groupBy('lease_name', 'reported_operator')->get();
@@ -124,6 +123,56 @@ class MMPController extends Controller
             $objData = false;
         }
         return response()->json($objData);
+    }
+
+    public function getMergePermitDetails(Request $request) {
+        try {
+            $leaseNames = array();
+
+            foreach ($request->permitIds as $permitId) {
+                $permitData = Permit::where('permit_id', $permitId)->first();
+                array_push($leaseNames, $permitData->lease_name);
+            }
+
+            return $leaseNames;
+
+        } catch( \Exception $e ) {
+            $errorMsg = new ErrorLog();
+            $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
+            $errorMsg->save();
+        }
+    }
+
+    public function mergePermits(Request $request) {
+        try {
+            Log::info($request->permitIds);
+
+            foreach ($request->permitIds as $permitId) {
+                $permit = Permit::where('permit_id', $permitId)->first();
+                $permitLeases = Permit::where('lease_name', $permit->lease_name)->get();
+                foreach ($permitLeases as $permitLease) {
+                    if ($request->permitIds[0] != $permitLease->permit_id) {
+
+                        Permit::where('permit_id', $permitLease->permit_id)
+                            ->update([
+                                'merged_lease_name' => $request->newLeaseName,
+                                'is_merged' => 1
+                            ]);
+                    } else {
+                        Permit::where('permit_id', $permitLease->permit_id)
+                            ->update([
+                                'merged_lease_name' => $request->newLeaseName
+                            ]);
+                    }
+
+                }
+            }
+
+        } catch ( \Exception $e ) {
+            $errorMsg = new ErrorLog();
+            $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
+            $errorMsg->save();
+        }
     }
 
     public function stitchLeaseToPermit(Request $request) {
