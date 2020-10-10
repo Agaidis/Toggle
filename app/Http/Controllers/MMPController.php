@@ -145,8 +145,6 @@ class MMPController extends Controller
 
     public function mergePermits(Request $request) {
         try {
-            Log::info($request->permitIds);
-
             foreach ($request->permitIds as $permitId) {
                 $permit = Permit::where('permit_id', $permitId)->first();
                 $permitLeases = Permit::where('lease_name', $permit->lease_name)->get();
