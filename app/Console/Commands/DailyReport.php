@@ -124,7 +124,7 @@ class DailyReport extends Command
             $subject = 'Toggle Daily Report';
 
 
-            mail('andrewg@lexathonenergy.com', $subject, $message, $headers);
+            mail('william@lexathonenergy.com andrewg@lexathonenergy.com audrey.huntsberger@gmail.com', $subject, $message, $headers);
 
 
 
