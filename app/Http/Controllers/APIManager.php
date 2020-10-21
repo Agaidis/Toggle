@@ -62,9 +62,9 @@ class APIManager
     public function getPermits ($county, $token, $date, $interestArea) {
 
         if ($interestArea == 'nm' || $interestArea == 'admin') {
-            $url = "https://di-api.drillinginfo.com/v2/direct-access/permits?approveddate=ge(".$date.")&countyparish=".$county."&drilltype=in(H,V)&pagesize=10000";
+            $url = "https://di-api.drillinginfo.com/v2/direct-access/permits?approveddate=ge(".$date.")&countyparish=".$county."&drilltype=in(H)&pagesize=10000";
         } else {
-            $url = "https://di-api.drillinginfo.com/v2/direct-access/permits?submitteddate=ge(".$date.")&countyparish=".$county."&drilltype=in(H,V)&pagesize=10000";
+            $url = "https://di-api.drillinginfo.com/v2/direct-access/permits?submitteddate=ge(".$date.")&countyparish=".$county."&drilltype=in(H)&pagesize=10000";
         }
             $curl = curl_init();
 
