@@ -33,15 +33,24 @@ class OwnersController extends Controller
                     $ownerLeaseData = DB::table('mineral_owners')
                         ->where('owner', $ownerName)
                         ->join('owner_notes', 'mineral_owners.owner', '=', 'owner_notes.owner_name')
-                        ->select('owner_notes.*', 'mineral_owners.*')
+                        ->leftjoin('permits', function($join){
+                            //$join->on('permits.lease_name','=','mineral_owners.lease_name');
+                            $join->on('permits.selected_lease_name','=','mineral_owners.lease_name');
+                        })
+                        ->select('owner_notes.*', 'mineral_owners.*','permits.selected_lease_name', 'permits.lease_name as permitLeaseName', 'permits.permit_id', 'permits.interest_area')
                         ->groupBy('mineral_owners.lease_name')
                         ->limit(500)
                         ->get();
+
 
                     if ($ownerLeaseData->isEmpty()) {
                         $ownerLeaseData = DB::table('mineral_owners')
                             ->where('Grantor', $ownerName)
                             ->join('owner_notes', 'mineral_owners.Grantor', '=', 'owner_notes.owner_name')
+                            ->leftjoin('permits', function($join){
+                                $join->on('permits.lease_name','=','mineral_owners.lease_name');
+                                $join->orOn('permits.selected_lease_name','=','mineral_owners.lease_name');
+                            })
                             ->select('owner_notes.*', 'mineral_owners.*')
                             ->get();
                     }

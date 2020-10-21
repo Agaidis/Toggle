@@ -78,7 +78,6 @@
                                                             <tr>
                                                                 @if (Auth::user()->role === 'admin')
                                                                     <th class="text-center">Store Lease</th>
-                                                                    <th class="text-center">Merge Leases</th>
                                                                     <th class="text-center">Open Lease</th>
                                                                     <th class="text-center">Toggle Status</th>
                                                                     <th class="text-center">Assignee</th>
@@ -105,7 +104,6 @@
 
                                                                         @if (Auth::user()->role === 'admin')
                                                                             <td class="text-center"><button type="button" class="store_button btn btn-primary" id="store_button_{{$eaglePermit->permit_id}}_{{$eaglePermit->lease_name}}">Store</button></td>
-                                                                            <td class="text-center"><input type="checkbox" class="merge_leases_eagleford" id="merge_lease_{{$eaglePermit->permit_id}}"/></td>
                                                                             <td id="id_{{$eaglePermit->permit_id}}" class="text-center mmp-details-control"><i style="cursor:pointer;" class="far fa-dot-circle"></i></td>
                                                                             <td>
                                                                                 @if ($eaglePermit->toggle_status == 'yellow')
