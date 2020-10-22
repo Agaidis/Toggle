@@ -246,13 +246,9 @@ class LeasePageController extends Controller
 
     public function updateAcreage(Request $request) {
         try {
-           $meh = Permit::where('id', $request->id)
+           Permit::where('id', $request->id)
                 ->update(['acreage' => $request->acreage]);
 
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = serialize($meh);
-
-            $errorMsg->save();
             return 'success';
 
         } catch( Exception $e ) {

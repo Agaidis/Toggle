@@ -287,10 +287,6 @@ class MMPController extends Controller
 
     public function updateStatus(Request $request) {
         try {
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = $_POST['permitId'] . ' Status #: ' . $_POST['status'];
-
-            $errorMsg->save();
             Permit::where('permit_id', $_POST['permitId'])
                     ->update(['toggle_status' => $_POST['status']]);
 
