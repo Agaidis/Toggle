@@ -458,10 +458,9 @@
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="352" />
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="1006" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
