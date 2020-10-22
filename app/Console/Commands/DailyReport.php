@@ -87,29 +87,29 @@ class DailyReport extends Command
 
             foreach ($permits as $permit) {
                 $leaseTable .= '<tr>';
-                $leaseTable .= '<td class="text-center">' . $permit->permit_id . '</td>';
-                $leaseTable .= '<td class="text-center">' . $permit->county_parish . '</td>';
-                $leaseTable .= '<td class="text-center">' . $permit->lease_name . '</td';
-                $leaseTable .= '<td class="text-center">' . $permit->permit_type . '</td>';
-                $leaseTable .= '<td class="text-center">' . $permit->permit_status . '</td></tr>';
+                $leaseTable .= '<td>' . $permit->permit_id . '</td>';
+                $leaseTable .= '<td>' . $permit->county_parish . '</td>';
+                $leaseTable .= '<td>' . $permit->lease_name . '</td';
+                $leaseTable .= '<td>' . $permit->permit_type . '</td>';
+                $leaseTable .= '<td>' . $permit->permit_status . '</td></tr>';
             }
 
             foreach ($ownerPhoneNumbers as $ownerPhoneNumber) {
-                $phoneNumbersTable .= '<tr><td class="text-center">' . $ownerPhoneNumber->owner_name . '</td>';
-                $phoneNumbersTable .= '<td class="text-center">' . $ownerPhoneNumber->phone_desc . '</td>';
-                $phoneNumbersTable .= '<td class="text-center">' . $ownerPhoneNumber->phone_number . '</td></tr>';
+                $phoneNumbersTable .= '<tr><td>' . $ownerPhoneNumber->owner_name . '</td>';
+                $phoneNumbersTable .= '<td>' . $ownerPhoneNumber->phone_desc . '</td>';
+                $phoneNumbersTable .= '<td>' . $ownerPhoneNumber->phone_number . '</td></tr>';
             }
 
             foreach ($wells as $well) {
-                $wellsTable .= '<tr><td class="text-center">' . $well->uid . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->CountyParish . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->LeaseName . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->OperatorCompanyName . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->ReportedOperator . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->WellName . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->WellNumber . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->WellStatus . '</td>';
-                $wellsTable .= '<td class="text-center">' . $well->DrillType . '</td></tr>';
+                $wellsTable .= '<tr><td>' . $well->uid . '</td>';
+                $wellsTable .= '<td>' . $well->CountyParish . '</td>';
+                $wellsTable .= '<td>' . $well->LeaseName . '</td>';
+                $wellsTable .= '<td>' . $well->OperatorCompanyName . '</td>';
+                $wellsTable .= '<td>' . $well->ReportedOperator . '</td>';
+                $wellsTable .= '<td>' . $well->WellName . '</td>';
+                $wellsTable .= '<td>' . $well->WellNumber . '</td>';
+                $wellsTable .= '<td>' . $well->WellStatus . '</td>';
+                $wellsTable .= '<td>' . $well->DrillType . '</td></tr>';
 
             }
 
