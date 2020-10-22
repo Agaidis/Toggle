@@ -58,9 +58,10 @@ class DailyReport extends Command
             $leaseTable = '<table><thead>
                                     <tr>
                                         <th class="text-center">Permit Id</th>
+                                        <th class="text-center">Permit Status</th>
                                         <th class="text-center">County</th>
                                         <th class="text-center">Lease Name</th>
-                                        <th class="text-center">Permit Status</th>
+                                        
                                     </tr>
                                     </thead><tbody>';
             $phoneNumbersTable = '<table><thead>
@@ -87,9 +88,10 @@ class DailyReport extends Command
             foreach ($permits as $permit) {
                 $leaseTable .= '<tr>';
                 $leaseTable .= '<td>' . $permit->permit_id . '</td>';
+                $leaseTable .= '<td>' . $permit->permit_status . '</td>';
                 $leaseTable .= '<td>' . $permit->county_parish . '</td>';
-                $leaseTable .= '<td>' . $permit->lease_name . '</td';
-                $leaseTable .= '<td>' . $permit->permit_status . '</td></tr>';
+                $leaseTable .= '<td>' . $permit->lease_name . '</td></tr>';
+
             }
 
             foreach ($ownerPhoneNumbers as $ownerPhoneNumber) {
