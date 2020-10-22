@@ -60,7 +60,6 @@ class DailyReport extends Command
                                         <th class="text-center">Permit Id</th>
                                         <th class="text-center">County</th>
                                         <th class="text-center">Lease Name</th>
-                                        <th class="text-center">Permit Type</th>
                                         <th class="text-center">Permit Status</th>
                                     </tr>
                                     </thead><tbody>';
@@ -90,7 +89,6 @@ class DailyReport extends Command
                 $leaseTable .= '<td>' . $permit->permit_id . '</td>';
                 $leaseTable .= '<td>' . $permit->county_parish . '</td>';
                 $leaseTable .= '<td>' . $permit->lease_name . '</td';
-                $leaseTable .= '<td>' . $permit->permit_type . '</td>';
                 $leaseTable .= '<td>' . $permit->permit_status . '</td></tr>';
             }
 
@@ -101,7 +99,7 @@ class DailyReport extends Command
             }
 
             foreach ($wells as $well) {
-                $wellsTable .= '<tr><td>' . $well->uid . '</td>';
+                $wellsTable .= '<tr><td>' . $well->API14 . '</td>';
                 $wellsTable .= '<td>' . $well->CountyParish . '</td>';
                 $wellsTable .= '<td>' . $well->LeaseName . '</td>';
                 $wellsTable .= '<td>' . $well->OperatorCompanyName . '</td>';
