@@ -43,15 +43,15 @@ class WelboreController extends Controller
 
             if ($request->userId != 0) {
                 //In here override the current user if the userId is not 0
-//                $highPriorityProspects = DB::select('select id, follow_up_date, lease_name, assignee, wellbore_type, owner, owner_address, owner_city, owner_zip, owner_decimal_interest, owner_interest_type, Grantor, GrantorAddress  from mineral_owners WHERE assignee = ' . $request->userId . ' AND wellbore_type != "0"  ORDER BY FIELD(wellbore_type, "4", "3", "2", "1" ), wellbore_type DESC');
+                $highPriorityProspects = DB::select('select id, follow_up_date, lease_name, assignee, wellbore_type, owner, owner_address, owner_city, owner_zip, owner_decimal_interest, owner_interest_type, Grantor, GrantorAddress  from mineral_owners WHERE assignee = ' . $request->userId . ' AND wellbore_type != "0"  ORDER BY FIELD(wellbore_type, "4", "3", "2", "1" ), wellbore_type DESC');
 
-                $highPriorityProspects = DB::table('mineral_owners')
-                    ->where('mineral_owners.assignee', $request->userId)
-                    ->where('wellbore_type', '!=', '0')
-                    ->join('permits', 'mineral_owners.lease_name', '=', 'permits.lease_name')
-                    ->select('permits.selected_lease_name', 'mineral_owners.id', 'mineral_owners.follow_up_date', 'mineral_owners.lease_name', 'mineral_owners.assignee', 'mineral_owners.wellbore_type', 'owner', 'owner_address', 'owner_city', 'owner_zip', 'owner_decimal_interest', 'owner_interest_type', 'Grantor', 'GrantorAddress')
-                    ->orderByRaw('FIELD(wellbore_type, "4", "3", "2", "1")')
-                    ->get();
+//                $highPriorityProspects = DB::table('mineral_owners')
+//                    ->where('mineral_owners.assignee', $request->userId)
+//                    ->where('wellbore_type', '!=', '0')
+//                    ->join('permits', 'mineral_owners.lease_name', '=', 'permits.lease_name')
+//                    ->select('permits.selected_lease_name', 'mineral_owners.id', 'mineral_owners.follow_up_date', 'mineral_owners.lease_name', 'mineral_owners.assignee', 'mineral_owners.wellbore_type', 'owner', 'owner_address', 'owner_city', 'owner_zip', 'owner_decimal_interest', 'owner_interest_type', 'Grantor', 'GrantorAddress')
+//                    ->orderByRaw('FIELD(wellbore_type, "4", "3", "2", "1")')
+//                    ->get();
 
                 $owners = DB::table('mineral_owners')
                     ->where('follow_up_date', '!=', NULL)
@@ -66,20 +66,20 @@ class WelboreController extends Controller
 
             } else {
                 //In here override the current user if the userId is not 0
-            //    $highPriorityProspects = DB::select('select id, follow_up_date, lease_name, assignee, wellbore_type, owner, owner_address, owner_city, owner_zip, owner_decimal_interest, owner_interest_type, Grantor, GrantorAddress  from mineral_owners WHERE assignee = ' . Auth::user()->id . ' AND wellbore_type != "0" ORDER BY FIELD(wellbore_type, "4", "3", "2", "1" ), wellbore_type DESC');
+                $highPriorityProspects = DB::select('select id, follow_up_date, lease_name, assignee, wellbore_type, owner, owner_address, owner_city, owner_zip, owner_decimal_interest, owner_interest_type, Grantor, GrantorAddress  from mineral_owners WHERE assignee = ' . Auth::user()->id . ' AND wellbore_type != "0" ORDER BY FIELD(wellbore_type, "4", "3", "2", "1" ), wellbore_type DESC');
 
 
-                $highPriorityProspects = DB::table('mineral_owners')
-                    ->where('mineral_owners.assignee', Auth::user()->id)
-                    ->where('wellbore_type', '!=', '0')
-                    ->leftjoin('permits', function($join){
-                        $join->on('permits.lease_name','=','mineral_owners.lease_name'); // i want to join the users table with either of these columns
-                        $join->orOn('permits.selected_lease_name','=','mineral_owners.lease_name');
-                    })
-              //      ->join('permits', 'mineral_owners.lease_name', '=', 'permits.lease_name')
-                    ->select('permits.selected_lease_name', 'mineral_owners.id', 'mineral_owners.follow_up_date', 'mineral_owners.lease_name', 'mineral_owners.assignee', 'mineral_owners.wellbore_type', 'owner', 'owner_address', 'owner_city', 'owner_zip', 'owner_decimal_interest', 'owner_interest_type', 'Grantor', 'GrantorAddress')
-                    ->orderByRaw('FIELD(wellbore_type, "4", "3", "2", "1")')
-                    ->get();
+//                $highPriorityProspects = DB::table('mineral_owners')
+//                    ->where('mineral_owners.assignee', Auth::user()->id)
+//                    ->where('wellbore_type', '!=', '0')
+//                    ->leftjoin('permits', function($join){
+//                        $join->on('permits.lease_name','=','mineral_owners.lease_name'); // i want to join the users table with either of these columns
+//                        $join->orOn('permits.selected_lease_name','=','mineral_owners.lease_name');
+//                    })
+//              //      ->join('permits', 'mineral_owners.lease_name', '=', 'permits.lease_name')
+//                    ->select('permits.selected_lease_name', 'mineral_owners.id', 'mineral_owners.follow_up_date', 'mineral_owners.lease_name', 'mineral_owners.assignee', 'mineral_owners.wellbore_type', 'owner', 'owner_address', 'owner_city', 'owner_zip', 'owner_decimal_interest', 'owner_interest_type', 'Grantor', 'GrantorAddress')
+//                    ->orderByRaw('FIELD(wellbore_type, "4", "3", "2", "1")')
+//                    ->get();
 
                 $owners = DB::table('mineral_owners')
                     ->where('follow_up_date', '!=', NULL)
