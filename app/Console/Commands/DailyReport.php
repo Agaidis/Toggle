@@ -148,9 +148,7 @@ class DailyReport extends Command
             $subject = 'Toggle Daily Report';
 
 
-            mail('andrewg@lexathonenergy.com', $subject, $message, $headers);
-
-           // william@lexathonenergy.com  audrey.huntsberger@gmail.com
+            mail('andrewg@lexathonenergy.com william@lexathonenergy.com audrey.huntsberger@gmail.com', $subject, $message, $headers);
 
         } catch( Exception $e ) {
             $errorMsg = new ErrorLog();
