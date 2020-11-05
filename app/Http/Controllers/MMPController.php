@@ -45,17 +45,17 @@ class MMPController extends Controller
 
 
             if ($userRole === 'regular') {
-                $eaglePermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'eagleford')->get();
-                $wtxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'wtx')->get();
-                $etxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'etx')->get();
-                $nmPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'nm')->get();
-                $laPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'la')->get();
+                $eaglePermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'eagleford')->groupBy('lease_name', 'reported_operator')->get();
+                $wtxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'wtx')->groupBy('lease_name', 'reported_operator')->get();
+                $etxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'etx')->groupBy('lease_name', 'reported_operator')->get();
+                $nmPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'nm')->groupBy('lease_name', 'reported_operator')->get();
+                $laPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'la')->groupBy('lease_name', 'reported_operator')->get();
 
-                $nonProducingEaglePermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'eagleford')->where('is_producing', 0)->get();
-                $nonProducingWTXPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'wtx')->where('is_producing', 0)->get();
-                $nonProducingETXPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'etx')->where('is_producing', 0)->get();
-                $nonProducingNMPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'nm')->where('is_producing', 0)->get();
-                $nonProducingLAPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'la')->where('is_producing', 0)->get();
+                $nonProducingEaglePermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'eagleford')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
+                $nonProducingWTXPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'wtx')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
+                $nonProducingETXPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'etx')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
+                $nonProducingNMPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'nm')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
+                $nonProducingLAPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('interest_area', 'la')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
 
                 return view('userMMP', compact('userRole', 'eaglePermits', 'wtxPermits', 'nmPermits', 'users', 'currentUser', 'nonProducingEaglePermits', 'nonProducingWTXPermits', 'nonProducingNMPermits', 'etxPermits', 'nonProducingETXPermits', 'laPermits', 'nonProducingLAPermits'));
             } else {
