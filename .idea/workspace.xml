@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/owner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/owner.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OwnersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="53" column="190" selection-start-line="53" selection-start-column="190" selection-end-line="53" selection-end-column="190" />
+            <state relative-caret-position="466">
+              <caret line="76" column="62" lean-forward="true" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -27,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/owner.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="79" column="175" selection-start-line="79" selection-start-column="160" selection-end-line="79" selection-end-column="175" />
+            <state relative-caret-position="294">
+              <caret line="79" column="145" selection-start-line="79" selection-start-column="132" selection-end-line="79" selection-end-column="145" />
             </state>
           </provider>
         </entry>
@@ -37,8 +39,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$highPriorityProspect-&gt;interest_area}</find>
-      <find>add_phone_btn</find>
       <find>submit_phone</find>
       <find>owner_name_</find>
       <find>%20\</find>
@@ -67,6 +67,8 @@
       <find>$wells</find>
       <find>$ownerLeaseData</find>
       <find>interest_area</find>
+      <find>permitLeaseName</find>
+      <find>$ownerLease</find>
     </findStrings>
     <replaceStrings>
       <replace>dropColumn</replace>
@@ -481,12 +483,12 @@
       <workItem from="1603983046527" duration="44000" />
       <workItem from="1604598979284" duration="1508000" />
       <workItem from="1605114861381" duration="790000" />
-      <workItem from="1605198684785" duration="546000" />
+      <workItem from="1605198684785" duration="841000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76587000" />
+    <option name="totallyTimeSpent" value="76882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="87" y="23" width="1523" height="1027" extended-state="0" />
@@ -954,15 +956,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/owner.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="79" column="175" selection-start-line="79" selection-start-column="160" selection-end-line="79" selection-end-column="175" />
+        <state relative-caret-position="294">
+          <caret line="79" column="145" selection-start-line="79" selection-start-column="132" selection-end-line="79" selection-end-column="145" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OwnersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="53" column="190" selection-start-line="53" selection-start-column="190" selection-end-line="53" selection-end-column="190" />
+        <state relative-caret-position="466">
+          <caret line="76" column="62" lean-forward="true" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
         </state>
       </provider>
     </entry>

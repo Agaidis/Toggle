@@ -75,9 +75,9 @@
                                                 @if (isset($permitObj[$count]))
                                                     <td class="text-center"><?php echo $count ?> </td>
                                                     @if ($permitObj[$count]['lease_name'] != '')
-                                                        <td class="text-center"><a href="{{url( 'lease-page/' . $interestArea . '/' . $ownerLease->lease_name . '/' . $isProducing . '/' .$permitObj[$count]['permit_id'])}}">{{$ownerLease->lease_name}}</a></td>
+                                                        <td class="text-center"><a href="{{url( 'lease-page/' . $interestArea . '/' . $ownerLease->lease_name . '/' . $isProducing . '/' .$permitObj[$count]['permit_id'])}}">{{$permitObj[$count]['lease_name']}}</a></td>
                                                     @else
-                                                        <td class="text-center"><a href="{{url( 'lease-page/' . $permitObj[$count]['interest_area'] . '/' . $ownerLease->permitLeaseName . '/' . $isProducing . '/' .$permitObj[$count]['permit_id'])}}">{{$ownerLease->permitLeaseName}}</a> <br>{{$permitObj[$count]['lease_name']}}</td>
+                                                        <td class="text-center"><a href="{{url( 'lease-page/' . $permitObj[$count]['interest_area'] . '/' . $permitObj[$count]['lease_name'] . '/' . $isProducing . '/' .$permitObj[$count]['permit_id'])}}">{{$permitObj[$count]['lease_name']}}</a> <br>{{$permitObj[$count]['lease_name']}}</td>
                                                     @endif
 
                                                     @if (isset($ownerLeaseData[0]))
