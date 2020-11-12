@@ -51,7 +51,7 @@ class OwnersController extends Controller
                                 $join->on('permits.lease_name','=','mineral_owners.lease_name');
                                 $join->orOn('permits.selected_lease_name','=','mineral_owners.lease_name');
                             })
-                            ->select('owner_notes.*', 'mineral_owners.*', 'permits.interest_area')
+                            ->select('owner_notes.*', 'mineral_owners.*', 'permits.interest_area', 'permits.lease_name as permitLeaseName', 'permits.permit_id', 'permits.selected_lease_name')
                             ->get();
                     }
                 } else {
