@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="" />
+    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OwnersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-273">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="35" />
+            <state relative-caret-position="398">
+              <caret line="53" column="190" selection-start-line="53" selection-start-column="190" selection-end-line="53" selection-end-column="190" />
             </state>
           </provider>
         </entry>
@@ -25,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/owner.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="72" column="65" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="65" />
+            <state relative-caret-position="301">
+              <caret line="79" column="175" selection-start-line="79" selection-start-column="160" selection-end-line="79" selection-end-column="175" />
             </state>
           </provider>
         </entry>
@@ -35,7 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>interest_area_</find>
       <find>$highPriorityProspect-&gt;interest_area}</find>
       <find>add_phone_btn</find>
       <find>submit_phone</find>
@@ -60,11 +61,12 @@
       <find>CRANE</find>
       <find>-&gt;join</find>
       <find>$selectWells</find>
-      <find>interest_area</find>
       <find>$headers</find>
       <find>&lt;td class=&quot;text-center&quot;</find>
       <find>ErrorLog()</find>
       <find>$wells</find>
+      <find>$ownerLeaseData</find>
+      <find>interest_area</find>
     </findStrings>
     <replaceStrings>
       <replace>dropColumn</replace>
@@ -117,7 +119,6 @@
         <option value="$PROJECT_DIR$/resources/js/permits.js" />
         <option value="$PROJECT_DIR$/database/migrations/2020_10_09_012246_add_merged_lease_name.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GetWells.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/APIManager.php" />
         <option value="$PROJECT_DIR$/config/mail.php" />
@@ -128,6 +129,7 @@
         <option value="$PROJECT_DIR$/resources/views/leasePage.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MMPController.php" />
         <option value="$PROJECT_DIR$/resources/views/owner.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" />
       </list>
     </option>
   </component>
@@ -479,16 +481,15 @@
       <workItem from="1603983046527" duration="44000" />
       <workItem from="1604598979284" duration="1508000" />
       <workItem from="1605114861381" duration="790000" />
-      <workItem from="1605198684785" duration="275000" />
+      <workItem from="1605198684785" duration="546000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76316000" />
+    <option name="totallyTimeSpent" value="76587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="87" y="23" width="1523" height="1027" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" order="0" visible="true" weight="0.26401082" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -953,15 +954,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/owner.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="72" column="65" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="65" />
+        <state relative-caret-position="301">
+          <caret line="79" column="175" selection-start-line="79" selection-start-column="160" selection-end-line="79" selection-end-column="175" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OwnersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="35" />
+        <state relative-caret-position="398">
+          <caret line="53" column="190" selection-start-line="53" selection-start-column="190" selection-end-line="53" selection-end-column="190" />
         </state>
       </provider>
     </entry>

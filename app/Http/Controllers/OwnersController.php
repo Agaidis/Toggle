@@ -72,10 +72,13 @@ class OwnersController extends Controller
                         $permitObj[$count]['lease_name'] = $permits->lease_name;
                         $permitObj[$count]['reported_operator'] = $permits->reported_operator;
                         $permitObj[$count]['permit_id'] = $permits->permit_id;
+                        $permitObj[$count]['interest_area'] = $permits->interest_area;
                     } else {
                         $permitObj[$count]['lease_name'] = '';
                         $permitObj[$count]['reported_operator'] = '';
                         $permitObj[$count]['permit_id'] = '';
+                        $permitObj[$count]['interest_area'] = '';
+
                     }
 
                     if ($notes->isEmpty()) {
