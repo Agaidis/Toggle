@@ -27,6 +27,7 @@
                                          </tr>
                                          </thead>
                                          <tbody>
+                                         @if (isset($ownerPhoneNumbers))
                                          @foreach ($ownerPhoneNumbers as $ownerPhoneNumber)
                                              <tr>
                                                  @if ($ownerPhoneNumber->soft_delete === 1)
@@ -37,6 +38,7 @@
                                                  <td class="text-center"><a href="tel:{{$ownerPhoneNumber->phone_number}}">{{$ownerPhoneNumber->phone_number}}</a></td>
                                              </tr>
                                          @endforeach
+                                             @endif
                                          </tbody>
                                      </table>
                                  </div>
