@@ -44512,7 +44512,7 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  var storedPermitsTable = $('#stored_permit_table').DataTable({
+  $('#stored_permit_table').DataTable({
     "pagingType": "simple",
     "aaSorting": [],
     "stateSave": true,
@@ -44523,6 +44523,12 @@ $(document).ready(function () {
     var permitId = splitId[2];
     var leaseName = splitId[3];
     sendPermitBack(permitId, leaseName);
+  }).on('change', '.assignee', function () {
+    var assignee = $(this)[0].value;
+    var id = $(this)[0].id;
+    var splitId = id.split('_');
+    var permitId = splitId[1];
+    updatePermitStorageAssignee(assignee, permitId);
   });
 
   function sendPermitBack(permitId, leaseName) {
@@ -44549,6 +44555,37 @@ $(document).ready(function () {
       error: function error(data) {
         console.log(data);
         $('.notes').val('Note Submission Error. Make sure You Selected a Permit').text('Note Submission Error. Make sure You Selected a Permit');
+      }
+    });
+  }
+
+  function updatePermitStorageAssignee(assignee, permitId) {
+    if (assignee === '') {
+      $(this).removeClass('assigned_style');
+    } else {
+      $(this).addClass('assigned_style');
+    }
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      beforeSend: function beforeSend(xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+      },
+      type: "PUT",
+      url: '/new-permits/updateAssignee',
+      data: {
+        permitId: permitId,
+        assigneeId: assignee
+      },
+      success: function success(data) {
+        console.log(data);
+      },
+      error: function error(data) {
+        console.log(data);
       }
     });
   }

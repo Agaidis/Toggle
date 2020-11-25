@@ -15,6 +15,7 @@
                                             <thead>
                                             <tr>
                                                 <th class="text-center">Bring Lease Back</th>
+                                                <th class="text-center">Assignee</th>
                                                 <th class="text-center">State / County</th>
                                                 <th class="text-center">Reported Operator</th>
                                                 <th class="text-center">Lease Name</th>
@@ -26,6 +27,22 @@
                                                     <?php $approvedDate = explode('T', $permit->approved_date)?>
                                                     <tr class="permit_row" id="permit_row_{{$permit->permit_id}}">
                                                         <td class="text-center"><button type="button" class="store_button btn btn-primary" id="store_button_{{$permit->permit_id}}_{{$permit->lease_name}}">Back to MMP</button></td>
+                                                        <td class="text-center">
+                                                            @if ($permit->assignee == '')
+                                                                <select class="form-control assignee" id="assignee_{{$permit->permit_id}}">
+                                                                    @else
+                                                                        <select class="form-control assignee assigned_style" id="assignee_{{$permit->permit_id}}">
+                                                                            @endif
+                                                                            <option selected value="">Select a User</option>
+                                                                            @foreach ($users as $user)
+                                                                                @if ($permit->assignee == $user->id)
+                                                                                    <option selected value="{{$user->id}}">{{$user->name}}</option>
+                                                                                @else
+                                                                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </select>
+                                                        </td>
                                                         <td class="text-center">{{$permit->county_parish}}</td>
                                                         <td class="text-center">{{$permit->reported_operator}}</td>
                                                         <td class="text-center"><a href="{{url( 'lease-page/' . $permit->lease_name . '/' . $permit->reported_operator . '/' . $permit->id)}}">{{$permit->lease_name}}</a></td>

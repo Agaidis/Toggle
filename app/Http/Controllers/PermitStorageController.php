@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ErrorLog;
 use Illuminate\Http\Request;
 use App\Permit;
+use App\Models\User;
 
 class PermitStorageController extends Controller
 {
@@ -26,9 +27,10 @@ class PermitStorageController extends Controller
     public function index()
     {
         try {
+            $users = User::all();
             $permits = Permit::where('is_stored', 1)->groupBy('lease_name', 'reported_operator')->get();
 
-            return view('permitStorage', compact('permits'));
+            return view('permitStorage', compact('permits', 'users'));
         } catch ( Exception $e ) {
             $errorMsg = new ErrorLog();
 

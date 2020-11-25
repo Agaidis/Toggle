@@ -51,6 +51,7 @@
                     @elseif (Auth::check())
                         <li><a href="{{ url('mm-platform') }}" id="dashboard_btn">Mineral Management Platform</a></li>
                         <li><a href="{{ url('pushed-phone-numbers') }}" id="pushed_phone_number_btn">Numbers to Update</a></li>
+                        <li><a href="{{ url('permit-storage') }}" id="pushed_phone_number_btn">Permit Storage</a></li>
 
                 @else
                 @endif<!-- Authentication Links today -->
