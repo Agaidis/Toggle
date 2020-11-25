@@ -16,7 +16,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/wellbore.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="4425">
               <caret line="295" column="26" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="26" />
             </state>
           </provider>
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WelboreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="518">
+              <caret line="58" column="65" lean-forward="true" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -388,8 +388,8 @@
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="87" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-537" />
     <option name="y" value="25" />
     <option name="width" value="1523" />
     <option name="height" value="1025" />
@@ -524,17 +524,18 @@
       <workItem from="1605894151800" duration="206000" />
       <workItem from="1605902962572" duration="10000" />
       <workItem from="1606315893480" duration="1158000" />
+      <workItem from="1606320686986" duration="404000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82449000" />
+    <option name="totallyTimeSpent" value="82853000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="87" y="25" width="1523" height="1025" extended-state="0" />
+    <frame x="-537" y="25" width="1523" height="1025" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" order="0" visible="true" weight="0.2842674" />
+      <window_info id="Project" order="0" visible="true" weight="0.2876435" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1000,15 +1001,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/wellbore.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="4425">
           <caret line="295" column="26" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WelboreController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="518">
+          <caret line="58" column="65" lean-forward="true" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
         </state>
       </provider>
     </entry>
