@@ -53,6 +53,10 @@ class WelboreController extends Controller
                 $owners = DB::table('mineral_owners')
                     ->where('follow_up_date', '!=', NULL)
                     ->where('mineral_owners.assignee', $user)
+                    ->join('permits', function ($join) {
+                        $join->on('mineral_owners.lease_name', '=', 'permits.lease_name')
+                            ->orOn('mineral_owners.lease_name', '=', 'quran.selected_lease_name');
+                    })
                //     ->join('permits', 'mineral_owners.lease_name', '=', 'permits.lease_name')
                     ->select('mineral_owners.id', 'mineral_owners.follow_up_date', 'mineral_owners.lease_name', 'mineral_owners.assignee', 'mineral_owners.wellbore_type', 'owner', 'owner_address', 'owner_city', 'owner_zip', 'owner_decimal_interest', 'owner_interest_type', 'Grantor', 'GrantorAddress')
                     ->where(function ($query) {
