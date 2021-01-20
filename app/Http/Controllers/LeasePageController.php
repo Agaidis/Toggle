@@ -546,8 +546,6 @@ class LeasePageController extends Controller
     public function getOwnerNumbers(Request $request) {
         try {
 
-            Log::info($request->ownerName);
-
             $phoneNumbers = OwnerPhoneNumber::where('owner_name', $request->ownerName)->where('soft_delete', 0)->where('is_pushed', 0)->get();
 
             return $phoneNumbers;

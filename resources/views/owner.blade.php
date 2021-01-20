@@ -7,17 +7,39 @@
                 <div class="card">
                     <div class="card-header">Owners Page</div>
                     <div class="card-body">
-                        <h2 style="text-align:center;">Owner: {{$ownerName}}</h2>
-                        <input type="hidden" value="{{$ownerName}}" id="owner_name" />
-                        @if (isset($ownerLeaseData[0]) && ($interestArea == 'eagleford' || $interestArea == 'wtx' || $interestArea == 'tx'))
-                        <h3 style="text-align:center;">Address: {{$ownerLeaseData[0]->owner_address}}<br>{{$ownerLeaseData[0]->owner_city}}, {{$ownerLeaseData[0]->owner_state}}</h3>
-                        @else
-                            <h3 style="text-align:center;">Address: {{$ownerLeaseData[0]->GrantorAddress}}</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="offset-2 col-md-11" style="text-align: center;">
+                                    <div style="background-color: lightgray;width: 67%;padding: 5%;border-radius: .5em;">
+                                        <span>Assigned To:</span>
+                                        <h4>{{$assignee}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h2 style="text-align:center;">Owner: {{$ownerName}}</h2>
+                                <input type="hidden" value="{{$ownerName}}" id="owner_name" />
+                                <input type="hidden" value="{{$interestArea}}" id="interest_area" />
+                                @if (isset($ownerLeaseData[0]) && ($interestArea == 'eagleford' || $interestArea == 'wtx' || $interestArea == 'tx'))
+                                    <h3 style="text-align:center;">Address: {{$ownerLeaseData[0]->owner_address}}<br>{{$ownerLeaseData[0]->owner_city}}, {{$ownerLeaseData[0]->owner_state}}</h3>
+                                @else
+                                    <h3 style="text-align:center;">Address: {{$ownerLeaseData[0]->GrantorAddress}}</h3>
 
-                        @endif
+                                @endif
+                            </div>
+                            <div class="col-md-4">
+                                <div class="offset-2 col-md-11" style="text-align: center;">
+                                    <div style="background-color: lightgray;width: 67%;padding: 5%;border-radius: .5em;">
+                                        <span>Follow-up Date:</span>
+                                        <h4>{{$followUpDate}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                              <div class="col-md-4">
-                                 <h3 style="text-align:center;">Phone Numbers</h3>
+                                 <h4 style="text-align:center;">Phone Numbers    <button class="btn btn-group-sm btn-success add_phone_btn" id="add_phone_{{$ownerName}}" data-target="#modal_add_phone" data-toggle="modal"><i class="fas fa-plus"></i></button></h4>
                                  <div>
                                      <table class="table table-hover table-responsive-md table-bordered" id="owner_phone_table">
                                          <thead>
@@ -99,6 +121,41 @@
                                     </table>
                                 </div>
                             </div>
+
+                        <div class="modal fade" id="modal_add_phone">
+                            <div style="width:650px!important;" class="modal-dialog phone_modal_dialog" role="document">
+                                <div style="margin-left:-60%; margin-top:50%;" class="modal-content">
+                                    <div class="modal-header">
+                                        <h4>Add Phone Number</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body row">
+                                        <div class="col-md-6">
+                                            <label>Phone Description</label><input type="text" class="form-control"
+                                                                                   id="new_phone_desc" name="new_phone_desc"
+                                                                                   placeholder="Home, Cell, Sister, Etc."/>
+                                            <label>Phone Number</label><input type="text" class="form-control"
+                                                                              id="new_phone_number" name="new_phone_number"
+                                                                              placeholder="(ext) 000 - 0000"/>
+                                            <div class="modal-footer">
+                                                <button type="button" id="submit_phone"
+                                                        class="submit_phone_btn btn btn-primary">Submit #
+                                                </button>
+                                                <button type="button" id="cancel_phone"
+                                                        class="cancel_phone_btn btn btn-success" data-dismiss="modal">Close
+                                                    Modal
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="phone_container" id="phone_container" style="padding: 2%;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ErrorLog;
 use App\MineralOwner;
+use App\Models\User;
 use App\OwnerEmail;
 use App\OwnerNote;
 use App\OwnerPhoneNumber;
@@ -27,6 +28,8 @@ class OwnersController extends Controller
             $ownerNotes = OwnerNote::where('owner_name', $ownerName)->get();
             $ownerPhoneNumbers = OwnerPhoneNumber::where('owner_name', $ownerName)->orderBy('soft_delete', 'ASC')->get();
             $email = OwnerEmail::where('name', $ownerName)->value('email');
+
+
 
 
                 if (!$ownerNotes->isEmpty()) {
@@ -60,10 +63,24 @@ class OwnersController extends Controller
                         $ownerLeaseData = DB::table('mineral_owners')->where('Grantor', $ownerName)->get();
                     }
                 }
+
+
                 $count = 0;
+                $assigneeId = null;
+                $followUpDate = null;
 
                 foreach ($ownerLeaseData as $ownerLease) {
                     $leaseNote = '';
+                    if ($assigneeId == null) {
+                        if ($ownerLease->assignee != NULL) {
+                            $assigneeId = $ownerLease->assignee;
+                        }
+                    }
+                    if ($followUpDate == null) {
+                        if ($ownerLease->follow_up_date != NULL) {
+                            $followUpDate = $ownerLease->follow_up_date;
+                        }
+                    }
 
                     $permits = Permit::where('lease_name', $ownerLease->lease_name)->first();
                     $notes = OwnerNote::where('owner_name', $ownerLease->owner)->where('lease_name', $ownerLease->lease_name)->orderBy('created_at', 'DESC')->get();
@@ -95,7 +112,11 @@ class OwnersController extends Controller
                     $count++;
                 }
 
-            return view('owner', compact('ownerName', 'ownerNotes', 'interestArea', 'isProducing', 'ownerPhoneNumbers','ownerLeaseData', 'permitObj', 'noteArray', 'email' ));
+                if ($assigneeId != null) {
+                    $assignee = User::where('id', $assigneeId)->value('name');
+                }
+
+            return view('owner', compact('ownerName', 'assignee', 'followUpDate', 'ownerNotes', 'interestArea', 'isProducing', 'ownerPhoneNumbers','ownerLeaseData', 'permitObj', 'noteArray', 'email' ));
         } catch( \Exception $e) {
             $errorMsg = new ErrorLog();
             $errorMsg->payload = $e->getTraceAsString() . $e->getMessage() . ' Line #: ' . $e->getLine();
