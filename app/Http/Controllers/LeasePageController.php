@@ -292,18 +292,40 @@ class LeasePageController extends Controller
 
     public function updateAssignee(Request $request) {
         try {
-            if ($request->assigneeId != 0) {
-                MineralOwner::where('id', $request->ownerId)->update(
-                    [
-                        'assignee' => $request->assigneeId,
-                        'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
-                    ]);
+            $ownerInfo = MineralOwner::where('id', $request->ownerId)->first();
+            if ($ownerInfo->owner == null || $ownerInfo->owner == '' && ($ownerInfo->Grantor != '' && $ownerInfo->Grantor != null)) {
+
+                $owner = $ownerInfo->Grantor;
+                if ($request->assigneeId != 0) {
+                    MineralOwner::where('Grantor', $owner)->update(
+                        [
+                            'assignee' => $request->assigneeId,
+                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
+                        ]);
+                } else {
+                    MineralOwner::where('Grantor', $owner)->update(
+                        [
+                            'assignee' => $request->assigneeId
+                        ]);
+                }
             } else {
-                MineralOwner::where('id', $request->ownerId)->update(
-                    [
-                        'assignee' => $request->assigneeId
-                    ]);
+                $owner = $ownerInfo->owner;
+
+                if ($request->assigneeId != 0) {
+                    MineralOwner::where('owner', $owner)->update(
+                        [
+                            'assignee' => $request->assigneeId,
+                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
+                        ]);
+                } else {
+                    MineralOwner::where('owner', $request->ownerId)->update(
+                        [
+                            'assignee' => $request->assigneeId
+                        ]);
+                }
             }
+
+
 
             return 'success';
 
@@ -318,7 +340,9 @@ class LeasePageController extends Controller
 
     public function updateWellType(Request $request) {
         try {
+            $ownerInfo = MineralOwner::where('id', $request->ownerId)->first();
             if ($request->wellType != 0) {
+
                 MineralOwner::where('id', $request->ownerId)->update(
                     [
                         'wellbore_type' => $request->wellType,
@@ -330,6 +354,47 @@ class LeasePageController extends Controller
                         'wellbore_type' => $request->wellType
                     ]);
             }
+
+
+
+
+
+            if ($ownerInfo->owner == null || $ownerInfo->owner == '' && ($ownerInfo->Grantor != '' && $ownerInfo->Grantor != null)) {
+
+                $owner = $ownerInfo->Grantor;
+                if ($request->wellType != 0) {
+                    MineralOwner::where('Grantor', $owner)->update(
+                        [
+                            'wellbore_type' => $request->wellType,
+                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
+                        ]);
+                } else {
+                    MineralOwner::where('Grantor', $owner)->update(
+                        [
+                            'assignee' => $request->assigneeId
+                        ]);
+                }
+            } else {
+                $owner = $ownerInfo->owner;
+
+                if ($request->wellType != 0) {
+                    MineralOwner::where('owner', $owner)->update(
+                        [
+                            'wellbore_type' => $request->wellType,
+                            'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))
+                        ]);
+                } else {
+                    MineralOwner::where('owner', $request->ownerId)->update(
+                        [
+                            'assignee' => $request->assigneeId
+                        ]);
+                }
+            }
+
+
+
+
+
 
             return 'success';
 
@@ -465,11 +530,16 @@ class LeasePageController extends Controller
             if ($ownerInfo->owner == null || $ownerInfo->owner == '' && ($ownerInfo->Grantor != '' && $ownerInfo->Grantor != null)) {
 
                 $owner = $ownerInfo->Grantor;
+
+                MineralOwner::where('Grantor', $owner)->update(['assignee' => $userId, 'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))]);
+
             } else {
                 $owner = $ownerInfo->owner;
+
+                MineralOwner::where('owner', $owner)->update(['assignee' => $userId, 'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))]);
+
             }
 
-            MineralOwner::where('id', $request->id)->update(['assignee' => $userId, 'follow_up_date' => date('Y-m-d h:i:s A', strtotime('+1 day +19 hours'))]);
 
             $newOwnerLeaseNote = new OwnerNote();
 
@@ -530,7 +600,21 @@ class LeasePageController extends Controller
                 $date = null;
             }
 
-            MineralOwner::where('id', $request->id)->update(['follow_up_date' => $date]);
+            $mineralOwner = MineralOwner::where('id', $request->id)->first();
+
+            if ($mineralOwner->owner == null || $mineralOwner->owner == '' && ($mineralOwner->Grantor != '' && $mineralOwner->Grantor != null)) {
+
+                $owner = $mineralOwner->Grantor;
+
+                MineralOwner::where('Grantor', $owner)->update(['follow_up_date' => $date]);
+
+            } else {
+                $owner = $mineralOwner->owner;
+
+                MineralOwner::where('owner', $owner)->update(['follow_up_date' => $date]);
+
+            }
+
 
             return 'success';
 

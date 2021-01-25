@@ -69,10 +69,17 @@ class PushedPhoneNumbersController extends Controller
                     'owner_id' => $request->ownerId
                 ]);
 
-            MineralOwner::where('owner', $request->ownerName)->where('lease_name', $request->leaseName)
+            if ($request->ownerName != '' && $request->ownerName != null) {
+                MineralOwner::where('owner', $request->ownerName)//->where('lease_name', $request->leaseName)
                 ->update([
                     'follow_up_date' => date('Y-m-d h:i:s A')
                 ]);
+            } else {
+                MineralOwner::where('Grantor', $request->ownerName)//->where('lease_name', $request->leaseName)
+                ->update([
+                    'follow_up_date' => date('Y-m-d h:i:s A')
+                ]);
+            }
 
             return 'success';
         } catch (\Exception $e) {
