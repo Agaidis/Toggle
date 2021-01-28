@@ -114,6 +114,8 @@ class OwnersController extends Controller
 
                 if ($assigneeId != null) {
                     $assignee = User::where('id', $assigneeId)->value('name');
+                } else {
+                    $assignee = '';
                 }
 
             return view('owner', compact('ownerName', 'assignee', 'followUpDate', 'ownerNotes', 'interestArea', 'isProducing', 'ownerPhoneNumbers','ownerLeaseData', 'permitObj', 'noteArray', 'email' ));
