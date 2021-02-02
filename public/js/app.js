@@ -44515,7 +44515,7 @@ $(document).ready(function () {
     var uniqueId = splitId[3];
     pushPhoneNumber(uniqueId);
   });
-  $('.submit_phone_btn').on('click', function () {
+  $('.owner_submit_phone_btn').on('click', function () {
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

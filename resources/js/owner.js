@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     });
 
-    $('.submit_phone_btn').on('click', function () {
+    $('.owner_submit_phone_btn').on('click', function () {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

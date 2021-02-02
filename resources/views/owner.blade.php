@@ -141,7 +141,7 @@
                                                                               placeholder="(ext) 000 - 0000"/>
                                             <div class="modal-footer">
                                                 <button type="button" id="submit_phone"
-                                                        class="submit_phone_btn btn btn-primary">Submit #
+                                                        class="owner_submit_phone_btn btn btn-primary">Submit #
                                                 </button>
                                                 <button type="button" id="cancel_phone"
                                                         class="cancel_phone_btn btn btn-success" data-dismiss="modal">Close
