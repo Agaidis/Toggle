@@ -46,7 +46,42 @@ $(document).ready(function () {
             }
 
         });
-    }).on('click', '.insert_number', function() {
+    }).on('click', '.soft_delete_phone', function() {
+       let id = $(this)[0].id;
+       let splitId = id.split('_');
+       let phoneId = splitId[2];
+
+       console.log(phoneId);
+
+       $.ajaxSetup({
+           headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+       });
+       $.ajax({
+           beforeSend: function beforeSend(xhr) {
+               xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+           },
+           type: "POST",
+           url: '/pushed-phone-numbers/deletePhoneNumber',
+           data: {
+               id: phoneId
+
+           },
+           success: function success(data) {
+               console.log(data);
+               let rows = table
+                   .rows( '.' + phoneId )
+                   .remove()
+                   .draw();
+
+           },
+           error: function error(data) {
+               console.log(data);
+           }
+
+       });
+   }).on('click', '.insert_number', function() {
         let id = $(this)[0].id;
         let splitId = id.split('_');
         let phoneId = splitId[2];
@@ -120,6 +155,41 @@ $(document).ready(function () {
 
             },
             success: function success(data) {
+                let rows = nmtable
+                    .rows( '.' + phoneId )
+                    .remove()
+                    .draw();
+
+            },
+            error: function error(data) {
+                console.log(data);
+            }
+
+        });
+    }).on('click', '.soft_delete_phone', function() {
+        let id = $(this)[0].id;
+        let splitId = id.split('_');
+        let phoneId = splitId[2];
+
+        console.log(phoneId);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            beforeSend: function beforeSend(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+            },
+            type: "POST",
+            url: '/pushed-phone-numbers/deletePhoneNumber',
+            data: {
+                id: phoneId
+
+            },
+            success: function success(data) {
+                console.log(data);
                 let rows = nmtable
                     .rows( '.' + phoneId )
                     .remove()

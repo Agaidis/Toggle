@@ -111,6 +111,8 @@ Route::put('/pushed-phone-numbers/updatePhoneNumber',   'PushedPhoneNumbersContr
 
 Route::post('/pushed-phone-numbers/insertPhoneNumber',  'PushedPhoneNumbersController@insertPhoneNumber')->middleware('Auth');
 
+Route::post('/pushed-phone-numbers/deletePhoneNumber',  'PushedPhoneNumbersController@softDeletePhone')->middleware('Auth');
+
 /*                      OWNER PAGE                     */
 Route::get('/owner/{interestArea?}/{ownerName?}/{isProducing?}',       'OwnersController@index')->middleware('Auth');
 

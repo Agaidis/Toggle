@@ -57,6 +57,25 @@ class PushedPhoneNumbersController extends Controller
         }
     }
 
+    public function softDeletePhone(Request $request) {
+        try {
+            OwnerPhoneNumber::where('id', $request->id)
+                ->update([
+                    'is_pushed' => 0,
+                    'soft_delete' => 1
+                ]);
+
+            return $request->id;
+
+        } catch( Exception $e ) {
+            $errorMsg = new ErrorLog();
+            $errorMsg->payload = $e->getMessage() . ' Line #: ' . $e->getLine();
+
+            $errorMsg->save();
+            return 'error';
+        }
+    }
+
     public function updatePhoneNumber(Request $request) {
         try {
 

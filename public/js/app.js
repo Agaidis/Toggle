@@ -46039,6 +46039,33 @@ $(document).ready(function () {
         console.log(data);
       }
     });
+  }).on('click', '.soft_delete_phone', function () {
+    var id = $(this)[0].id;
+    var splitId = id.split('_');
+    var phoneId = splitId[2];
+    console.log(phoneId);
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      beforeSend: function beforeSend(xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+      },
+      type: "POST",
+      url: '/pushed-phone-numbers/deletePhoneNumber',
+      data: {
+        id: phoneId
+      },
+      success: function success(data) {
+        console.log(data);
+        var rows = table.rows('.' + phoneId).remove().draw();
+      },
+      error: function error(data) {
+        console.log(data);
+      }
+    });
   }).on('click', '.insert_number', function () {
     var id = $(this)[0].id;
     var splitId = id.split('_');
@@ -46101,6 +46128,33 @@ $(document).ready(function () {
         leaseName: leaseName
       },
       success: function success(data) {
+        var rows = nmtable.rows('.' + phoneId).remove().draw();
+      },
+      error: function error(data) {
+        console.log(data);
+      }
+    });
+  }).on('click', '.soft_delete_phone', function () {
+    var id = $(this)[0].id;
+    var splitId = id.split('_');
+    var phoneId = splitId[2];
+    console.log(phoneId);
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      beforeSend: function beforeSend(xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+      },
+      type: "POST",
+      url: '/pushed-phone-numbers/deletePhoneNumber',
+      data: {
+        id: phoneId
+      },
+      success: function success(data) {
+        console.log(data);
         var rows = nmtable.rows('.' + phoneId).remove().draw();
       },
       error: function error(data) {
