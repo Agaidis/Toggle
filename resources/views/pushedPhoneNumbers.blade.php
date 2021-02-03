@@ -42,7 +42,7 @@
                                                     <td class="text-center" style="border:none;">{{$pushedPhoneNumbers[$i]->lease_name}}</td><input type="hidden" id="lease_name_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->lease_name}}" />
                                                     <td class="text-center" style="border:none;"><input type="text" class="form-control" id="phone_desc_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->phone_desc}}"/></td>
                                                     <td class="text-center" style="border:none;"><input type="text" class="form-control" id="phone_number_{{$pushedPhoneNumbers[$i]->id}}" value="{{$pushedPhoneNumbers[$i]->phone_number}}"/></td>
-                                                    <td class="text-center" style="border:none;"><button type="button" class="btn btn-primary send_back" id="send_back_{{$pushedPhoneNumbers[$i]->id}}">Send Back</button><button type="button" style="margin-left:10px;" class="soft_delete_phone btn btn-danger" id="soft_delete_{{$pushedPhoneNumbers[$i]->id}}">Delete</button></td>
+                                                    <td class="text-center" style="border:none; white-space: nowrap"><button type="button" class="btn btn-primary send_back" id="send_back_{{$pushedPhoneNumbers[$i]->id}}">Send Back</button><button type="button" style="margin-left:10px;" class="soft_delete_phone btn btn-danger" id="soft_delete_{{$pushedPhoneNumbers[$i]->id}}">Delete</button></td>
                                                 </tr>
                                                 <?php $previousOwnerName = $pushedPhoneNumbers[$i]->owner_name; ?>
                                         @endfor
@@ -87,7 +87,7 @@
                                             <td class="text-center" style="border:none;">{{$pushPhoneNumbersNM[$i]->lease_name}}</td><input type="hidden" id="lease_name_{{$pushPhoneNumbersNM[$i]->id}}" value="{{$pushPhoneNumbersNM[$i]->lease_name}}" />
                                             <td class="text-center" style="border:none;"><input type="text" class="form-control" id="phone_desc_{{$pushPhoneNumbersNM[$i]->id}}" value="{{$pushPhoneNumbersNM[$i]->phone_desc}}"/></td>
                                             <td class="text-center" style="border:none;"><input type="text" class="form-control" id="phone_number_{{$pushPhoneNumbersNM[$i]->id}}" value="{{$pushPhoneNumbersNM[$i]->phone_number}}"/></td>
-                                            <td class="text-center" style="border:none;"><button type="button" class="btn btn-primary send_back" id="send_back_{{$pushPhoneNumbersNM[$i]->id}}">Send Back</button><button type="button" style="margin-left:10px;" class="soft_delete_phone btn btn-danger" id="soft_delete_{{$pushedPhoneNumbers[$i]->id}}">Delete</button></td>
+                                            <td class="text-center" style="border:none; white-space: nowrap"><button type="button" class="btn btn-primary send_back" id="send_back_{{$pushPhoneNumbersNM[$i]->id}}">Send Back</button><button type="button" style="margin-left:10px;" class="soft_delete_phone btn btn-danger" id="soft_delete_{{$pushedPhoneNumbers[$i]->id}}">Delete</button></td>
                                         </tr>
                                         <?php $previousOwnerName = $pushPhoneNumbersNM[$i]->Grantor; ?>
                                     @endfor
