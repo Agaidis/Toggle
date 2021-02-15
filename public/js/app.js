@@ -43234,6 +43234,7 @@ $(document).ready(function () {
       var id = $(this)[0].id;
       var splitId = id.split('_');
       var ownerId = splitId[2];
+      console.log($(this).val());
       changeProduct(ownerId, $(this).val());
     });
     $('.phone_container').on('click', '.soft_delete_phone', function () {
@@ -44282,8 +44283,12 @@ $(document).ready(function () {
     var bnpWithComma = numberWithCommas(bnp);
     $('#bnp_' + id).val(bnpWithComma);
     var bbls = $('#bbls').text();
+    console.log('Product Price: ' + productPrice);
+    console.log('BBLS: ' + bbls);
+    console.log('BNP: ' + bnp);
     bbls = bbls.replace(',', '');
     var ytp = bnp / bbls;
+    console.log('YTP: ' + ytp);
     ytp = ytp.toFixed(2);
     var ytpWithComma = numberWithCommas(ytp);
     $('#ytp_' + id).val(ytpWithComma);

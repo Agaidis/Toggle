@@ -230,6 +230,7 @@
             let id = $(this)[0].id;
             let splitId = id.split('_');
             let ownerId = splitId[2];
+            console.log($(this).val());
             changeProduct(ownerId, $(this).val());
         });
 
@@ -1679,9 +1680,15 @@
          $('#bnp_' + id).val(bnpWithComma);
 
          let bbls = $('#bbls').text();
+
+         console.log('Product Price: ' + productPrice);
+         console.log('BBLS: ' + bbls);
+         console.log('BNP: ' + bnp);
          bbls = bbls.replace(',', '');
 
          let ytp = bnp / bbls;
+
+         console.log('YTP: ' + ytp);
 
          ytp = ytp.toFixed(2);
          let ytpWithComma = numberWithCommas(ytp);
