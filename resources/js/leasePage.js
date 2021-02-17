@@ -1681,6 +1681,8 @@
 
          let bbls = $('#bbls').text();
 
+         console.log('Owner Price: ' + ownerPrice);
+         console.log('Needed Income: ' + neededIncome);
          console.log('Product Price: ' + productPrice);
          console.log('BBLS: ' + bbls);
          console.log('BNP: ' + bnp);
