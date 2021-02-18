@@ -44820,8 +44820,7 @@ $(document).ready(function () {
   var eaglePermitTable = $('#eagle_permit_table').DataTable({
     "pagingType": "simple",
     "aaSorting": [],
-    "stateSave": true,
-    "order": [[2, "asc"]]
+    "stateSave": true
   }).on('click', 'td.mmp-details-control', function () {
     console.log($(this));
     var id = $(this)[0].id;

@@ -79,8 +79,7 @@ $(document).ready(function () {
     let eaglePermitTable = $('#eagle_permit_table').DataTable({
         "pagingType": "simple",
         "aaSorting": [],
-        "stateSave": true,
-        "order": [[ 2, "asc" ]]
+        "stateSave": true
     }).on('click', 'td.mmp-details-control', function () {
         console.log($(this));
         let id = $(this)[0].id;
