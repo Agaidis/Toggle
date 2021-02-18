@@ -26,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/resources/js/leasePage.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="457">
-              <caret line="1679" lean-forward="true" selection-start-line="1679" selection-end-line="1679" />
+              <caret line="1679" selection-start-line="1679" selection-end-line="1679" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#span#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#span#0;n#!!top" expanded="true" />
@@ -108,8 +108,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MMPController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2655">
-              <caret line="211" column="23" selection-start-line="211" selection-start-column="23" selection-end-line="211" selection-end-column="23" />
+            <state relative-caret-position="189">
+              <caret line="47" column="91" selection-start-line="47" selection-start-column="91" selection-end-line="47" selection-end-column="91" />
               <folding>
                 <element signature="e#40#85#0#PHP" expanded="true" />
               </folding>
@@ -118,39 +118,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/phoneNumberPush.js">
+        <entry file="file://$PROJECT_DIR$/resources/js/permits.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1665">
-              <caret line="111" column="56" selection-start-line="111" selection-start-column="56" selection-end-line="111" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PushedPhoneNumbersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9900">
-              <caret line="675" column="19" selection-start-line="675" selection-start-column="19" selection-end-line="675" selection-end-column="19" />
+            <state relative-caret-position="276">
+              <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
               <folding>
-                <element signature="e#40#57#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -230,7 +207,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeaseCreatorController.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/css/mmp.css" />
-        <option value="$PROJECT_DIR$/resources/js/permits.js" />
         <option value="$PROJECT_DIR$/database/migrations/2020_10_09_012246_add_merged_lease_name.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GetWells.php" />
@@ -238,7 +214,6 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/DailyReport.php" />
         <option value="$PROJECT_DIR$/resources/views/mm-platform.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/leasePage.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MMPController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PermitStorageController.php" />
         <option value="$PROJECT_DIR$/resources/views/permitStorage.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/permitStorage.js" />
@@ -254,6 +229,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/PushedPhoneNumbersController.php" />
         <option value="$PROJECT_DIR$/resources/views/pushedPhoneNumbers.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/leasePage.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MMPController.php" />
+        <option value="$PROJECT_DIR$/resources/js/permits.js" />
       </list>
     </option>
   </component>
@@ -677,18 +654,18 @@
       <workItem from="1612356213653" duration="207000" />
       <workItem from="1613405892095" duration="3371000" />
       <workItem from="1613598210863" duration="1259000" />
-      <workItem from="1613676558965" duration="338000" />
+      <workItem from="1613676558965" duration="681000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110520000" />
+    <option name="totallyTimeSpent" value="110863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1025" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" id="Project" order="0" visible="true" weight="0.17338218" />
+      <window_info id="Project" order="0" visible="true" weight="0.17338218" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -701,7 +678,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.122977346" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.122977346" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -875,13 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2280">
           <caret line="152" column="75" selection-start-line="152" selection-start-column="75" selection-end-line="167" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/permits.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19365">
-          <caret line="1291" selection-start-line="1291" selection-end-line="1321" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1084,7 +1054,7 @@
     <entry file="file://$PROJECT_DIR$/resources/js/leasePage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
-          <caret line="1679" lean-forward="true" selection-start-line="1679" selection-end-line="1679" />
+          <caret line="1679" selection-start-line="1679" selection-end-line="1679" />
           <folding>
             <element signature="n#style#0;n#div#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#span#0;n#!!top" expanded="true" />
@@ -1162,10 +1132,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/permits.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MMPController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2655">
-          <caret line="211" column="23" selection-start-line="211" selection-start-column="23" selection-end-line="211" selection-end-column="23" />
+        <state relative-caret-position="189">
+          <caret line="47" column="91" selection-start-line="47" selection-start-column="91" selection-end-line="47" selection-end-column="91" />
           <folding>
             <element signature="e#40#85#0#PHP" expanded="true" />
           </folding>
