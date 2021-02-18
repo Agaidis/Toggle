@@ -1677,15 +1677,15 @@
          bnp = bnp.toFixed(2);
          let bnpWithComma = numberWithCommas(bnp);
 
+
          $('#bnp_' + id).val(bnpWithComma);
+         let bbls = 0;
+         if (product === 'oil') {
+             bbls = $('#bbls').text();
+         } else {
+             bbls = $('#gbbls').text();
+         }
 
-         let bbls = $('#bbls').text();
-
-         console.log('Owner Price: ' + ownerPrice);
-         console.log('Needed Income: ' + neededIncome);
-         console.log('Product Price: ' + productPrice);
-         console.log('BBLS: ' + bbls);
-         console.log('BNP: ' + bnp);
          bbls = bbls.replace(',', '');
 
          let ytp = bnp / bbls;

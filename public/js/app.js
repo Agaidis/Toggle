@@ -44282,12 +44282,14 @@ $(document).ready(function () {
     bnp = bnp.toFixed(2);
     var bnpWithComma = numberWithCommas(bnp);
     $('#bnp_' + id).val(bnpWithComma);
-    var bbls = $('#bbls').text();
-    console.log('Owner Price: ' + ownerPrice);
-    console.log('Needed Income: ' + neededIncome);
-    console.log('Product Price: ' + productPrice);
-    console.log('BBLS: ' + bbls);
-    console.log('BNP: ' + bnp);
+    var bbls = 0;
+
+    if (product === 'oil') {
+      bbls = $('#bbls').text();
+    } else {
+      bbls = $('#gbbls').text();
+    }
+
     bbls = bbls.replace(',', '');
     var ytp = bnp / bbls;
     console.log('YTP: ' + ytp);
