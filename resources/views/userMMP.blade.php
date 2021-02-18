@@ -61,10 +61,7 @@
                                 </ul>
                             </ul>
 
-
-
                             <div class="tab-content">
-
                                 <!-- EAGLE INTEREST AREA TAB -->
                                 <div class="tab-pane active" role="tabpanel" id="eagle_interest_area">
                                     <div class="row">
@@ -103,6 +100,7 @@
                                                                 <td id="id_{{$eaglePermit->permit_id}}" class="text-center mmp-details-control"><i style="cursor:pointer;" class="far fa-dot-circle"></i></td>
                                                                 <td>
                                                                     @if ($eaglePermit->toggle_status == 'yellow')
+                                                                        <span style="display:none">5</span>
                                                                         <select id="toggle_status_{{$eaglePermit->permit_id}}" class="form-control toggle_status unseen">
                                                                             <option selected value="yellow">Untouched</option>
                                                                             <option value="green">Major Prospect </option>
@@ -111,6 +109,7 @@
                                                                             <option value="purple">Completed</option>
                                                                         </select>
                                                                     @elseif ($eaglePermit->toggle_status == 'green')
+                                                                        <span style="display:none">1</span>
                                                                         <select id="toggle_status_{{$eaglePermit->permit_id}}" class="form-control toggle_status green">
                                                                             <option value="yellow">Untouched </option>
                                                                             <option selected value="green">Major Prospect </option>
@@ -119,6 +118,7 @@
                                                                             <option value="purple">Completed</option>
                                                                         </select>
                                                                     @elseif ($eaglePermit->toggle_status == 'blue')
+                                                                        <span style="display:none">2</span>
                                                                         <select id="toggle_status_{{$eaglePermit->permit_id}}" class="form-control toggle_status blue">
                                                                             <option value="yellow">Untouched </option>
                                                                             <option value="green">Major Prospect </option>
@@ -127,6 +127,7 @@
                                                                             <option value="purple">Completed</option>
                                                                         </select>
                                                                     @elseif ($eaglePermit->toggle_status == 'red')
+                                                                        <span style="display:none">3</span>
                                                                         <select id="toggle_status_{{$eaglePermit->permit_id}}" class="form-control toggle_status red">
                                                                             <option value="yellow">Untouched </option>
                                                                             <option value="green">Major Prospect </option>
@@ -135,6 +136,7 @@
                                                                             <option value="purple">Completed</option>
                                                                         </select>
                                                                     @elseif ($eaglePermit->toggle_status == 'purple')
+                                                                        <span style="display:none">4</span>
                                                                         <select id="toggle_status_{{$eaglePermit->permit_id}}" class="form-control toggle_status purple">
                                                                             <option value="yellow">Untouched </option>
                                                                             <option value="green">Major Prospect </option>
@@ -143,6 +145,7 @@
                                                                             <option selected value="purple">Completed</option>
                                                                         </select>
                                                                     @else
+                                                                        <span style="display:none">5</span>
                                                                         <select id="toggle_status_{{$eaglePermit->permit_id}}" class="form-control toggle_status unseen">
                                                                             <option selected value="yellow">Untouched</option>
                                                                             <option value="green">Major Prospect </option>

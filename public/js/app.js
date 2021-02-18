@@ -44818,7 +44818,10 @@ $(document).ready(function () {
   var globalPermitId = ''; //EAGLE PERMIT TABLE
 
   var eaglePermitTable = $('#eagle_permit_table').DataTable({
-    "pagingType": "simple"
+    "pagingType": "simple",
+    "aaSorting": [],
+    "stateSave": true,
+    "order": [[2, "asc"]]
   }).on('click', 'td.mmp-details-control', function () {
     console.log($(this));
     var id = $(this)[0].id;

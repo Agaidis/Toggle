@@ -45,7 +45,7 @@ class MMPController extends Controller
 
 
             if ($userRole === 'regular') {
-                $eaglePermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'eagleford')->groupBy('lease_name', 'reported_operator')->orderByRaw("FIELD(toggle_status, 'green', 'blue', 'red', 'purple', 'yellow') ASC")->get();
+                $eaglePermits = DB::table('permits')->orderBy('toggle_status', 'ASC')->orderByRaw("FIELD(toggle_status, 'green', 'blue', 'red', 'purple', 'yellow') ASC")->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'eagleford')->groupBy('lease_name', 'reported_operator')->get();
                 $wtxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'wtx')->groupBy('lease_name', 'reported_operator')->get();
                 $etxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'etx')->groupBy('lease_name', 'reported_operator')->get();
                 $nmPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'nm')->groupBy('lease_name', 'reported_operator')->get();
