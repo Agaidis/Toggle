@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/leasePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/leasePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/leasePage.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="443">
@@ -101,6 +98,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="126" column="140" selection-start-line="126" selection-start-column="140" selection-end-line="126" selection-end-column="140" />
+              <folding>
+                <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/GetLegalLeases.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -148,7 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selected_lease_name</find>
       <find>wellbore-details-control</find>
       <find>add_phone_btn</find>
       <find>wellbore_submit_phone_btn</find>
@@ -178,6 +186,7 @@
       <find>eagle_permit_table</find>
       <find>DataTable</find>
       <find>AllRelatedPermits</find>
+      <find>well_count_btn</find>
     </findStrings>
     <replaceStrings>
       <replace>dropColumn</replace>
@@ -228,7 +237,6 @@
         <option value="$PROJECT_DIR$/resources/js/permitStorage.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/APIManager.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WelboreController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" />
         <option value="$PROJECT_DIR$/resources/js/owner.js" />
@@ -242,6 +250,7 @@
         <option value="$PROJECT_DIR$/resources/views/userMMP.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mm-platform.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/leasePage.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
       </list>
     </option>
   </component>
@@ -534,13 +543,6 @@
               <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Console" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Commands" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -667,15 +669,16 @@
       <workItem from="1613598210863" duration="1259000" />
       <workItem from="1613676558965" duration="2854000" />
       <workItem from="1614954731382" duration="330000" />
-      <workItem from="1615917457698" duration="776000" />
+      <workItem from="1615917457698" duration="2291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114142000" />
+    <option name="totallyTimeSpent" value="115657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1025" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" order="0" visible="true" weight="0.17704518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -690,7 +693,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.122977346" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1175836" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1029,16 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9900">
-          <caret line="675" column="19" selection-start-line="675" selection-start-column="19" selection-end-line="675" selection-end-column="19" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pushedPhoneNumbers.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -1168,6 +1161,16 @@
             <element signature="n#style#0;n#span#0;n#div#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#2;n#div#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="126" column="140" selection-start-line="126" selection-start-column="140" selection-end-line="126" selection-end-column="140" />
+          <folding>
+            <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
