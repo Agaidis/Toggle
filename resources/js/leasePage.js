@@ -40,6 +40,7 @@
              mapTypeId: google.maps.MapTypeId.HYBRID
          });
 
+         console.log(toggle.allRelatedPermits);
          $.each(toggle.allRelatedPermits, function (key, value) {
              let surfaceLng = '{"lng":' + value.SurfaceLongitudeWGS84;
              let surfaceLat = '"lat":' + value.SurfaceLatitudeWGS84 + '}';
@@ -47,22 +48,25 @@
              let position = new google.maps.LatLng(JSON.parse(surfaceLng + ',' + surfaceLat));
 
              bounds.extend(position);
-
+             console.log(btmGeo[0]);
+             if (btmGeo[0] !== '') {
              let btmPosition = new google.maps.LatLng(JSON.parse(btmGeo));
              bounds.extend(btmPosition);
 
-             let flightPath = new google.maps.Polyline({
-                 path: [
-                     JSON.parse(surfaceLng + ',' + surfaceLat),
-                     JSON.parse(btmGeo)
-                 ],
-                 geodesic: true,
-                 strokeColor: "#ab0000",
-                 strokeOpacity: 1.0,
-                 strokeWeight: 2
-             });
 
-             flightPath.setMap(map);
+                 let flightPath = new google.maps.Polyline({
+                     path: [
+                         JSON.parse(surfaceLng + ',' + surfaceLat),
+                         JSON.parse(btmGeo)
+                     ],
+                     geodesic: true,
+                     strokeColor: "#ab0000",
+                     strokeOpacity: 1.0,
+                     strokeWeight: 2
+                 });
+
+                 flightPath.setMap(map);
+             }
          });
 
      } else {

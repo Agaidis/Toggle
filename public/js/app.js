@@ -43080,22 +43080,27 @@ $(document).ready(function () {
         center: JSON.parse(surfaceLng + ',' + surfaceLat),
         mapTypeId: google.maps.MapTypeId.HYBRID
       });
+      console.log(toggle.allRelatedPermits);
       $.each(toggle.allRelatedPermits, function (key, value) {
         var surfaceLng = '{"lng":' + value.SurfaceLongitudeWGS84;
         var surfaceLat = '"lat":' + value.SurfaceLatitudeWGS84 + '}';
         var btmGeo = value.btm_geometry.replace(/\s/g, '').replace(/},/g, '},dd').replace('(', '').replace(')', '').split(',dd');
         var position = new google.maps.LatLng(JSON.parse(surfaceLng + ',' + surfaceLat));
         bounds.extend(position);
-        var btmPosition = new google.maps.LatLng(JSON.parse(btmGeo));
-        bounds.extend(btmPosition);
-        var flightPath = new google.maps.Polyline({
-          path: [JSON.parse(surfaceLng + ',' + surfaceLat), JSON.parse(btmGeo)],
-          geodesic: true,
-          strokeColor: "#ab0000",
-          strokeOpacity: 1.0,
-          strokeWeight: 2
-        });
-        flightPath.setMap(map);
+        console.log(btmGeo[0]);
+
+        if (btmGeo[0] !== '') {
+          var btmPosition = new google.maps.LatLng(JSON.parse(btmGeo));
+          bounds.extend(btmPosition);
+          var flightPath = new google.maps.Polyline({
+            path: [JSON.parse(surfaceLng + ',' + surfaceLat), JSON.parse(btmGeo)],
+            geodesic: true,
+            strokeColor: "#ab0000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+          });
+          flightPath.setMap(map);
+        }
       });
     } else {
       if (toggle.allWells[0] !== undefined) {
