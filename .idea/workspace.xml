@@ -101,8 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="126" column="140" selection-start-line="126" selection-start-column="140" selection-end-line="126" selection-end-column="140" />
+            <state relative-caret-position="446">
+              <caret line="124" column="20" lean-forward="true" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
@@ -669,16 +669,15 @@
       <workItem from="1613598210863" duration="1259000" />
       <workItem from="1613676558965" duration="2854000" />
       <workItem from="1614954731382" duration="330000" />
-      <workItem from="1615917457698" duration="2291000" />
+      <workItem from="1615917457698" duration="2526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115657000" />
+    <option name="totallyTimeSpent" value="115892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1025" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" order="0" visible="true" weight="0.17704518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1167,8 +1166,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="126" column="140" selection-start-line="126" selection-start-column="140" selection-end-line="126" selection-end-column="140" />
+        <state relative-caret-position="446">
+          <caret line="124" column="20" lean-forward="true" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>
