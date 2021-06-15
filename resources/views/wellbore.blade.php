@@ -28,11 +28,11 @@
                             </div>
                         </div>
                         <div class="col-md-12 titles">
-                            <h1>Wellbore</h1>
-                            <h5>4 - Done Deal</h5>
+                            <h1>Wellbore (Deal Funnel)</h1>
+                            <h5>4 - Filed & Closed Deal</h5>
                             <h5>3 - Signed and being Processed</h5>
-                            <h5>2 - We have sent an Offer</h5>
-                            <h5>1 - They are a lead....</h5>
+                            <h5>2 - Offer Out for Signature</h5>
+                            <h5>1 - Lead & Seller</h5>
                         </div>
                         <input type="hidden" id="owner_id"/>
 
