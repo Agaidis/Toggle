@@ -6,6 +6,15 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body body_container">
+
+                        <div class="col-md-12 titles">
+                            <h1>Wellbore (Deal Funnel)</h1>
+                            <h5>4 - Filed & Closed Deal</h5>
+                            <h5>3 - Signed and being Processed</h5>
+                            <h5>2 - Offer Out for Signature</h5>
+                            <h5>1 - Lead & Seller</h5>
+                        </div>
+
                         <div id="dashboard_btn_container" class="col-md-4">
                             <div class="button_panel">
                                 @if ($userRole == 'admin')
@@ -27,13 +36,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-12 titles">
-                            <h1>Wellbore (Deal Funnel)</h1>
-                            <h5>4 - Filed & Closed Deal</h5>
-                            <h5>3 - Signed and being Processed</h5>
-                            <h5>2 - Offer Out for Signature</h5>
-                            <h5>1 - Lead & Seller</h5>
-                        </div>
+
                         <input type="hidden" id="owner_id"/>
 
                         <div>
