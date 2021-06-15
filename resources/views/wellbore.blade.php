@@ -8,7 +8,7 @@
                     <div class="card-body body_container">
 
                         <div class="col-md-12 titles">
-                            <h1>Wellbore (Deal Funnel)</h1>
+                            <h1 style="font-size:3.2rem;">Wellbore (Deal Funnel)</h1>
                             <h5>4 - Filed & Closed Deal</h5>
                             <h5>3 - Signed and being Processed</h5>
                             <h5>2 - Offer Out for Signature</h5>
