@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +16,50 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/wellbore.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4404">
-              <caret line="295" column="26" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="26" />
+            <state relative-caret-position="471">
+              <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+              <folding>
+                <element signature="e#414#439#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WelboreController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/GetWells.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding>
+                <element signature="e#31#74#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/DetermineProduction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -92,7 +132,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_10_07_002149_add_legal_lease_extmonths.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GetLegalLeases.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_10_07_172607_drop_lease_id_from_phone.php" />
-        <option value="$PROJECT_DIR$/resources/views/wellbore.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/createLease.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeaseCreatorController.php" />
         <option value="$PROJECT_DIR$/.env" />
@@ -122,6 +161,7 @@
         <option value="$PROJECT_DIR$/resources/views/mm-platform.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/leasePage.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
+        <option value="$PROJECT_DIR$/resources/views/wellbore.blade.php" />
       </list>
     </option>
   </component>
@@ -381,7 +421,7 @@
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="25" />
     <option name="width" value="1680" />
     <option name="height" value="1025" />
@@ -398,6 +438,37 @@
             <path>
               <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Console" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Console" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Commands" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -503,16 +574,15 @@
       <workItem from="1615917457698" duration="3040000" />
       <workItem from="1615995127397" duration="610000" />
       <workItem from="1616010133226" duration="130000" />
-      <workItem from="1623798078227" duration="112000" />
+      <workItem from="1623798078227" duration="1388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117258000" />
+    <option name="totallyTimeSpent" value="118534000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1025" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" id="Project" order="0" visible="true" weight="0.18253969" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -560,13 +630,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/jetstream.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="19" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/JetstreamServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
@@ -690,16 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#31#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/GetPermits.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
@@ -797,20 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="38" column="153" selection-start-line="38" selection-start-column="153" selection-end-line="38" selection-end-column="153" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WelboreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/GetWells.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -918,10 +957,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WelboreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/GetWells.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#31#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/DetermineProduction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/wellbore.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4404">
-          <caret line="295" column="26" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="26" />
+        <state relative-caret-position="471">
+          <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+          <folding>
+            <element signature="e#414#439#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

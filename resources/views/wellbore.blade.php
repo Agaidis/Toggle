@@ -207,7 +207,7 @@
                                                             @endforeach
                                                     </tbody>
                                                     <tfoot>
-                                                    <caption class="lease_table_caption">High Priority Prospects
+                                                    <caption style="color:#2A3A92;" class="lease_table_caption">High Priority Prospects
                                                     </caption>
                                                     </tfoot>
                                                 </table>
@@ -363,7 +363,7 @@
                                                             @endforeach
                                                     </tbody>
                                                     <tfoot>
-                                                    <caption class="lease_table_caption">Prospects</caption>
+                                                    <caption style="color:#38B549;" class="lease_table_caption">Prospects</caption>
                                                     </tfoot>
                                                 </table>
                                             </div>
