@@ -42,7 +42,7 @@ class DetermineProduction extends Command
     {
         try {
             $eagleInterestCountiesArray = array('ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE OAK','LAVACA','WILSON');
-            $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF DAVIS');
+            $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF DAVIS', 'HOWARD', 'MARTIN', 'MIDLAND', 'GLASSCOCK', 'REAGAN', 'UPTON', 'WARD', 'REEVES', 'CULBERSON', 'WINKLER', 'LOVING');
             $nmInterestCountiesArray = array('LEA', 'EDDY');
             $etxInterestCountiesArray = array('CASS', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN%20AUGUSTINE', 'RUSK', 'SHELBY', 'UPSHUR');
             $laInterestCountiesArray = array('BIENVILLE', 'BOSSIER', 'CADDO', 'DE%20SOTO', 'NATCHITOCHES', 'RED%20RIVER', 'SABINE', 'WEBSTER');

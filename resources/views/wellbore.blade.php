@@ -207,7 +207,7 @@
                                                             @endforeach
                                                     </tbody>
                                                     <tfoot>
-                                                    <caption style="font-size:26px; font-weight:bold; color:#2A3A92;" class="lease_table_caption">High Priority Prospects
+                                                    <caption style="font-size:28px; font-weight:bold; color:#2A3A92;" class="lease_table_caption">High Priority Prospects
                                                     </caption>
                                                     </tfoot>
                                                 </table>
@@ -363,7 +363,7 @@
                                                             @endforeach
                                                     </tbody>
                                                     <tfoot>
-                                                    <caption style="font-size:26px; font-weight:bold; color:#38B549;" class="lease_table_caption">Prospects</caption>
+                                                    <caption style="font-size:28px; font-weight:bold; color:#38B549;" class="lease_table_caption">Prospects</caption>
                                                     </tfoot>
                                                 </table>
                                             </div>

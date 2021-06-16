@@ -46,7 +46,7 @@ class GetWells extends Command
         try {
 
             $eagleInterestCountiesArray = array('ATASCOSA%20\(TX\)', 'BEE%20\(TX\)', 'DEWITT%20\(TX\)', 'GONZALES%20\(TX\)', 'KARNES%20\(TX\)', 'LIVE%20OAK%20\(TX\)', 'LAVACA%20\(TX\)', 'WILSON%20\(TX\)');
-            $wtxInterestCountiesArray = array('DAWSON%20\(TX\)', 'GAINES%20\(TX\)', 'BORDEN%20\(TX\)', 'CRANE%20\(TX\)', 'ECTOR%20\(TX\)', 'STERLING%20\(TX\)', 'MITCHELL%20\(TX\)', 'JEFF%20DAVIS%20\(TX\)', 'ANDREWS%20\(TX\)');
+            $wtxInterestCountiesArray = array('DAWSON%20\(TX\)', 'GAINES%20\(TX\)', 'BORDEN%20\(TX\)', 'CRANE%20\(TX\)', 'ECTOR%20\(TX\)', 'STERLING%20\(TX\)', 'MITCHELL%20\(TX\)', 'JEFF%20DAVIS%20\(TX\)', 'ANDREWS%20\(TX\)', 'HOWARD%20\(TX\)', 'MARTIN%20\(TX\)', 'MIDLAND%20\(TX\)', 'GLASSCOCK%20\(TX\)', 'REAGAN%20\(TX\)', 'UPTON%20\(TX\)', 'WARD%20\(TX\)', 'REEVES%20\(TX\)', 'CULBERSON%20\(TX\)', 'WINKLER%20\(TX\)', 'LOVING%20\(TX\)' );
             $nmByApprovedDate = array('LEA%20\(NM\)', 'EDDY%20\(NM\)');
             $etxInterestCountiesArray = array('CASS%20\(TX\)', 'GREGG%20\(TX\)', 'HARRISON%20\(TX\)', 'MARION%20\(TX\)', 'MORRIS%20\(TX\)', 'NACOGDOCHES%20\(TX\)', 'PANOLA%20\(TX\)', 'SAN%20AUGUSTINE%20\(TX\)', 'RUSK%20\(TX\)', 'SHELBY%20\(TX\)', 'UPSHUR%20\(TX\)');
             $laInterestCountiesArray = array('BIENVILLE%20\(LA\)', 'BOSSIER%20\(LA\)', 'CADDO%20\(LA\)', 'DE%20SOTO%20\(LA\)', 'NATCHITOCHES%20\(LA\)', 'RED%20RIVER%20\(LA\)', 'SABINE%20\(LA\)', 'WEBSTER%20\(LA\)');
