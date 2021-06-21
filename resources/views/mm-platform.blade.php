@@ -35,13 +35,13 @@
                                         <div id="price_container" style="padding-bottom:5px;" class="offset-2 col-md-5">
                                             <div class="row">
                                                 <!-- Oil Price Script - OILCRUDEPRICE.COM -->
-                                                <div class="offset-2 col-md-4" style="width:100%; border:1px solid grey; font-size:18px; font-weight:bold;text-align:center; padding-top:0px;">
+                                                <div class="offset-1 col-md-5" style="width:100%; border:1px solid grey; font-size:18px; font-weight:bold;text-align:center; padding-top:0px;">
                                                     <a href="https://www.oilcrudeprice.com/" rel="nofollow" style="color:#1b1e21;">Wti Oil Price</a>
                                                     <script type="text/javascript" src="https://www.oilcrudeprice.com/oilwidget.php?l=en&m=000000&g=ffffff&c=2d6ab4&i=ffffff&l=2d6ab4&o=e6f2fa&u=wti"></script>
                                                 </div>
 
                                                 <!-- Natural Gass Price Script - OILCRUDEPRICE.COM -->
-                                                <div class="offset-2 col-md-4" style="width:100%; border:1px solid grey; font-size:18px; font-weight:bold;text-align:center; padding-top:0px;">
+                                                <div class="offset-1 col-md-5" style="width:100%; border:1px solid grey; font-size:18px; font-weight:bold;text-align:center; padding-top:0px;">
                                                     <a href="https://www.oilcrudeprice.com/" rel="nofollow" style="color:#1b1e21;">Natural Gas Price</a>
                                                     <script type="text/javascript" src="https://www.oilcrudeprice.com/oilwidget.php?l=en&m=000000&g=ffffff&c=2d6ab4&i=ffffff&l=2d6ab4&o=e6f2fa&u=gas"></script>
                                                 </div>
