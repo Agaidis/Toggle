@@ -145,7 +145,7 @@ $(document).ready(function () {
     //WTX PERMIT TABLE
     let wtxPermitTable = $('#wtx_permit_table').DataTable({
         "pagingType": "simple",
-        "aaSorting": [],
+        //"aaSorting": [],
         "stateSave": true
        // "order": [[ 2, "asc" ]]
     }).on('click', 'td.mmp-details-control', function () {
