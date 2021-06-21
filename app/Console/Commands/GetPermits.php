@@ -50,15 +50,15 @@ class GetPermits extends Command
             $laInterestCountiesArray = array('BIENVILLE', 'BOSSIER', 'CADDO', 'DE%20SOTO', 'NATCHITOCHES', 'RED%20RIVER', 'SABINE', 'WEBSTER');
 
 
-            $this->getCountyPermitData('2020-01-01', 'eagleford', $eagleInterestCountiesArray);
+        //    $this->getCountyPermitData('2020-01-01', 'eagleford', $eagleInterestCountiesArray);
 
-            $this->getCountyPermitData('2020-04-01', 'wtx', $wtxInterestCountiesArray);
+            $this->getCountyPermitData('2021-05-01', 'wtx', $wtxInterestCountiesArray);
 
-            $this->getCountyPermitData('2020-04-01', 'nm', $nmInterestCountiesArray);
+       //     $this->getCountyPermitData('2020-04-01', 'nm', $nmInterestCountiesArray);
 
-            $this->getCountyPermitData('2020-04-01', 'etx', $etxInterestCountiesArray);
+       //     $this->getCountyPermitData('2020-04-01', 'etx', $etxInterestCountiesArray);
 
-            $this->getCountyPermitData('2020-04-01', 'la', $laInterestCountiesArray);
+       //     $this->getCountyPermitData('2020-04-01', 'la', $laInterestCountiesArray);
 
 
         return 'success';
