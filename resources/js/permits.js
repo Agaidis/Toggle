@@ -146,8 +146,8 @@ $(document).ready(function () {
     let wtxPermitTable = $('#wtx_permit_table').DataTable({
         "pagingType": "simple",
         "aaSorting": [],
-        "stateSave": true,
-        "order": [[ 2, "asc" ]]
+        "stateSave": true
+       // "order": [[ 2, "asc" ]]
     }).on('click', 'td.mmp-details-control', function () {
         let id = $(this)[0].id;
         let splitId = id.split('_');
