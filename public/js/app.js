@@ -44882,7 +44882,7 @@ $(document).ready(function () {
 
   var wtxPermitTable = $('#wtx_permit_table').DataTable({
     "pagingType": "simple",
-    "aaSorting": [],
+    //"aaSorting": [],
     "stateSave": true // "order": [[ 2, "asc" ]]
 
   }).on('click', 'td.mmp-details-control', function () {
