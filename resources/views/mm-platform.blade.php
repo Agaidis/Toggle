@@ -425,7 +425,7 @@
                                                                             <td class="text-center">{{$wtxPermit->county_parish}}</td>
                                                                             <td class="text-center">{{$wtxPermit->reported_operator}}</td>
                                                                             <td class="text-center"><a href="{{url( 'lease-page/' . $wtxPermit->interest_area . '/' . $wtxPermit->lease_name . '/producing/' . $wtxPermit->permit_id)}}">{{$wtxPermit->lease_name}}</a></td>
-                                                                            <td class="text-center"><?php echo $submittedDate ?></td>
+                                                                            <td class="text-center"><?php echo $submittedDate[0] ?></td>
                                                                         @else
                                                                             <td class="text-center"></td>
                                                                             <td class="text-center"></td>
