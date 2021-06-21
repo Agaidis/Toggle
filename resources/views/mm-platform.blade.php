@@ -342,6 +342,7 @@
                                                                     <th class="text-center">State / County</th>
                                                                     <th class="text-center">Reported Operator</th>
                                                                     <th class="text-center">Lease Name</th>
+                                                                    <th class="text-center">Submitted Date</th>
                                                                 @else
                                                                     <th class="text-center">Col 1</th>
                                                                     <th class="text-center">Col 2</th>
@@ -356,6 +357,7 @@
                                                             @if (isset($wtxPermits) && !$wtxPermits->isEmpty())
                                                                 @foreach ($wtxPermits as $wtxPermit)
                                                                     <?php $approvedDate = explode('T', $wtxPermit->approved_date)?>
+                                                                    <?php $submittedDate = explode('T', $wtxPermit->submitted_date) ?>
                                                                     <input type="hidden" id="reported_operator_{{$wtxPermit->permit_id}}" value="{{$wtxPermit->reported_operator}}"/>
 
                                                                     <tr class="permit_row" id="permit_row_{{$wtxPermit->permit_id}}">
@@ -423,6 +425,7 @@
                                                                             <td class="text-center">{{$wtxPermit->county_parish}}</td>
                                                                             <td class="text-center">{{$wtxPermit->reported_operator}}</td>
                                                                             <td class="text-center"><a href="{{url( 'lease-page/' . $wtxPermit->interest_area . '/' . $wtxPermit->lease_name . '/producing/' . $wtxPermit->permit_id)}}">{{$wtxPermit->lease_name}}</a></td>
+                                                                            <td class="text-center"><?php echo $submittedDate ?></td>
                                                                         @else
                                                                             <td class="text-center"></td>
                                                                             <td class="text-center"></td>
