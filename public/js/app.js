@@ -44883,8 +44883,8 @@ $(document).ready(function () {
   var wtxPermitTable = $('#wtx_permit_table').DataTable({
     "pagingType": "simple",
     "aaSorting": [],
-    "stateSave": true,
-    "order": [[2, "asc"]]
+    "stateSave": true // "order": [[ 2, "asc" ]]
+
   }).on('click', 'td.mmp-details-control', function () {
     var id = $(this)[0].id;
     var splitId = id.split('_');

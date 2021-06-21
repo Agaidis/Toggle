@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/mm-platform.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3154">
-              <caret line="110" column="90" lean-forward="true" selection-start-line="110" selection-start-column="90" selection-end-line="110" selection-end-column="90" />
+            <state relative-caret-position="523">
+              <caret line="352" column="65" lean-forward="true" selection-start-line="352" selection-start-column="65" selection-end-line="352" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -121,7 +121,6 @@
         <option value="$PROJECT_DIR$/resources/js/phoneNumberPush.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PushedPhoneNumbersController.php" />
         <option value="$PROJECT_DIR$/resources/views/pushedPhoneNumbers.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/permits.js" />
         <option value="$PROJECT_DIR$/resources/views/userMMP.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mm-platform.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/leasePage.js" />
@@ -132,6 +131,7 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/GetWells.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/GetPermits.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MMPController.php" />
+        <option value="$PROJECT_DIR$/resources/js/permits.js" />
       </list>
     </option>
   </component>
@@ -532,18 +532,18 @@
       <workItem from="1615995127397" duration="610000" />
       <workItem from="1616010133226" duration="130000" />
       <workItem from="1623798078227" duration="2545000" />
-      <workItem from="1624296687206" duration="1340000" />
+      <workItem from="1624296687206" duration="1649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121031000" />
+    <option name="totallyTimeSpent" value="121340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1025" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" id="Project" order="0" visible="true" weight="0.18437119" />
+      <window_info id="Project" order="0" visible="true" weight="0.18437119" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -556,7 +556,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1175836" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.1175836" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -946,8 +946,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mm-platform.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3154">
-          <caret line="110" column="90" lean-forward="true" selection-start-line="110" selection-start-column="90" selection-end-line="110" selection-end-column="90" />
+        <state relative-caret-position="523">
+          <caret line="352" column="65" lean-forward="true" selection-start-line="352" selection-start-column="65" selection-end-line="352" selection-end-column="65" />
         </state>
       </provider>
     </entry>
