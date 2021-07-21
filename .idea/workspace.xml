@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/mm-platform.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mm-platform.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/mm-platform.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="427" column="125" selection-start-line="427" selection-start-column="111" selection-end-line="427" selection-end-column="125" />
+            <state relative-caret-position="515">
+              <caret line="427" column="108" lean-forward="true" selection-start-line="427" selection-start-column="108" selection-end-line="427" selection-end-column="108" />
               <folding>
                 <element signature="e#2463#2490#0#HTML" expanded="true" />
               </folding>
@@ -396,7 +394,7 @@
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="25" />
     <option name="width" value="1680" />
     <option name="height" value="1025" />
@@ -538,15 +536,16 @@
       <workItem from="1616010133226" duration="130000" />
       <workItem from="1623798078227" duration="2545000" />
       <workItem from="1624296687206" duration="2167000" />
-      <workItem from="1624307389125" duration="584000" />
+      <workItem from="1624307389125" duration="885000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122442000" />
+    <option name="totallyTimeSpent" value="122743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1680" height="1025" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" order="0" visible="true" weight="0.18620269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -951,8 +950,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mm-platform.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="427" column="125" selection-start-line="427" selection-start-column="111" selection-end-line="427" selection-end-column="125" />
+        <state relative-caret-position="515">
+          <caret line="427" column="108" lean-forward="true" selection-start-line="427" selection-start-column="108" selection-end-line="427" selection-end-column="108" />
           <folding>
             <element signature="e#2463#2490#0#HTML" expanded="true" />
           </folding>
