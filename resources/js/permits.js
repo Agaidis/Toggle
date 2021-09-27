@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    $('#mm_platform_user_change').on('change', function() {
+        console.log($(this)[0].value);
+
+        window.location.href = 'http://ltetoggle.com/mm-platform/' + $(this)[0].value;
+    });
+
+
     $('.interest_tab').on('click', function(){
 
         $('.interest_tab').removeClass('interest_active');

@@ -14,16 +14,16 @@
                                         <div id="dashboard_btn_container" class="col-md-4">
                                             <div class="button_panel">
                                                 @if ($userRole == 'admin')
-                                                    <a href="{{ url('wellbore/0') }}">
-                                                        <button type="button" class="btn btn-primary dashboard_btns" id="welbore_btn">Wellbore</button>
-                                                    </a>
-                                                    <a href="{{ url('user-mmp') }}">
-                                                        <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns" id="user_mmp_btn">{{Auth::user()->name}}</button>
-                                                    </a>
-                                                    <a href="{{ url('justus-mmp') }}">
-                                                        <button style="margin-left:5%;" type="button" class="btn btn-primary dashboard_btns">Justus Danna</button>
-                                                    </a>
-
+                                                    <select class="form-control" id="mm_platform_user_change">
+                                                        <option value="">Select User</option>
+                                                        @foreach ($users as $soleUser)
+                                                            @if ($isUserSelected && $soleUser->id == $user)
+                                                                <option selected value="{{$soleUser->id}}">{{$soleUser->name}}</option>
+                                                            @else
+                                                                <option value="{{$soleUser->id}}">{{$soleUser->name}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
                                                 @elseif ($userRole == 'regular')
                                                     <a href="{{ url('wellbore/0') }}">
                                                         <button type="button" class="btn btn-primary dashboard_btns" id="welbore_btn">Wellbore</button>

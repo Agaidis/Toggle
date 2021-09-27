@@ -35,7 +35,7 @@ Route::get('/admin',                            'AdminController@index')->middle
 Route::get('/admin/updatePermits',              'AdminController@updatePermits')->middleware('Auth');
 
 /*                   LEASE CREATOR                 */
-Route::get('/lease-creator',                            'LeaseCreatorController@index')->middleware('Auth')->name('lease-creator');
+Route::get('/lease-creator',               'LeaseCreatorController@index')->middleware('Auth')->name('lease-creator');
 
 Route::post('/lease-creator',              'LeaseCreatorController@createLease')->middleware('Auth')->name('createLease');
 
@@ -45,11 +45,11 @@ Route::get('/permit-storage',                   'PermitStorageController@index')
 Route::get('/permit-storage/sendBack',          'PermitStorageController@sendBack')->middleware('Auth');
 
 /*                  MMP PAGE                     */
-Route::get('/mm-platform',                      'MMPController@index')->middleware('Auth')->name('mm-platform');
+Route::get('/mm-platform/{userId?}',            'MMPController@index')->middleware('Auth')->name('mm-platform');
 
 Route::get('/permits/merge-permits',            'MMPController@getMergePermitDetails')->middleware('Auth');
 
-Route::post('/permits/merge-permits',            'MMPController@mergePermits')->middleware('Auth');
+Route::post('/permits/merge-permits',           'MMPController@mergePermits')->middleware('Auth');
 
 Route::get('/new-permits/getNotes',             'MMPController@getNotes')->middleware('Auth');
 
