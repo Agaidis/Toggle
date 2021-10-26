@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UploadTMAController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/MineralOwners.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/uploadTMA.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Toggle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Toggle.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MMPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MMPController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermitStorageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermitStorageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserMMPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserMMPController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WelboreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WelboreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ErrorLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ErrorLog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/GeneralSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GeneralSetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/LandtracLease.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LandtracLease.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/LegalLease.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/LegalLease.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MineralOwner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/MineralOwner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OwnerEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OwnerEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OwnerNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OwnerNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OwnerPhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OwnerPhoneNumber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Permit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Permit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PermitNote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PermitNote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/WellRollUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/WellRollUp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="c3ddad8f-7b7d-4c20-922f-5d150b24ed06" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="120" column="81" selection-start-line="120" selection-start-column="81" selection-end-line="120" selection-end-column="81" />
+            <state relative-caret-position="211">
+              <caret line="137" column="35" lean-forward="true" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
               <folding>
                 <element signature="e#40#57#0#PHP" expanded="true" />
               </folding>
@@ -197,7 +156,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PermitStorageController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserMMPController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WelboreController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OwnersController.php" />
         <option value="$PROJECT_DIR$/config/auth.php" />
@@ -209,6 +167,7 @@
         <option value="$PROJECT_DIR$/app/MineralOwners.php" />
         <option value="$PROJECT_DIR$/resources/views/uploadTMA.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UploadTMAController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php" />
       </list>
     </option>
   </component>
@@ -473,7 +432,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="139" />
     <option name="y" value="25" />
     <option name="width" value="1459" />
@@ -490,35 +449,6 @@
             <path>
               <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Http" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="database" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/projects/Toggle" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="database" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="migrations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Toggle" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -649,16 +579,15 @@
       <workItem from="1634670101322" duration="892000" />
       <workItem from="1635098624305" duration="343000" />
       <workItem from="1635253682617" duration="8695000" />
-      <workItem from="1635273353012" duration="643000" />
+      <workItem from="1635273353012" duration="913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139722000" />
+    <option name="totallyTimeSpent" value="139992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="139" y="25" width="1459" height="1025" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" id="Project" order="0" visible="true" weight="0.27381793" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -673,7 +602,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.110032365" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.13484359" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32901832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1075,8 +1004,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LeasePageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="120" column="81" selection-start-line="120" selection-start-column="81" selection-end-line="120" selection-end-column="81" />
+        <state relative-caret-position="211">
+          <caret line="137" column="35" lean-forward="true" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>
