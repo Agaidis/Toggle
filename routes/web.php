@@ -117,3 +117,7 @@ Route::post('/pushed-phone-numbers/deletePhoneNumber',  'PushedPhoneNumbersContr
 Route::get('/owner/{interestArea?}/{ownerName?}/{isProducing?}',       'OwnersController@index')->middleware('Auth');
 
 Route::put('/owner/updateEmail',                        'OwnersController@updateEmail')->middleware('Auth');
+
+Route::get('/upload-tma',                                       'UploadTMAController@index')->middleware('Auth');
+
+Route::post('/upload-tma',                                          'UploadTMAController@uploadTMA')->middleware('Auth')->name('uploadTMA');

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Toggle') }}</title>
+    <title>Toggle</title>
     <link rel="icon" href="https://quickevict.nyc3.digitaloceanspaces.com/lexathonenergy.jpg"/>
 
 
@@ -48,6 +48,8 @@
                         <li><a href="{{ url('lease-creator') }}" id="create_btn">Create Lease</a></li>
                         <li><a href="{{ url('pushed-phone-numbers') }}" id="pushed_phone_number_btn">Numbers to Update</a></li>
                         <li><a href="{{ url('permit-storage') }}" id="pushed_phone_number_btn">Permit Storage</a></li>
+                        <li><a href="{{ url('upload-tma') }}" id="pushed_phone_number_btn">Upload TMA</a></li>
+
                     @elseif (Auth::check())
                         <li><a href="{{ url('mm-platform') }}" id="dashboard_btn">Mineral Management Platform</a></li>
                         <li><a href="{{ url('permit-storage') }}" id="pushed_phone_number_btn">Permit Storage</a></li>

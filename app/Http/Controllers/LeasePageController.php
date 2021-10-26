@@ -11,7 +11,7 @@ use App\OwnerNote;
 use App\OwnerPhoneNumber;
 use App\Permit;
 use App\PermitNote;
-use App\Models\User;
+use App\User;
 use App\WellRollUp;
 use DateTime;
 use Illuminate\Http\Request;
@@ -124,7 +124,7 @@ class LeasePageController extends Controller
 
             } else {
                 $wells = WellRollUp::select('id', 'CountyParish','OperatorCompanyName','WellStatus','WellName', 'LeaseName', 'WellNumber', 'FirstProdDate', 'LastProdDate', 'CumOil', 'CumGas')->whereIn('LeaseName', $wellArray)->where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('ReportedOperator', $permitValues->reported_operator)->get();
-                $selectWells = WellRollUp::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->where('ReportedOperator', $permitValues->reported_operator)->groupBy('LeaseName')->orderBy('LeaseName', 'ASC')->get();
+                $selectWells = WellRollUp::where('CountyParish', 'LIKE', '%'.$permitValues->county_parish .'%')->groupBy('LeaseName')->orderBy('LeaseName', 'ASC')->get();
 
             }
 

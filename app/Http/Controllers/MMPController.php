@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use App\Console\Commands\DetermineProduction;
 use App\ErrorLog;
@@ -9,7 +9,8 @@ use App\LegalLease;
 use App\MineralOwner;
 use App\Permit;
 use App\PermitNote;
-use App\Models\User;
+use App\User;
+use App\Http\Controllers\APIManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

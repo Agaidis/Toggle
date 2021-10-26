@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ErrorLog;
 use App\MineralOwner;
-use App\Models\User;
+use App\User;
 use App\OwnerEmail;
 use App\OwnerNote;
 use App\OwnerPhoneNumber;

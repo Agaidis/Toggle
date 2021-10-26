@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\ErrorLog;
 use Illuminate\Http\Request;
 use App\Permit;
-use App\Models\User;
+use App\User;
 
 class PermitStorageController extends Controller
 {
