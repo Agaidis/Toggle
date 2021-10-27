@@ -34,29 +34,7 @@ class UploadTMAController extends Controller
                 $file = 'notworking';
             }
 
-
-            Excel::filter('chunk')->load(database_path('seeds/csv/users.csv'))->chunk(250, function($results) {
-                foreach ($results as $row) {
-                    $user = User::create([
-                        'username' => $row->username,
-                        // other fields
-                    ]);
-                }
-            });
-
-            Excel::batch(storage_path('app/public/tma.csv'), function($rows, $file) {
-
-                // Explain the reader how it should interpret each row,
-                // for every file inside the batch
-                $rows->each(function($row) {
-
-                    $errorMsg = new ErrorLog();
-                    $errorMsg->payload = serialize($row);
-                    $errorMsg->save();
-
-                });
-
-            });
+            Excel::import(new MineralOwners(), storage_path('app/public/tma.csv'));
 
             return redirect('/upload-tma')->with('message', 'Owners are Updated!');
 

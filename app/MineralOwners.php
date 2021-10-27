@@ -2,13 +2,16 @@
 
 namespace App;
 
-use App\ErrorLog;
+
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\RemembersChunkOffset;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Exception;
 
 
-class MineralOwners implements ToModel
+class MineralOwners implements ToModel, WithChunkReading
 {
+    use RemembersChunkOffset;
     /**
      * @param array $row
      *
@@ -17,17 +20,49 @@ class MineralOwners implements ToModel
     public function model(array $row)
     {
         try {
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = 'Im here';
-            $errorMsg->save();
+            $owner = $row[0];
+            $ownerAddress = '';
+            $leaseName = $row[11];
+            $taxValue = $row[18];
+            $lastProdDate = $row[23];
+            $cumProdOil = $row[24];
+            $cumProdGas = $row[25];
 
-            $lists = $row[0];
-            $signupDate = $row[1];
-            $email = $row[2];
+            $isOwnerExist = MineralOwner::where('owner', $owner)->where('lease_name', $leaseName)->get();
 
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = $row[1];
-            $errorMsg->save();
+            if ($isOwnerExist->isEmpty()) {
+//                $newOwner = new MineralOwner();
+//                $newOwner->owner = $owner;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//                $newOwner-> ;
+//
+//                $newOwner->save();
+
+            } else {
+                MineralOwner::where('id', $isOwnerExist[0]->id)->update([
+                    'tax_value' => $taxValue,
+                    'last_prod_date' => $lastProdDate,
+                    'cum_prod_oil' => $cumProdOil,
+                    'cum_prod_gas' => $cumProdGas,
+                ]);
+            }
 
         } catch ( Exception $e ) {
             $errorMsg = new ErrorLog();
@@ -43,11 +78,11 @@ class MineralOwners implements ToModel
 
     public function batchSize(): int
     {
-        return 500;
+        return 2000;
     }
 
     public function chunkSize(): int
     {
-        return 500;
+        return 2000;
     }
 }
