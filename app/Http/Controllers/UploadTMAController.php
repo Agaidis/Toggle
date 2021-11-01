@@ -44,10 +44,6 @@ class UploadTMAController extends Controller
                 // Parse the raw csv string: "1, a, b, c"
                 $row = str_getcsv($raw_string);
 
-                $errorMsg = new ErrorLog();
-                $errorMsg->payload = serialize($row);
-                $errorMsg->save();
-
                 try {
                     $owner = $row[0];
                     $ownerAddress = $row[1];
