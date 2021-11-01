@@ -70,7 +70,7 @@ class UploadTMAController extends Controller
                     $lastProdDate = $row[23];
                     $cumProdOil = $row[24];
                     $cumProdGas = $row[25];
-                    $activeWellCount = $row[48];
+                    $activeWellCount = $row[47];
 
                     $isOwnerExist = MineralOwner::where('owner', $owner)->where('lease_name', $leaseName)->get();
 
