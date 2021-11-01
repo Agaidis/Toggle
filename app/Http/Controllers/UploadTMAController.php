@@ -70,11 +70,15 @@ class UploadTMAController extends Controller
                     $lastProdDate = $row[23];
                     $cumProdOil = $row[24];
                     $cumProdGas = $row[25];
-                    $activeWellCount = $row[47];
+                    $activeWellCount = $row[48];
 
                     $isOwnerExist = MineralOwner::where('owner', $owner)->where('lease_name', $leaseName)->get();
 
                     if ($isOwnerExist->isEmpty()) {
+
+                        $errorMsg = new ErrorLog();
+                        $errorMsg->payload = serialize($row);
+                        $errorMsg->save();
 
                         $newOwner = new MineralOwner();
                         $newOwner->owner = $owner;
@@ -106,7 +110,8 @@ class UploadTMAController extends Controller
                             'last_prod_date' => $lastProdDate,
                             'cum_prod_oil' => $cumProdOil,
                             'cum_prod_gas' => $cumProdGas,
-                            'lease_description' => $leaseDescription
+                            'lease_description' => $leaseDescription,
+                            'appraisal_year' => $appraisalYear
                         ]);
                     }
 
