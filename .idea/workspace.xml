@@ -396,10 +396,10 @@
       <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-214" />
-    <option name="y" value="439" />
-    <option name="width" value="1894" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="236" />
+    <option name="y" value="25" />
+    <option name="width" value="1394" />
     <option name="height" value="1005" />
   </component>
   <component name="ProjectView">

@@ -76,10 +76,6 @@ class UploadTMAController extends Controller
 
                     if ($isOwnerExist->isEmpty()) {
 
-                        $errorMsg = new ErrorLog();
-                        $errorMsg->payload = serialize($row);
-                        $errorMsg->save();
-
                         $newOwner = new MineralOwner();
                         $newOwner->owner = $owner;
                         $newOwner->lease_name = $leaseName;
@@ -111,7 +107,9 @@ class UploadTMAController extends Controller
                             'cum_prod_oil' => $cumProdOil,
                             'cum_prod_gas' => $cumProdGas,
                             'lease_description' => $leaseDescription,
-                            'appraisal_year' => $appraisalYear
+                            'appraisal_year' => $appraisalYear,
+                            'owner_decimal_interest' => $ownerDecimalInterest,
+                            'active_well_count' => $activeWellCount
                         ]);
                     }
 
