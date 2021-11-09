@@ -70,38 +70,38 @@ class LeasePageController extends Controller
                 if ($owners->isEmpty()) {
                     $usingLegalLeases = true;
 
-                    if (!$allRelatedPermits->isEmpty()) {
-                        $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) 
-                                                    * cos(radians(LatitudeWGS84)) 
-                                                    * cos(radians(LongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
-                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
-                                                    sin(radians(LatitudeWGS84 )))
-                                                    ) AS distance 
-                                                    FROM mineral_owners 
-                                                    HAVING distance < 1.5
-                                                    ORDER BY distance LIMIT 0, 1000'));
-                    } else {
-                        $owners = '';
-                    }
+//                    if (!$allRelatedPermits->isEmpty()) {
+//                        $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . '))
+//                                                    * cos(radians(LatitudeWGS84))
+//                                                    * cos(radians(LongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
+//                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
+//                                                    sin(radians(LatitudeWGS84 )))
+//                                                    ) AS distance
+//                                                    FROM mineral_owners
+//                                                    HAVING distance < 1.5
+//                                                    ORDER BY distance LIMIT 0, 1000'));
+//                    } else {
+//                        $owners = '';
+//                    }
                 }
                 $leaseString = implode( '|', $leaseArray);
 
             } else {
                 $usingLegalLeases = true;
                 //Its NEW MEXICO OR LOUISIANA SO DO THE DISTANCE THING
-                if (!$allRelatedPermits->isEmpty()) {
-                    $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) 
-                                                    * cos(radians(LatitudeWGS84)) 
-                                                    * cos(radians(LongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
-                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
-                                                    sin(radians(LatitudeWGS84 )))
-                                                    ) AS distance 
-                                                    FROM mineral_owners 
-                                                    HAVING distance < 1.8
-                                                    ORDER BY distance LIMIT 0, 1000'));
-                } else {
-                    $owners = '';
-                }
+//                if (!$allRelatedPermits->isEmpty()) {
+//                    $owners = DB::select(DB::raw('SELECT *, (3959 * acos(cos(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . '))
+//                                                    * cos(radians(LatitudeWGS84))
+//                                                    * cos(radians(LongitudeWGS84) - radians(' . $allRelatedPermits[0]->SurfaceLongitudeWGS84 . ')) +
+//                                                    sin(radians(' . $allRelatedPermits[0]->SurfaceLatitudeWGS84 . ')) *
+//                                                    sin(radians(LatitudeWGS84 )))
+//                                                    ) AS distance
+//                                                    FROM mineral_owners
+//                                                    HAVING distance < 1.8
+//                                                    ORDER BY distance LIMIT 0, 1000'));
+//                } else {
+//                    $owners = '';
+//                }
             }
 
             if (!$allRelatedPermits->isEmpty()) {

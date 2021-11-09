@@ -52,27 +52,7 @@ class MMPController extends Controller
                 $user = Auth::user()->id;
             }
 
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = 'User: ' . $user;
-            $errorMsg->save();
-
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = 'Request User Id: ' . $request->userId;
-            $errorMsg->save();
-
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = 'Is user selected ' . $isUserSelected;
-            $errorMsg->save();
-
-            $errorMsg = new ErrorLog();
-            $errorMsg->payload = 'User Role ' . $userRole;
-            $errorMsg->save();
-
-
             if ($userRole === 'regular') {
-                $errorMsg = new ErrorLog();
-                $errorMsg->payload = 'IM IN REGULAR';
-                $errorMsg->save();
                 $eaglePermits = DB::table('permits')->orderBy('toggle_status', 'ASC')->orderByRaw("FIELD(toggle_status, 'green', 'blue', 'red', 'purple', 'yellow') ASC")->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'eagleford')->groupBy('lease_name', 'reported_operator')->get();
                 $wtxPermits = DB::table('permits')->latest('submitted_date')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'wtx')->groupBy('lease_name', 'reported_operator')->get();
                 $etxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', Auth::user()->id)->where('is_producing', 1)->where('interest_area', 'etx')->groupBy('lease_name', 'reported_operator')->get();
@@ -95,9 +75,7 @@ class MMPController extends Controller
 
 
             else if (($request->userId != '' && $request->userId != null) && $userRole === 'admin') {
-                $errorMsg = new ErrorLog();
-                $errorMsg->payload = 'IM IN ELSE IF';
-                $errorMsg->save();
+
                 $eaglePermits = DB::table('permits')->orderBy('toggle_status', 'ASC')->orderByRaw("FIELD(toggle_status, 'green', 'blue', 'red', 'purple', 'yellow') ASC")->where('is_stored', 0)->where('assignee', $user)->where('is_producing', 1)->where('interest_area', 'eagleford')->groupBy('lease_name', 'reported_operator')->get();
                 $wtxPermits = DB::table('permits')->latest('submitted_date')->where('is_stored', 0)->where('assignee', $user)->where('is_producing', 1)->where('interest_area', 'wtx')->groupBy('lease_name', 'reported_operator')->get();
                 $etxPermits = DB::table('permits')->where('is_stored', 0)->where('assignee', $user)->where('is_producing', 1)->where('interest_area', 'etx')->groupBy('lease_name', 'reported_operator')->get();
