@@ -97,9 +97,6 @@ class MMPController extends Controller
 
 
             else {
-                $errorMsg = new ErrorLog();
-                $errorMsg->payload = 'IM IN ELSE';
-                $errorMsg->save();
                 $nonProducingEaglePermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'eagleford')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
                 $nonProducingWTXPermits = DB::table('permits')->latest('submitted_date')->where('is_stored', 0)->where('interest_area', 'wtx')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();
                 $nonProducingETXPermits = DB::table('permits')->where('is_stored', 0)->where('interest_area', 'etx')->where('is_producing', 0)->groupBy('lease_name', 'reported_operator')->get();

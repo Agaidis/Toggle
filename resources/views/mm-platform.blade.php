@@ -14,6 +14,9 @@
                                         <div id="dashboard_btn_container" class="col-md-4">
                                             <div class="button_panel">
                                                 @if ($userRole == 'admin')
+                                                    <a href="{{ url('wellbore/0') }}">
+                                                        <button type="button" class="btn btn-primary dashboard_btns" id="welbore_btn">Wellbore</button>
+                                                    </a>
                                                     <select class="form-control" id="mm_platform_user_change">
                                                         <option value="">Select User</option>
                                                         @foreach ($users as $soleUser)
