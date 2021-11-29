@@ -51,9 +51,9 @@ class GetWells extends Command
             $etxInterestCountiesArray = array('CASS%20\(TX\)', 'GREGG%20\(TX\)', 'HARRISON%20\(TX\)', 'MARION%20\(TX\)', 'MORRIS%20\(TX\)', 'NACOGDOCHES%20\(TX\)', 'PANOLA%20\(TX\)', 'SAN%20AUGUSTINE%20\(TX\)', 'RUSK%20\(TX\)', 'SHELBY%20\(TX\)', 'UPSHUR%20\(TX\)');
             $laInterestCountiesArray = array('BIENVILLE%20\(LA\)', 'BOSSIER%20\(LA\)', 'CADDO%20\(LA\)', 'DE%20SOTO%20\(LA\)', 'NATCHITOCHES%20\(LA\)', 'RED%20RIVER%20\(LA\)', 'SABINE%20\(LA\)', 'WEBSTER%20\(LA\)');
 
-            $this->getCountyWellData($eagleInterestCountiesArray);
+ //           $this->getCountyWellData($eagleInterestCountiesArray);
 
-//            $this->getCountyWellData($wtxInterestCountiesArray);
+            $this->getCountyWellData($wtxInterestCountiesArray);
 //
 //            $this->getCountyWellData($nmByApprovedDate);
 //
