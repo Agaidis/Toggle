@@ -53,13 +53,13 @@ class GetWells extends Command
 
             $this->getCountyWellData($eagleInterestCountiesArray);
 
-            $this->getCountyWellData($wtxInterestCountiesArray);
-
-            $this->getCountyWellData($nmByApprovedDate);
-
-            $this->getCountyWellData($etxInterestCountiesArray);
-
-            $this->getCountyWellData($laInterestCountiesArray);
+//            $this->getCountyWellData($wtxInterestCountiesArray);
+//
+//            $this->getCountyWellData($nmByApprovedDate);
+//
+//            $this->getCountyWellData($etxInterestCountiesArray);
+//
+//            $this->getCountyWellData($laInterestCountiesArray);
 
 
             return 'success';
@@ -98,6 +98,9 @@ class GetWells extends Command
                         if (is_array($decodedWells)) {
 
                             for ($i = 0; $i < count($decodedWells); $i++) {
+                                $errorMsg = new ErrorLog();
+                                $errorMsg->payload = 'County: ' . $decodedWells[$i]->CountyParish . ' API14: ' . $decodedWells[$i]->API14;
+                                $errorMsg->save();
 
                                 WellRollUp::updateOrCreate(['API14' => $decodedWells[$i]->API14],
                                     [
