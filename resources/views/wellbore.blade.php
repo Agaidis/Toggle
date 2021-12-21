@@ -85,7 +85,7 @@
 
                                                                 @endif
                                                                 @if ($highPriorityProspect->owner === '' || $highPriorityProspect->owner === null)
-                                                                    <input type="hidden" id="owner_name_{{$highPriorityProspect->id}}" value="{{$highPriorityProspect->Grantor}}"/>
+
 
                                                                 @else
                                                                     <input type="hidden" id="owner_name_{{$highPriorityProspect->id}}" value="{{$highPriorityProspect->owner}}"/>
@@ -191,8 +191,7 @@
                                                                 </td>
                                                                 <td class="text-center">
                                                                     @if ($highPriorityProspect->owner === '' || $highPriorityProspect->owner === null)
-                                                                        <a href="{{url( 'owner/' . 'wp' . '/' . $highPriorityProspect->Grantor . '/' . 'na')}}">{{$highPriorityProspect->Grantor}}</a>
-                                                                        <br>{{$highPriorityProspect->GrantorAddress}}
+
                                                                     @else
                                                                         <a href="{{url( 'owner/' . 'wp' . '/' . $highPriorityProspect->owner . '/' . 'na')}}">{{$highPriorityProspect->owner}}</a>
                                                                         <br>{{$highPriorityProspect->owner_address}}
@@ -250,7 +249,7 @@
 {{--                                                                           value="{{$operator}}"/>--}}
                                                                 @endif
                                                                 @if ($owner->owner === '' || $owner->owner === null)
-                                                                    <input type="hidden" id="owner_name_{{$owner->id}}" value="{{$owner->Grantor}}"/>
+
 
                                                                 @else
                                                                     <input type="hidden" id="owner_name_{{$owner->id}}" value="{{$owner->owner}}"/>
@@ -349,8 +348,7 @@
                                                                 </td>
                                                                 <td class="text-center">
                                                                     @if ($owner->owner === '' || $owner->owner === null)
-                                                                        <a href="{{url( 'owner/' . 'wp' . '/' . $owner->Grantor . '/' . 'na')}}">{{$owner->Grantor}}</a>
-                                                                        <br>{{$owner->GrantorAddress}}
+
                                                                     @else
                                                                         <a href="{{url( 'owner/' . 'wp' . '/' . $owner->owner . '/' . 'na')}}">{{$owner->owner}}</a>
                                                                         <br>{{$owner->owner_address}}
