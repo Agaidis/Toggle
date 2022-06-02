@@ -15,7 +15,7 @@ class LeaseCreatorController extends Controller
 
       //  $selectLeases = MineralOwner::groupBy('lease_name')->get();
 
-        return view('createLease', compact('counties', 'selectLeases'));
+        return view('createLease', compact('counties'));
     }
 
 
