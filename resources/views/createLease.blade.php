@@ -33,11 +33,12 @@
                         <div class="row">
                             <div class="offset-4 col-md-4">
                                 <label class="labels">Lease Name(s)</label>:
-                                <select id="create_lease_name_select" class="form-control" name="leaseName" multiple="multiple">
-                                    @foreach ($selectLeases as $selectLease)
-                                        <option value="{{$selectLease->lease_name}}">{{$selectLease->lease_name}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" id="create_lease_name" name="leaseName" class="form-control" />
+{{--                                <select id="create_lease_name_select" class="form-control" name="leaseName" multiple="multiple">--}}
+{{--                                    @foreach ($selectLeases as $selectLease)--}}
+{{--                                        <option value="{{$selectLease->lease_name}}">{{$selectLease->lease_name}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
                             </div>
                         </div>
                             <div class="row">

@@ -13,7 +13,7 @@ class LeaseCreatorController extends Controller
     {
         $counties = Permit::groupBy('county_parish')->get();
 
-        $selectLeases = MineralOwner::groupBy('lease_name')->get();
+      //  $selectLeases = MineralOwner::groupBy('lease_name')->get();
 
         return view('createLease', compact('counties', 'selectLeases'));
     }
