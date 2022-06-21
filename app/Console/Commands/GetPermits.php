@@ -43,7 +43,7 @@ class GetPermits extends Command
     public function handle()
     {
         try {
-            $eagleInterestCountiesArray = array('LA%20SALLE');//'ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE%20OAK','LAVACA','WILSON');
+            $eagleInterestCountiesArray = array('LA%20SALLE', 'ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE%20OAK','LAVACA','WILSON');
             $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF%20DAVIS', 'HOWARD', 'MARTIN', 'MIDLAND', 'GLASSCOCK', 'REAGAN', 'UPTON', 'WARD', 'REEVES', 'CULBERSON', 'WINKLER', 'LOVING');
             $nmInterestCountiesArray = array('LEA', 'EDDY');
             $etxInterestCountiesArray = array('CASS', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN%20AUGUSTINE', 'RUSK', 'SHELBY', 'UPSHUR');
@@ -52,13 +52,13 @@ class GetPermits extends Command
 
             $this->getCountyPermitData('2020-01-01', 'eagleford', $eagleInterestCountiesArray);
 
-//            $this->getCountyPermitData('2021-05-01', 'wtx', $wtxInterestCountiesArray);
-//
-//            $this->getCountyPermitData('2020-04-01', 'nm', $nmInterestCountiesArray);
-//
-//            $this->getCountyPermitData('2020-04-01', 'etx', $etxInterestCountiesArray);
-//
-//            $this->getCountyPermitData('2020-04-01', 'la', $laInterestCountiesArray);
+            $this->getCountyPermitData('2021-05-01', 'wtx', $wtxInterestCountiesArray);
+
+            $this->getCountyPermitData('2020-04-01', 'nm', $nmInterestCountiesArray);
+
+            $this->getCountyPermitData('2020-04-01', 'etx', $etxInterestCountiesArray);
+
+            $this->getCountyPermitData('2020-04-01', 'la', $laInterestCountiesArray);
 
 
         return 'success';

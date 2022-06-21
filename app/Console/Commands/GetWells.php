@@ -55,17 +55,17 @@ class GetWells extends Command
 
                      $this->getCountyWellData($eagleInterestCountiesArray);
 
-            //         $this->getCountyWellData($wtxInterestCountiesArray);
+                     $this->getCountyWellData($wtxInterestCountiesArray);
 
-      //      $this->getCountyWellData($wtx2InterestCountiesArray);
+            $this->getCountyWellData($wtx2InterestCountiesArray);
 
-   //         $this->getCountyWellData($wtx3InterestCountiesArray);
+     //       $this->getCountyWellData($wtx3InterestCountiesArray);
 
-//            $this->getCountyWellData($nmByApprovedDate);
+          $this->getCountyWellData($nmByApprovedDate);
 
-        //    $this->getCountyWellData($etxInterestCountiesArray);
+            $this->getCountyWellData($etxInterestCountiesArray);
 
-//            $this->getCountyWellData($laInterestCountiesArray);
+            $this->getCountyWellData($laInterestCountiesArray);
 
 
             return 'success';
