@@ -27,8 +27,8 @@
                                     @foreach ($counties as $county)
                                     <option value="{{$county->county_parish}}">{{$county->county_parish}}</option>
                                     @endforeach
-                                    <option value="MCMULLEN">McMullen</option>
-                                    <option value="DIMMIT">Dimmit</option>
+                                    <option value="MCMULLEN">MCMULLEN</option>
+                                    <option value="DIMMIT">DIMMIT</option>
 
                                 </select>
                             </div>
