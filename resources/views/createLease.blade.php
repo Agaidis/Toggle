@@ -28,6 +28,8 @@
                                     <option value="{{$county->county_parish}}">{{$county->county_parish}}</option>
                                     @endforeach
                                     <option value="MCMULLEN">McMullen</option>
+                                    <option value="DIMMIT">Dimmit</option>
+
                                 </select>
                             </div>
                         </div>
