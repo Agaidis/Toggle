@@ -25,7 +25,7 @@ class LeaseCreatorController extends Controller
             $eagleInterestCountiesArray = array('ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE OAK','LAVACA','WILSON', 'LA SALLE');
             $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF DAVIS');
 
-            $etxInterestCountiesArray = array('CASS', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN AUGUSTINE', 'RUSK', 'SHELBY', 'UPSHUR');
+            $etxInterestCountiesArray = array('MCMULLEN', 'DIMMIT', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN AUGUSTINE', 'SHELBY');
 
             $laInterestCountiesArray = array('BIENVILLE', 'BOSSIER', 'CADDO', 'DE SOTO', 'NATCHITOCHES', 'RED%20RIVER', 'SABINE', 'WEBSTER');
             $nmInterestCountiesArray = array('LEA', 'EDDY');
