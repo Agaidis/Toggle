@@ -22,7 +22,7 @@ class LeaseCreatorController extends Controller
     public function createLease(Request $request) {
         try {
 
-            $eagleInterestCountiesArray = array('ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE OAK','LAVACA','WILSON', 'LA SALLE');
+            $eagleInterestCountiesArray = array('MCMULLEN', 'ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE OAK','LAVACA','WILSON', 'LA SALLE');
             $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF DAVIS');
 
             $etxInterestCountiesArray = array('MCMULLEN', 'DIMMIT', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN AUGUSTINE', 'SHELBY');
