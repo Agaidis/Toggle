@@ -43,7 +43,7 @@ class GetPermits extends Command
     public function handle()
     {
         try {
-            $eagleInterestCountiesArray = array('LA%20SALLE', 'ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE%20OAK','LAVACA','WILSON');
+            $eagleInterestCountiesArray = array('MCMULLEN', 'LA%20SALLE', 'ATASCOSA','BEE','DEWITT','GONZALES','KARNES','LIVE%20OAK','LAVACA','WILSON');
             $wtxInterestCountiesArray = array('ANDREWS', 'DAWSON', 'GAINES', 'BORDEN', 'CRANE', 'ECTOR', 'STERLING', 'MITCHELL', 'JEFF%20DAVIS', 'HOWARD', 'MARTIN', 'MIDLAND', 'GLASSCOCK', 'REAGAN', 'UPTON', 'WARD', 'REEVES', 'CULBERSON', 'WINKLER', 'LOVING');
             $nmInterestCountiesArray = array('LEA', 'EDDY');
             $etxInterestCountiesArray = array('CASS', 'GREGG', 'HARRISON', 'MARION', 'MORRIS', 'NACOGDOCHES', 'PANOLA', 'SAN%20AUGUSTINE', 'RUSK', 'SHELBY', 'UPSHUR');
